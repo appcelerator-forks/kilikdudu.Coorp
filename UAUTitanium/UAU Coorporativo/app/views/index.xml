@@ -1,0 +1,14 @@
+<Alloy>
+	<Window id="janela" class="janela">
+		<View id="cabecalho">
+			<ImageView id="logo" /> 
+			<View class="sombra" />
+		</View>
+		<View id="boxNovidades">
+			<Label id="tituloNovidades" >Novidades</Label>
+			<View height="0.5" backgroundColor="black" width="90%" left="5%" />
+			<View id="conteudoNovidades" width="95%" top="10" height="90%" />
+		</View>
+		<Button id="btnEntrar" onClick="entrar" class="CustomButton" >Entrar</Button> 
+	</Window>
+</Alloy>

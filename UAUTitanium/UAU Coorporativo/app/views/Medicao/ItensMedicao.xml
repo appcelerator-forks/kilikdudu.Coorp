@@ -1,0 +1,19 @@
+<Alloy>
+	<Collection id="itensmedicao" src="ItemMedicao" instance="true" />
+	<View id="mestre"> 
+		<TableView id="meusItens" dataCollection="$.itensmedicao" dataTransform="formatar" >
+			<TableViewRow class="RowDetail" className="ItensMedicaoRow" >
+				<View layout="vertical" width="Ti.UI.FILL" height="Ti.UI.SIZE" top="10">
+					<Label text="{Descricao}" class="tituloRowLista descricaoTitulo" /> 
+					<Label text="{Codigo}" class="descricaoRowLista descricao" />
+					<Label text="{Quantidade}" class="descricaoRowLista descricao" />
+					<Label text="{ValorTotal}" class="descricaoRowLista descricao" />
+					<Label text="{ValorUnitario}" class="descricaoRowLista descricao" />
+					<Label text="{Tipo}" class="descricaoRowLista descricao" />
+					<View height="10" />
+				</View>
+				<View class="divisoria" width="96%" backgroundImage="/images/linhaBlack.png" bottom="0" />
+			</TableViewRow>
+		</TableView>
+	</View>  
+</Alloy>

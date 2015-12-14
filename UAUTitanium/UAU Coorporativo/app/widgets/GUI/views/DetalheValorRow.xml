@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="boxDetalhe">
+		<Label id="descricao" class="fontDescricao" /> 
+		<Label id="valor" class="fontDescricao" />
+	</View>
+</Alloy>

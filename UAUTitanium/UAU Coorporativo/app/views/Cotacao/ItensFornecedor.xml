@@ -1,0 +1,30 @@
+<Alloy>
+	<Collection id="itens" src="ItemSimulacao" instance="true" />
+	<Window id="winListaItensFornecedor" class="janela" backgroundColor="#f1f1f1" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<View id="mestre" backgroundColor="transparent">
+			<TableView id="minhaListaItens" dataCollection="$.itens" dataTransform="formatar" >
+				<TableViewRow class="RowDetail" className="RowListaItensFornecedor" color="white" >
+					<View class="shadowView" top="5" layout="vertical" width="95%" height="Ti.UI.SIZE" >
+						<Label text="{Descricao}" class="tituloRowLista descricaoTitulo" />
+						<View layout="vertical" width="90%" height="Titanium.UI.SIZE" >
+							<View layout="horizontal" width="Titanium.UI.FILL" height="Titanium.UI.SIZE" >
+								<Widget layout="vertical" left="0" width="33%" height="Titanium.UI.SIZE" src="GUI" name="DetalheValorRow" 
+									descricao="Qtde.: " tipo="total" valor="{Quantidade}" descricaProps="{descricaProps}" valorProps="{valorProps}" /> 
+								<Widget layout="vertical" left="0" width="33%" height="Titanium.UI.SIZE" src="GUI" name="DetalheValorRow" 
+									descricao="Preço: " tipo="total" valor="{Preco}" descricaProps="{descricaProps}" valorProps="{valorProps}" />
+								<Widget layout="vertical" left="0" width="34%" height="Titanium.UI.SIZE" src="GUI" name="DetalheValorRow" 
+									descricao="Total: " tipo="total" valor="{Total}" descricaProps="{descricaProps}" valorProps="{valorProps}" />
+							</View>
+							<Require src="Cotacao/PrecoMeta" width="Titanium.UI.FILL" height="Titanium.UI.SIZE" precoMeta="{PrecoMeta}" 
+								totalMeta="{TotalMeta}" preco="{PrecoValue}" />
+							<ImageView image="/images/historico.png" width="28" height="28" right="0" bottom="5" 
+								insumo="{Codigo}" nomeInsumo="{Descricao}" fornecedor="{Fornecedor}" cotacao="{Cotacao}" obra="{Obra}" empresa="{CodEmpresa}" 
+								backgroundSelectedColor="#B6B6B6" onClick="verHistorico" />
+						</View> 
+					</View>
+				</TableViewRow>
+			</TableView>
+		</View>
+	</Window>	
+</Alloy>

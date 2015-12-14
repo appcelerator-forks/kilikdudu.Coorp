@@ -1,0 +1,28 @@
+"#boxPrecoMeta" : {
+	layout: "vertical"
+}
+"#tituloPrecoMeta": {
+	width: Titanium.UI.FILL,
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	text: "Relação Preço/Preço meta"
+}
+"#precoMeta": {
+	width: Titanium.UI.FILL,
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+}
+"#totalMeta": {
+	width: Titanium.UI.FILL,
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+}
+".proporcao": {
+	height: Titanium.UI.FILL,
+	left: 0
+}
+"#boxRelacaoMeta": {
+	height: 5,
+	borderRadius: 2,
+	width: Titanium.UI.FILL
+}

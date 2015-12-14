@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="UAUMobileWebAPI_AutentificadorReference_AutentificadorMob" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.2.97:8686/AutentificadorMob.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsMobileReference_wsMobile" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.2.97:8686/WebServices/wsMobile.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsNovidadeReference_wsNovidade" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:10730/webservices/wsnovidade.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_ProcessoPagamentoReference_ProcessoPagamento" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/Webservices/ProcessoPagamento.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_BoletoReference_BoletoServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/WebServices/boleto.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsConfigGerais_wsConfigGerais" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/Webservices/wsConfigGerais.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsEmpresaReference_WsEmpresa" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8282/WsEmpresa.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsEmpresaProdReference_wsRegistroUau" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.uau.com.br/webservices/wsregistrouau.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsMedicaoReference_wsMedicao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8686/Webservices/wsMedicao.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsPessoasReference_Pessoas" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/Webservices/pessoas.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsUsuariosReference_wsUsuarios" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/webservices/wsUsuarios.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_segurancaReference_Seguranca" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/Webservices/seguranca.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsCotacaoReference_WsCotacao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/Webservices/WsCotacao.asmx</Value>
+    </Setting>
+    <Setting Name="UAUMobileWebAPI_wsHistoricoInsumoReference_wsHistoricoInsumo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3016/Webservices/WsHistoricoInsumo.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

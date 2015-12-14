@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/UAUTitanium" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/UAUTitanium" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/UAUTitanium">
+      <s:element name="ContaMedicoesPendentes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContaMedicoesPendentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContaMedicoesPendentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaMedicoesPendentes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="whereClausule" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaMedicoesPendentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaMedicoesPendentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensMedicoesPendentes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodMedicao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensMedicoesPendentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaItensMedicoesPendentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAprovacaoMedicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodMedicao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAprovacaoMedicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaAprovacaoMedicaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AprovaMedicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodMedicao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Obra" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AprovaMedicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AprovaMedicaoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoExecucao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoMensagemResultadoExecucao" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sucesso" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Continua" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoMensagemResultadoExecucao">
+        <s:restriction base="s:string">
+          <s:enumeration value="Informativa" />
+          <s:enumeration value="Confirmacao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ValidaAprovacaoMedicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodMedicao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Obra" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaAprovacaoMedicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidaAprovacaoMedicaoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ContaMedicoesPendentesSoapIn">
+    <wsdl:part name="parameters" element="tns:ContaMedicoesPendentes" />
+  </wsdl:message>
+  <wsdl:message name="ContaMedicoesPendentesSoapOut">
+    <wsdl:part name="parameters" element="tns:ContaMedicoesPendentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaMedicoesPendentesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaMedicoesPendentes" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaMedicoesPendentesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaMedicoesPendentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensMedicoesPendentesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaItensMedicoesPendentes" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensMedicoesPendentesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaItensMedicoesPendentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAprovacaoMedicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaAprovacaoMedicao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAprovacaoMedicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaAprovacaoMedicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AprovaMedicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AprovaMedicao" />
+  </wsdl:message>
+  <wsdl:message name="AprovaMedicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AprovaMedicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaAprovacaoMedicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaAprovacaoMedicao" />
+  </wsdl:message>
+  <wsdl:message name="ValidaAprovacaoMedicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaAprovacaoMedicaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsMedicaoSoap">
+    <wsdl:operation name="ContaMedicoesPendentes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Conta as aprovações de medição pendentes aos quais o usuário logado tem acesso de aprovação</wsdl:documentation>
+      <wsdl:input message="tns:ContaMedicoesPendentesSoapIn" />
+      <wsdl:output message="tns:ContaMedicoesPendentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaMedicoesPendentes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca as aprovações de medição pendentes aos quais o usuário logado tem acesso de aprovação</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaMedicoesPendentesSoapIn" />
+      <wsdl:output message="tns:ConsultaMedicoesPendentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensMedicoesPendentes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca os itens das aprovações pendentes aos quais o usuário logado tem acesso de aprovação</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaItensMedicoesPendentesSoapIn" />
+      <wsdl:output message="tns:ConsultaItensMedicoesPendentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAprovacaoMedicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca as aprovações já realizadas para uma dada medição(Usuário, data e departamento)</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaAprovacaoMedicaoSoapIn" />
+      <wsdl:output message="tns:ConsultaAprovacaoMedicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AprovaMedicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Aprova uma dada medição</wsdl:documentation>
+      <wsdl:input message="tns:AprovaMedicaoSoapIn" />
+      <wsdl:output message="tns:AprovaMedicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaAprovacaoMedicao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida a aprovação de uma dada medição.</wsdl:documentation>
+      <wsdl:input message="tns:ValidaAprovacaoMedicaoSoapIn" />
+      <wsdl:output message="tns:ValidaAprovacaoMedicaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsMedicaoSoap" type="tns:wsMedicaoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ContaMedicoesPendentes">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ContaMedicoesPendentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaMedicoesPendentes">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaMedicoesPendentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensMedicoesPendentes">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaItensMedicoesPendentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAprovacaoMedicao">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaAprovacaoMedicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprovaMedicao">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/AprovaMedicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaAprovacaoMedicao">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ValidaAprovacaoMedicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsMedicaoSoap12" type="tns:wsMedicaoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ContaMedicoesPendentes">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ContaMedicoesPendentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaMedicoesPendentes">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaMedicoesPendentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensMedicoesPendentes">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaItensMedicoesPendentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAprovacaoMedicao">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaAprovacaoMedicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprovaMedicao">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/AprovaMedicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaAprovacaoMedicao">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ValidaAprovacaoMedicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsMedicao">
+    <wsdl:port name="wsMedicaoSoap" binding="tns:wsMedicaoSoap">
+      <soap:address location="http://localhost:8686/Webservices/wsMedicao.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsMedicaoSoap12" binding="tns:wsMedicaoSoap12">
+      <soap12:address location="http://localhost:8686/Webservices/wsMedicao.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

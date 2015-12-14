@@ -1,0 +1,2795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/PortalUAU_WS/WsCotacao" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/PortalUAU_WS/WsCotacao" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/PortalUAU_WS/WsCotacao">
+      <s:element name="BuscarItensCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarItensCotacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketAutorizacao" type="tns:TicketAutorizacao" />
+      <s:complexType name="TicketAutorizacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ticket" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="ValidaQtdeFornecedorComQtdeSolicitada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intFornecedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInsumoServ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoCot" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtdeDig" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaQtdeFornecedorComQtdeSolicitadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidaQtdeFornecedorComQtdeSolicitadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornaQtdeTotalItensEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSinalNumEnt" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornaQtdeTotalItensEntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornaQtdeTotalItensEntregaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarParcelaCot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumParc" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SinalNumParc" type="tns:Operand" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="Operand">
+        <s:restriction base="s:string">
+          <s:enumeration value="Equal" />
+          <s:enumeration value="NotEqual" />
+          <s:enumeration value="GreaterThan" />
+          <s:enumeration value="GreaterThanOrEqual" />
+          <s:enumeration value="LessThan" />
+          <s:enumeration value="LessThanOrEqual" />
+          <s:enumeration value="Like_" />
+          <s:enumeration value="NotLike" />
+          <s:enumeration value="IsNull" />
+          <s:enumeration value="IsNotNull" />
+          <s:enumeration value="Between" />
+          <s:enumeration value="In_" />
+          <s:enumeration value="NotIn" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="BuscarParcelaCotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarParcelaCotResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirAlteraComentFornFrete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoComent" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEfetPgtoParc" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDtVencIni" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtdeParc" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblIntevParc" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="strObsPgto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strObsEntrega" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intTipoPgto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intTemFrete" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intDiaIniVenc" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intQtdeEnt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intIntervEnt" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirAlteraComentFornFreteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="BuscarItensCotacao2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtdeEnt" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensCotacao2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarItensCotacao2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensEntregaRecordset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensEntregaRecordsetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarItensEntregaRecordsetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEntregas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCondPagto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaEntregasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaEntregasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensEntregaInnerJoin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SinalNumEnt" type="tns:Operand" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensEntregaInnerJoinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarItensEntregaInnerJoinResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaComentFornFrete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoComent" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaComentFornFreteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaComentFornFreteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lngForn" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoCot" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarCotacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCotacaoFornecedor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCotacaoFornecedorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarCotacaoFornecedorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCotacaoEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarCotacaoEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarCotacaoEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensCotServ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarItensCotServResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarItensCotServResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarQtdePrecoForn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoCot" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="strInsServ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPag" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtde" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblPreco" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarQtdePrecoFornResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AtualizarQtdePrecoFornResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizaItemEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtde" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizaItemEntregaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AtualizaQtdeParcela">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumParc" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtde" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizaQtdeParcelaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletaParcelas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCondPagto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEntrega" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intParcela" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaParcelasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletaParcelasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaItensEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCondPagto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEntrega" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaItensEntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletaItensEntregaResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirParcelas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCondPagto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intParcela" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataVencParc" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblValorVenc" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirParcelasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserirParcelasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCondPagto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDateEntrega" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUsrCad" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtDataCad" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoComent" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirEntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserirEntregaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCondPagto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEntrega" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaEntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletaEntregaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaComentFornFrete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intTipoComent" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaComentFornFreteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletaComentFornFreteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirItensEntrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="intForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEnt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodIns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblQtde" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirItensEntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserirItensEntregaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisteCotacaoVinculada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intCodPes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisteCotacaoVinculadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExisteCotacaoVinculadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCotacoesPorFornecedor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoFornecedor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCotacoesPorFornecedorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarCotacoesPorFornecedorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCotacoesPorFornecedorCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoFornecedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCotacao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCotacoesPorFornecedorCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarCotacoesPorFornecedorCotacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoFornecedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCotacaoGeral" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarItensCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="itemInfo" type="tns:ItensCotacaoInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ItensCotacaoInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Empresa_item" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCot_item" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodIns_item" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPag_item" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodForn_item" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Preco_item" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status_item" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeSolicit_item" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeCot_item" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="Unid_item" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Marca_item" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Ipi_item" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="NForn_item" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeEnt_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntervEnt_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodMarca_Item" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PorcIpi_Item" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="PorcIcms_Item" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="ValorIcms_Item" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Info" />
+      <s:complexType name="ResultadoExecucao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoMensagemResultadoExecucao" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sucesso" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Continua" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoMensagemResultadoExecucao">
+        <s:restriction base="s:string">
+          <s:enumeration value="Informativa" />
+          <s:enumeration value="Confirmacao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GravarItensCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarItensCotacaoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarMarcaInsumo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarMarcaInsumoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarMarcaInsumoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarItensCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="opcaoDePagamento" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoFornecedor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarItensCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarItensCotacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarItensCotacaoPorCotacaoGeraleInsumo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="opcaoDePagamento" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoFornecedor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoInsumo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarItensCotacaoPorCotacaoGeraleInsumoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarItensCotacaoPorCotacaoGeraleInsumoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarItensCotacaoAgrupada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="itemInfo" type="tns:ItensCotacaoInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="listaItensCotacoesEspecificas" type="tns:ArrayOfItensCotacaoInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfItensCotacaoInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItensCotacaoInfo" nillable="true" type="tns:ItensCotacaoInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GravarItensCotacaoAgrupadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarItensCotacaoAgrupadaResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularParcelas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataVencimentoPrimeiraParcela" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidadeParcelas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intervaloEntreParcelas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorTotal" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParcela_cotInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Parcela_cotInfo" nillable="true" type="tns:Parcela_cotInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parcela_cotInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Empresa_parc" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCot_parc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPag_parc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodForn_parc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Parcela_parc" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtvenc_parc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Valorvenc_parc" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumEnt_parc" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CalcularParcelasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalcularParcelasResult" type="tns:ArrayOfParcela_cotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarStatusWebDaCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoFornecedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroCotacaoGeralOuEspecifica" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="statusWeb" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarStatusWebDaCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtualizarStatusWebDaCotacaoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarParcelasDaCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaDeParcelas" type="tns:ArrayOfParcela_cotInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="cotacaoAgrupada" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="intervaloEntreParcelas" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarParcelasDaCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarParcelasDaCotacaoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaDisponibilidadeParaDataPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataReferencia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaDisponibilidadeParaDataPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificaDisponibilidadeParaDataPagamentoResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarComentForn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="infoComentFornCot" type="tns:ComentFornCotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ComentFornCotInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Empresa_cfc" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCot_cfc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodForn_cfc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCondPgto_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoComent_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="DtVencIni_cfc" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EfetPgtoParc_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeParc_cfc" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntevParc_cfc" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObsPgto_cfc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ObsEntrega_cfc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoPgto_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="TemFrete_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="DiaIniVenc_cfc" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeEnt_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntervEnt_cfc" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoCarencia_cfc" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtdeDiasEntr_cfc" type="s:short" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GravarComentFornResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarComentFornResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarComentarioFornecedor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumCot" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodForn" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytCondPagto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytTipoComent" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarComentarioFornecedorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarComentarioFornecedorResult" type="tns:ComentFornCotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarEntregas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="infoEntrega" type="tns:EntregaInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="listaItensEntrega" type="tns:ArrayOfItensEntregaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EntregaInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Empresa_ent" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCot_ent" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPag_ent" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodForn_ent" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Num_ent" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoComent_ent" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataEntrega_ent" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsrCad_ent" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataCad_ent" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfItensEntregaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItensEntregaInfo" nillable="true" type="tns:ItensEntregaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItensEntregaInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Empresa_ItensEnt" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCot_ItensEnt" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CondPag_ItensEnt" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodIns_ItensEnt" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodForn_ItensEnt" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumEnt_ItensEnt" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Qtde_ItensEnt" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GravarEntregasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarEntregasResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaCotacoesMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="whereClausule" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaCotacoesMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaCotacoesMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaCotacaoPorCotacaoGeral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacaoGeral" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaCotacaoPorCotacaoGeralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaCotacaoPorCotacaoGeralResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContaCotacoesMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContaCotacoesMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContaCotacoesMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaSimulacoesMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seCotacaoGeral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaSimulacoesMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaSimulacoesMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensSimulacaoMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumSimulacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seCotacaoGeral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensSimulacaoMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaItensSimulacaoMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaFornecedoresSimulacaoMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumSimulacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seCotacaoGeral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaFornecedoresSimulacaoMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaFornecedoresSimulacaoMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensFornecedorMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodFornecedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumSimulacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seCotacaoGeral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensFornecedorMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaItensFornecedorMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaEmpresasSimulacaoMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumSimulacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seCotacaoGeral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaEmpresasSimulacaoMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaEmpresasSimulacaoMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensEmpresasMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumSimulacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codCotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="seCotacaoGeral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensEmpresasMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaItensEmpresasMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarItensCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarItensCotacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarItensCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ValidaQtdeFornecedorComQtdeSolicitadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaQtdeFornecedorComQtdeSolicitada" />
+  </wsdl:message>
+  <wsdl:message name="ValidaQtdeFornecedorComQtdeSolicitadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaQtdeFornecedorComQtdeSolicitadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaQtdeFornecedorComQtdeSolicitadaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="RetornaQtdeTotalItensEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornaQtdeTotalItensEntrega" />
+  </wsdl:message>
+  <wsdl:message name="RetornaQtdeTotalItensEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornaQtdeTotalItensEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornaQtdeTotalItensEntregaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarParcelaCotSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarParcelaCot" />
+  </wsdl:message>
+  <wsdl:message name="BuscarParcelaCotSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarParcelaCotResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarParcelaCotTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="InserirAlteraComentFornFreteSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirAlteraComentFornFrete" />
+  </wsdl:message>
+  <wsdl:message name="InserirAlteraComentFornFreteSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirAlteraComentFornFreteResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirAlteraComentFornFreteTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotacao2SoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarItensCotacao2" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotacao2SoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarItensCotacao2Response" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotacao2TicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensEntregaRecordsetSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarItensEntregaRecordset" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensEntregaRecordsetSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarItensEntregaRecordsetResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensEntregaRecordsetTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEntregasSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaEntregas" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEntregasSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaEntregasResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaEntregasTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensEntregaInnerJoinSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarItensEntregaInnerJoin" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensEntregaInnerJoinSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarItensEntregaInnerJoinResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensEntregaInnerJoinTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscaComentFornFreteSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaComentFornFrete" />
+  </wsdl:message>
+  <wsdl:message name="BuscaComentFornFreteSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaComentFornFreteResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaComentFornFreteTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarCotacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoFornecedorSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarCotacaoFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoFornecedorSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarCotacaoFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoFornecedorTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarCotacaoEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarCotacaoEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarCotacaoEmpresaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotServSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarItensCotServ" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotServSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarItensCotServResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarItensCotServTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarQtdePrecoFornSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarQtdePrecoForn" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarQtdePrecoFornSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarQtdePrecoFornResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarQtdePrecoFornTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaItemEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizaItemEntrega" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaItemEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizaItemEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaItemEntregaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaQtdeParcelaSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizaQtdeParcela" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaQtdeParcelaSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizaQtdeParcelaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaQtdeParcelaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="DeletaParcelasSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaParcelas" />
+  </wsdl:message>
+  <wsdl:message name="DeletaParcelasSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaParcelasResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaParcelasTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="DeletaItensEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaItensEntrega" />
+  </wsdl:message>
+  <wsdl:message name="DeletaItensEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaItensEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaItensEntregaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="InserirParcelasSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirParcelas" />
+  </wsdl:message>
+  <wsdl:message name="InserirParcelasSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirParcelasResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirParcelasTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="InserirEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirEntrega" />
+  </wsdl:message>
+  <wsdl:message name="InserirEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirEntregaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="DeletaEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaEntrega" />
+  </wsdl:message>
+  <wsdl:message name="DeletaEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaEntregaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="DeletaComentFornFreteSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaComentFornFrete" />
+  </wsdl:message>
+  <wsdl:message name="DeletaComentFornFreteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaComentFornFreteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaComentFornFreteTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="InserirItensEntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirItensEntrega" />
+  </wsdl:message>
+  <wsdl:message name="InserirItensEntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirItensEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirItensEntregaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ExisteCotacaoVinculadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ExisteCotacaoVinculada" />
+  </wsdl:message>
+  <wsdl:message name="ExisteCotacaoVinculadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ExisteCotacaoVinculadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesPorFornecedorSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarCotacoesPorFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesPorFornecedorSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarCotacoesPorFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesPorFornecedorTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesPorFornecedorCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarCotacoesPorFornecedorCotacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesPorFornecedorCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarCotacoesPorFornecedorCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesPorFornecedorCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarItensCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarItensCotacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarItensCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarItensCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarItensCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarMarcaInsumoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarMarcaInsumo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarMarcaInsumoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarMarcaInsumoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarMarcaInsumoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarItensCotacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarItensCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensCotacaoPorCotacaoGeraleInsumoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarItensCotacaoPorCotacaoGeraleInsumo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensCotacaoPorCotacaoGeraleInsumoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarItensCotacaoPorCotacaoGeraleInsumoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensCotacaoPorCotacaoGeraleInsumoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarItensCotacaoAgrupadaSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarItensCotacaoAgrupada" />
+  </wsdl:message>
+  <wsdl:message name="GravarItensCotacaoAgrupadaSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarItensCotacaoAgrupadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarItensCotacaoAgrupadaTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="CalcularParcelasSoapIn">
+    <wsdl:part name="parameters" element="tns:CalcularParcelas" />
+  </wsdl:message>
+  <wsdl:message name="CalcularParcelasSoapOut">
+    <wsdl:part name="parameters" element="tns:CalcularParcelasResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalcularParcelasTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusWebDaCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarStatusWebDaCotacao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusWebDaCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarStatusWebDaCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusWebDaCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarParcelasDaCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarParcelasDaCotacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarParcelasDaCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarParcelasDaCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarParcelasDaCotacaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="VerificaDisponibilidadeParaDataPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaDisponibilidadeParaDataPagamento" />
+  </wsdl:message>
+  <wsdl:message name="VerificaDisponibilidadeParaDataPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaDisponibilidadeParaDataPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaDisponibilidadeParaDataPagamentoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarComentFornSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarComentForn" />
+  </wsdl:message>
+  <wsdl:message name="GravarComentFornSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarComentFornResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarComentFornTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComentarioFornecedorSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarComentarioFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComentarioFornecedorSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarComentarioFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComentarioFornecedorTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="GravarEntregasSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarEntregas" />
+  </wsdl:message>
+  <wsdl:message name="GravarEntregasSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarEntregasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarEntregasTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCotacoesMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaCotacoesMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCotacoesMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaCotacoesMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCotacaoPorCotacaoGeralSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaCotacaoPorCotacaoGeral" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCotacaoPorCotacaoGeralSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaCotacaoPorCotacaoGeralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContaCotacoesMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ContaCotacoesMob" />
+  </wsdl:message>
+  <wsdl:message name="ContaCotacoesMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ContaCotacoesMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSimulacoesMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaSimulacoesMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSimulacoesMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaSimulacoesMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensSimulacaoMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaItensSimulacaoMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensSimulacaoMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaItensSimulacaoMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaFornecedoresSimulacaoMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaFornecedoresSimulacaoMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaFornecedoresSimulacaoMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaFornecedoresSimulacaoMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensFornecedorMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaItensFornecedorMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensFornecedorMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaItensFornecedorMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaEmpresasSimulacaoMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaEmpresasSimulacaoMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaEmpresasSimulacaoMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaEmpresasSimulacaoMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensEmpresasMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaItensEmpresasMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensEmpresasMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaItensEmpresasMobResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsCotacaoSoap">
+    <wsdl:operation name="BuscarItensCotacao">
+      <wsdl:input message="tns:BuscarItensCotacaoSoapIn" />
+      <wsdl:output message="tns:BuscarItensCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaQtdeFornecedorComQtdeSolicitada">
+      <wsdl:input message="tns:ValidaQtdeFornecedorComQtdeSolicitadaSoapIn" />
+      <wsdl:output message="tns:ValidaQtdeFornecedorComQtdeSolicitadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornaQtdeTotalItensEntrega">
+      <wsdl:input message="tns:RetornaQtdeTotalItensEntregaSoapIn" />
+      <wsdl:output message="tns:RetornaQtdeTotalItensEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarParcelaCot">
+      <wsdl:input message="tns:BuscarParcelaCotSoapIn" />
+      <wsdl:output message="tns:BuscarParcelaCotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirAlteraComentFornFrete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Este rotina inseri um comentario ou atualizar um ja existente.</wsdl:documentation>
+      <wsdl:input message="tns:InserirAlteraComentFornFreteSoapIn" />
+      <wsdl:output message="tns:InserirAlteraComentFornFreteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensCotacao2">
+      <wsdl:input message="tns:BuscarItensCotacao2SoapIn" />
+      <wsdl:output message="tns:BuscarItensCotacao2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensEntregaRecordset">
+      <wsdl:input message="tns:BuscarItensEntregaRecordsetSoapIn" />
+      <wsdl:output message="tns:BuscarItensEntregaRecordsetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEntregas">
+      <wsdl:input message="tns:BuscaEntregasSoapIn" />
+      <wsdl:output message="tns:BuscaEntregasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensEntregaInnerJoin">
+      <wsdl:input message="tns:BuscarItensEntregaInnerJoinSoapIn" />
+      <wsdl:output message="tns:BuscarItensEntregaInnerJoinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaComentFornFrete">
+      <wsdl:input message="tns:BuscaComentFornFreteSoapIn" />
+      <wsdl:output message="tns:BuscaComentFornFreteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacao">
+      <wsdl:input message="tns:BuscarCotacaoSoapIn" />
+      <wsdl:output message="tns:BuscarCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacaoFornecedor">
+      <wsdl:input message="tns:BuscarCotacaoFornecedorSoapIn" />
+      <wsdl:output message="tns:BuscarCotacaoFornecedorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacaoEmpresa">
+      <wsdl:input message="tns:BuscarCotacaoEmpresaSoapIn" />
+      <wsdl:output message="tns:BuscarCotacaoEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensCotServ">
+      <wsdl:input message="tns:BuscarItensCotServSoapIn" />
+      <wsdl:output message="tns:BuscarItensCotServSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarQtdePrecoForn">
+      <wsdl:input message="tns:AtualizarQtdePrecoFornSoapIn" />
+      <wsdl:output message="tns:AtualizarQtdePrecoFornSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaItemEntrega">
+      <wsdl:input message="tns:AtualizaItemEntregaSoapIn" />
+      <wsdl:output message="tns:AtualizaItemEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaQtdeParcela">
+      <wsdl:input message="tns:AtualizaQtdeParcelaSoapIn" />
+      <wsdl:output message="tns:AtualizaQtdeParcelaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaParcelas">
+      <wsdl:input message="tns:DeletaParcelasSoapIn" />
+      <wsdl:output message="tns:DeletaParcelasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaItensEntrega">
+      <wsdl:input message="tns:DeletaItensEntregaSoapIn" />
+      <wsdl:output message="tns:DeletaItensEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirParcelas">
+      <wsdl:input message="tns:InserirParcelasSoapIn" />
+      <wsdl:output message="tns:InserirParcelasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirEntrega">
+      <wsdl:input message="tns:InserirEntregaSoapIn" />
+      <wsdl:output message="tns:InserirEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaEntrega">
+      <wsdl:input message="tns:DeletaEntregaSoapIn" />
+      <wsdl:output message="tns:DeletaEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaComentFornFrete">
+      <wsdl:input message="tns:DeletaComentFornFreteSoapIn" />
+      <wsdl:output message="tns:DeletaComentFornFreteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirItensEntrega">
+      <wsdl:input message="tns:InserirItensEntregaSoapIn" />
+      <wsdl:output message="tns:InserirItensEntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCotacaoVinculada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica se a pessoa logada no UAU Web possui cotacao vinculada a seu código.</wsdl:documentation>
+      <wsdl:input message="tns:ExisteCotacaoVinculadaSoapIn" />
+      <wsdl:output message="tns:ExisteCotacaoVinculadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesPorFornecedor">
+      <wsdl:input message="tns:ConsultarCotacoesPorFornecedorSoapIn" />
+      <wsdl:output message="tns:ConsultarCotacoesPorFornecedorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesPorFornecedorCotacao">
+      <wsdl:input message="tns:ConsultarCotacoesPorFornecedorCotacaoSoapIn" />
+      <wsdl:output message="tns:ConsultarCotacoesPorFornecedorCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral">
+      <wsdl:input message="tns:ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralSoapIn" />
+      <wsdl:output message="tns:ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarItensCotacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava itensCotaca com o propósito de atualizar quantidade, preço e marca do insumo.</wsdl:documentation>
+      <wsdl:input message="tns:GravarItensCotacaoSoapIn" />
+      <wsdl:output message="tns:GravarItensCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarMarcaInsumo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta a lista de todas as marcas de insumo</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarMarcaInsumoSoapIn" />
+      <wsdl:output message="tns:ConsultarMarcaInsumoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensCotacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Itens de uma Cotação.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarItensCotacaoSoapIn" />
+      <wsdl:output message="tns:ConsultarItensCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensCotacaoPorCotacaoGeraleInsumo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta itens de todas cotações especificas por insumo e cotação geral.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarItensCotacaoPorCotacaoGeraleInsumoSoapIn" />
+      <wsdl:output message="tns:ConsultarItensCotacaoPorCotacaoGeraleInsumoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarItensCotacaoAgrupada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava itensCotacao para cotacoes agrupada com o propósito de atualizar quantidade, preço e marca do insumo.</wsdl:documentation>
+      <wsdl:input message="tns:GravarItensCotacaoAgrupadaSoapIn" />
+      <wsdl:output message="tns:GravarItensCotacaoAgrupadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularParcelas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza o cálculo de parcelas conforme os parâmetros e retorna a lista de parcelas.</wsdl:documentation>
+      <wsdl:input message="tns:CalcularParcelasSoapIn" />
+      <wsdl:output message="tns:CalcularParcelasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusWebDaCotacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Atualiza o status web da cotação. Valores válidos: 0, 1, 2</wsdl:documentation>
+      <wsdl:input message="tns:AtualizarStatusWebDaCotacaoSoapIn" />
+      <wsdl:output message="tns:AtualizarStatusWebDaCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarParcelasDaCotacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava parcelas da Cotação.</wsdl:documentation>
+      <wsdl:input message="tns:GravarParcelasDaCotacaoSoapIn" />
+      <wsdl:output message="tns:GravarParcelasDaCotacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilidadeParaDataPagamento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica a disponibilidade da data referencia para o pagamento conforme os parametros da empresa.</wsdl:documentation>
+      <wsdl:input message="tns:VerificaDisponibilidadeParaDataPagamentoSoapIn" />
+      <wsdl:output message="tns:VerificaDisponibilidadeParaDataPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarComentForn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava um comentario ou atualizar um ja existente. </wsdl:documentation>
+      <wsdl:input message="tns:GravarComentFornSoapIn" />
+      <wsdl:output message="tns:GravarComentFornSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComentarioFornecedor">
+      <wsdl:input message="tns:ConsultarComentarioFornecedorSoapIn" />
+      <wsdl:output message="tns:ConsultarComentarioFornecedorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarEntregas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava uma entrega e seus itens.</wsdl:documentation>
+      <wsdl:input message="tns:GravarEntregasSoapIn" />
+      <wsdl:output message="tns:GravarEntregasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCotacoesMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco as cotações que possuem simulações que o usuário pode aprovar.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaCotacoesMobSoapIn" />
+      <wsdl:output message="tns:ConsultaCotacoesMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCotacaoPorCotacaoGeral">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco as cotações que possuem simulações que o usuário pode aprovar.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaCotacaoPorCotacaoGeralSoapIn" />
+      <wsdl:output message="tns:ConsultaCotacaoPorCotacaoGeralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContaCotacoesMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Conto as cotações que possuem simulações que o usuário pode aprovar.</wsdl:documentation>
+      <wsdl:input message="tns:ContaCotacoesMobSoapIn" />
+      <wsdl:output message="tns:ContaCotacoesMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSimulacoesMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco as simulações que o usuário pode aprovar.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaSimulacoesMobSoapIn" />
+      <wsdl:output message="tns:ConsultaSimulacoesMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensSimulacaoMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco os itens da simulção.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaItensSimulacaoMobSoapIn" />
+      <wsdl:output message="tns:ConsultaItensSimulacaoMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaFornecedoresSimulacaoMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco os fornecedores da simulção.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaFornecedoresSimulacaoMobSoapIn" />
+      <wsdl:output message="tns:ConsultaFornecedoresSimulacaoMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensFornecedorMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco os itens do fornecedor.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaItensFornecedorMobSoapIn" />
+      <wsdl:output message="tns:ConsultaItensFornecedorMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaEmpresasSimulacaoMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco os fornecedores da simulção.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaEmpresasSimulacaoMobSoapIn" />
+      <wsdl:output message="tns:ConsultaEmpresasSimulacaoMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensEmpresasMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busco os itens do fornecedor.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaItensEmpresasMobSoapIn" />
+      <wsdl:output message="tns:ConsultaItensEmpresasMobSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsCotacaoSoap" type="tns:WsCotacaoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarItensCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarItensCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaQtdeFornecedorComQtdeSolicitada">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ValidaQtdeFornecedorComQtdeSolicitada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidaQtdeFornecedorComQtdeSolicitadaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaQtdeTotalItensEntrega">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/RetornaQtdeTotalItensEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RetornaQtdeTotalItensEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarParcelaCot">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarParcelaCot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarParcelaCotTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAlteraComentFornFrete">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirAlteraComentFornFrete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InserirAlteraComentFornFreteTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensCotacao2">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensCotacao2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarItensCotacao2TicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensEntregaRecordset">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensEntregaRecordset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarItensEntregaRecordsetTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEntregas">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscaEntregas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscaEntregasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensEntregaInnerJoin">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensEntregaInnerJoin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarItensEntregaInnerJoinTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaComentFornFrete">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscaComentFornFrete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscaComentFornFreteTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacaoFornecedor">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarCotacaoFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarCotacaoFornecedorTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacaoEmpresa">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarCotacaoEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarCotacaoEmpresaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensCotServ">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensCotServ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscarItensCotServTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarQtdePrecoForn">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizarQtdePrecoForn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AtualizarQtdePrecoFornTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaItemEntrega">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizaItemEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AtualizaItemEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaQtdeParcela">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizaQtdeParcela" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AtualizaQtdeParcelaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaParcelas">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaParcelas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeletaParcelasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaItensEntrega">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaItensEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeletaItensEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirParcelas">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirParcelas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InserirParcelasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirEntrega">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InserirEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaEntrega">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeletaEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaComentFornFrete">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaComentFornFrete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeletaComentFornFreteTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirItensEntrega">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirItensEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InserirItensEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCotacaoVinculada">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ExisteCotacaoVinculada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesPorFornecedor">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarCotacoesPorFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarCotacoesPorFornecedorTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesPorFornecedorCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarCotacoesPorFornecedorCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarCotacoesPorFornecedorCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarItensCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarItensCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GravarItensCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarMarcaInsumo">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarMarcaInsumo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarMarcaInsumoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarItensCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarItensCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensCotacaoPorCotacaoGeraleInsumo">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarItensCotacaoPorCotacaoGeraleInsumo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarItensCotacaoPorCotacaoGeraleInsumoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarItensCotacaoAgrupada">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarItensCotacaoAgrupada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GravarItensCotacaoAgrupadaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularParcelas">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/CalcularParcelas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CalcularParcelasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusWebDaCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizarStatusWebDaCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AtualizarStatusWebDaCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarParcelasDaCotacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarParcelasDaCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GravarParcelasDaCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilidadeParaDataPagamento">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/VerificaDisponibilidadeParaDataPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:VerificaDisponibilidadeParaDataPagamentoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarComentForn">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarComentForn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GravarComentFornTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComentarioFornecedor">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarComentarioFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarComentarioFornecedorTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarEntregas">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarEntregas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GravarEntregasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCotacoesMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaCotacoesMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCotacaoPorCotacaoGeral">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaCotacaoPorCotacaoGeral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContaCotacoesMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ContaCotacoesMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSimulacoesMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaSimulacoesMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensSimulacaoMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaItensSimulacaoMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaFornecedoresSimulacaoMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaFornecedoresSimulacaoMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensFornecedorMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaItensFornecedorMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaEmpresasSimulacaoMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaEmpresasSimulacaoMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensEmpresasMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaItensEmpresasMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsCotacaoSoap12" type="tns:WsCotacaoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarItensCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarItensCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaQtdeFornecedorComQtdeSolicitada">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ValidaQtdeFornecedorComQtdeSolicitada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidaQtdeFornecedorComQtdeSolicitadaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaQtdeTotalItensEntrega">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/RetornaQtdeTotalItensEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RetornaQtdeTotalItensEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarParcelaCot">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarParcelaCot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarParcelaCotTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAlteraComentFornFrete">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirAlteraComentFornFrete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InserirAlteraComentFornFreteTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensCotacao2">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensCotacao2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarItensCotacao2TicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensEntregaRecordset">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensEntregaRecordset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarItensEntregaRecordsetTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaEntregas">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscaEntregas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscaEntregasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensEntregaInnerJoin">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensEntregaInnerJoin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarItensEntregaInnerJoinTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaComentFornFrete">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscaComentFornFrete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscaComentFornFreteTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacaoFornecedor">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarCotacaoFornecedor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarCotacaoFornecedorTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCotacaoEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarCotacaoEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarCotacaoEmpresaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarItensCotServ">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/BuscarItensCotServ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscarItensCotServTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarQtdePrecoForn">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizarQtdePrecoForn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AtualizarQtdePrecoFornTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaItemEntrega">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizaItemEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AtualizaItemEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaQtdeParcela">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizaQtdeParcela" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AtualizaQtdeParcelaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaParcelas">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaParcelas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeletaParcelasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaItensEntrega">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaItensEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeletaItensEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirParcelas">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirParcelas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InserirParcelasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirEntrega">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InserirEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaEntrega">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeletaEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaComentFornFrete">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/DeletaComentFornFrete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DeletaComentFornFreteTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirItensEntrega">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/InserirItensEntrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InserirItensEntregaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCotacaoVinculada">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ExisteCotacaoVinculada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesPorFornecedor">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarCotacoesPorFornecedor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarCotacoesPorFornecedorTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesPorFornecedorCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarCotacoesPorFornecedorCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarCotacoesPorFornecedorCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarCotacoesEspecificasPorFornecedorCotacaoGeral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarCotacoesEspecificasPorFornecedorCotacaoGeralTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarItensCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarItensCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GravarItensCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarMarcaInsumo">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarMarcaInsumo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarMarcaInsumoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarItensCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarItensCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensCotacaoPorCotacaoGeraleInsumo">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarItensCotacaoPorCotacaoGeraleInsumo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarItensCotacaoPorCotacaoGeraleInsumoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarItensCotacaoAgrupada">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarItensCotacaoAgrupada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GravarItensCotacaoAgrupadaTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularParcelas">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/CalcularParcelas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CalcularParcelasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusWebDaCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/AtualizarStatusWebDaCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AtualizarStatusWebDaCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarParcelasDaCotacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarParcelasDaCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GravarParcelasDaCotacaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaDisponibilidadeParaDataPagamento">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/VerificaDisponibilidadeParaDataPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:VerificaDisponibilidadeParaDataPagamentoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarComentForn">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarComentForn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GravarComentFornTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComentarioFornecedor">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultarComentarioFornecedor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarComentarioFornecedorTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarEntregas">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/GravarEntregas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GravarEntregasTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCotacoesMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaCotacoesMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCotacaoPorCotacaoGeral">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaCotacaoPorCotacaoGeral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContaCotacoesMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ContaCotacoesMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaSimulacoesMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaSimulacoesMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensSimulacaoMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaItensSimulacaoMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaFornecedoresSimulacaoMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaFornecedoresSimulacaoMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensFornecedorMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaItensFornecedorMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaEmpresasSimulacaoMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaEmpresasSimulacaoMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaItensEmpresasMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/WsCotacao/ConsultaItensEmpresasMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsCotacao">
+    <wsdl:port name="WsCotacaoSoap" binding="tns:WsCotacaoSoap">
+      <soap:address location="http://localhost:3016/Webservices/WsCotacao.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsCotacaoSoap12" binding="tns:WsCotacaoSoap12">
+      <soap12:address location="http://localhost:3016/Webservices/WsCotacao.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,15 @@
+<Alloy>
+	<View class="TextFieldBox"> 
+		<Label id="lblDesc" class="TextFieldTitle" />
+		<View id="boxControles">  
+			<View id="boxInput"> 
+				<Label id="selectedDesc" chave="" />
+				<View backgroundColor="black" height="1" width="100%" bottom="0" />
+			</View>
+			<View id="boxButtons">
+				<Button id="btList" onClick="listar" />
+				<Button id="btAdd" onClick="btAddFunc" />
+			</View>
+		</View> 
+	</View>
+</Alloy>

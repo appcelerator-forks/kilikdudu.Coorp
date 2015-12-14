@@ -1,0 +1,11 @@
+"#mestre": {
+	width: Titanium.UI.FILL,
+	top: 50,
+	bottom: 0
+} 
+"#minhaListaItensEmpresa": { 
+	width: Titanium.UI.FILL, 
+	height: Titanium.UI.FILL,
+	showVerticalScrollIndicator: true,
+	backgroundColor: "transparent"
+} 

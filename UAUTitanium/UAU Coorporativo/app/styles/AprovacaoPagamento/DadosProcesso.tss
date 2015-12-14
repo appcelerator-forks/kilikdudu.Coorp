@@ -1,0 +1,22 @@
+"#scrlMestre": {
+	scrollingEnabled: true, 
+	showVerticalScrollIndicator: true, 
+	showHorizontalScrollIndicator: false, 
+	height: Titanium.UI.FILL,  
+	width: Titanium.UI.FILL
+}
+".HeaderDesc": { 
+	width: "90%",
+	top: 15,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+}
+".Desc": {
+	width: "90%",
+	top: 2,
+	left: "9%",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+}
+"#HeaderAprovar": {
+	color: Alloy.Globals.MainColor, 
+	width: Ti.UI.SIZE
+}

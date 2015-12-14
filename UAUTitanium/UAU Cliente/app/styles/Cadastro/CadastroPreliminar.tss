@@ -1,0 +1,13 @@
+"#scrlCadastro": {
+	scrollingEnabled: true, 
+	showVerticalScrollIndicator: true, 
+	showHorizontalScrollIndicator: false, 
+	width: Ti.UI.FILL, 
+	top: 55,
+	bottom: 0,
+	layout: 'vertical'
+}
+"#natureza": {
+	width: "90%", 
+	height: Ti.UI.SIZE
+}

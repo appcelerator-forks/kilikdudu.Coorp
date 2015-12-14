@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/PortalUAU_WS/wsConfigGerais" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/PortalUAU_WS/wsConfigGerais" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/PortalUAU_WS/wsConfigGerais">
+      <s:element name="RetornarVersaoBD">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarVersaoBDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVersaoBDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarVersaoWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornarVersaoWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarVersaoWSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformacoesServidor">
+        <s:complexType />
+      </s:element>
+      <s:element name="InformacoesServidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformacoesServidorResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetornarConfiguracaoEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strConfiguracao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarConfiguracaoEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarConfiguracaoEmpresaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarConfiguracoesGerais">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strItem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strConfiguracao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornarConfiguracoesGeraisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornarConfiguracoesGeraisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterConfiguracaoDeCasasDecimais">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObterConfiguracaoDeCasasDecimaisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterConfiguracaoDeCasasDecimaisResult" type="tns:CasaDecimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CasaDecimal">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Qtde" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Preco" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GravarTentativasLogon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bytNumTentativas" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarTentativasLogonResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetornarVersaoBDSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVersaoBD" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVersaoBDSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVersaoBDResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVersaoWSSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarVersaoWS" />
+  </wsdl:message>
+  <wsdl:message name="RetornarVersaoWSSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarVersaoWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformacoesServidorSoapIn">
+    <wsdl:part name="parameters" element="tns:InformacoesServidor" />
+  </wsdl:message>
+  <wsdl:message name="InformacoesServidorSoapOut">
+    <wsdl:part name="parameters" element="tns:InformacoesServidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarConfiguracaoEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarConfiguracaoEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="RetornarConfiguracaoEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarConfiguracaoEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornarConfiguracoesGeraisSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornarConfiguracoesGerais" />
+  </wsdl:message>
+  <wsdl:message name="RetornarConfiguracoesGeraisSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornarConfiguracoesGeraisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterConfiguracaoDeCasasDecimaisSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterConfiguracaoDeCasasDecimais" />
+  </wsdl:message>
+  <wsdl:message name="ObterConfiguracaoDeCasasDecimaisSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterConfiguracaoDeCasasDecimaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarTentativasLogonSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarTentativasLogon" />
+  </wsdl:message>
+  <wsdl:message name="GravarTentativasLogonSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarTentativasLogonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsConfigGeraisSoap">
+    <wsdl:operation name="RetornarVersaoBD">
+      <wsdl:input message="tns:RetornarVersaoBDSoapIn" />
+      <wsdl:output message="tns:RetornarVersaoBDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVersaoWS">
+      <wsdl:input message="tns:RetornarVersaoWSSoapIn" />
+      <wsdl:output message="tns:RetornarVersaoWSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformacoesServidor">
+      <wsdl:input message="tns:InformacoesServidorSoapIn" />
+      <wsdl:output message="tns:InformacoesServidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarConfiguracaoEmpresa">
+      <wsdl:input message="tns:RetornarConfiguracaoEmpresaSoapIn" />
+      <wsdl:output message="tns:RetornarConfiguracaoEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarConfiguracoesGerais">
+      <wsdl:input message="tns:RetornarConfiguracoesGeraisSoapIn" />
+      <wsdl:output message="tns:RetornarConfiguracoesGeraisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterConfiguracaoDeCasasDecimais">
+      <wsdl:input message="tns:ObterConfiguracaoDeCasasDecimaisSoapIn" />
+      <wsdl:output message="tns:ObterConfiguracaoDeCasasDecimaisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarTentativasLogon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza a gravação do número de tentativas de logon pelo usuário.</wsdl:documentation>
+      <wsdl:input message="tns:GravarTentativasLogonSoapIn" />
+      <wsdl:output message="tns:GravarTentativasLogonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsConfigGeraisSoap" type="tns:wsConfigGeraisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarVersaoBD">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarVersaoBD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVersaoWS">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarVersaoWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformacoesServidor">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/InformacoesServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarConfiguracaoEmpresa">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarConfiguracaoEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarConfiguracoesGerais">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarConfiguracoesGerais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterConfiguracaoDeCasasDecimais">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/ObterConfiguracaoDeCasasDecimais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarTentativasLogon">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/GravarTentativasLogon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsConfigGeraisSoap12" type="tns:wsConfigGeraisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornarVersaoBD">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarVersaoBD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarVersaoWS">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarVersaoWS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformacoesServidor">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/InformacoesServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarConfiguracaoEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarConfiguracaoEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarConfiguracoesGerais">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/RetornarConfiguracoesGerais" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterConfiguracaoDeCasasDecimais">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/ObterConfiguracaoDeCasasDecimais" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarTentativasLogon">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsConfigGerais/GravarTentativasLogon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsConfigGerais">
+    <wsdl:port name="wsConfigGeraisSoap" binding="tns:wsConfigGeraisSoap">
+      <soap:address location="http://localhost:3016/Webservices/wsConfigGerais.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsConfigGeraisSoap12" binding="tns:wsConfigGeraisSoap12">
+      <soap12:address location="http://localhost:3016/Webservices/wsConfigGerais.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,94 @@
+"#scrlDetalheBoleto": {
+	scrollingEnabled: true, 
+	showVerticalScrollIndicator: true, 
+	showHorizontalScrollIndicator: false, 
+	width: Ti.UI.FILL, 
+	top: 55,
+	bottom: 0
+}
+/*Celular*/
+"#vwCopiar[formFactor=handheld]": {
+	width: 90,
+	height: 28,
+	borderRadius: 6,
+	backgroundColor: Alloy.Globals.MainColor
+}
+"#vwAlinharCentro[formFactor=handheld]": {
+	layout: "horizontal", 
+	width: Ti.UI.SIZE, 
+	height: 24
+}
+"#imgCopiar[formFactor=handheld]": {
+	width: 24,
+	height: 24,
+	backgroundImage: "/images/copy_white.png"
+}
+"#lblCopiar[formFactor=handheld]": {
+	color: "white", 
+	left: 5
+}
+".blocoLinhaDigitavel[formFactor=handheld]": {
+	left: 1,
+	right: 1,
+	borderRadius: 8,
+	color: "black",
+	backgroundColor: "#E6E6E6",
+	width: Titanium.UI.SIZE,
+	top: 5,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
+".cincoDigitos[formFactor=handheld]": {
+	width: 55
+}
+".seisDigitos[formFactor=handheld]": {
+	width: 65
+}
+".umDigitos[formFactor=handheld]": {
+	width: 15
+}
+".blocoFinal[formFactor=handheld]": {
+	width: 140
+}
+/*Tablet*/
+"#vwCopiar[formFactor=tablet]": {
+	width: 110, 
+	height: 32,
+	borderRadius: 6,
+	backgroundColor: Alloy.Globals.MainColor
+}
+"#vwAlinharCentro[formFactor=tablet]": {
+	layout: "horizontal", 
+	width: Ti.UI.SIZE, 
+	height: 28
+}
+"#imgCopiar[formFactor=tablet]": {
+	width: 28,
+	height: 28,
+	backgroundImage: "/images/copy_white.png"
+}
+"#lblCopiar[formFactor=tablet]": {
+	color: "#FFFFFF", 
+	left: 8
+}
+".blocoLinhaDigitavel[formFactor=tablet]": {
+	left: 1,
+	right: 1,
+	borderRadius: 8,
+	color: "black",
+	backgroundColor: "#E6E6E6",
+	width: Titanium.UI.SIZE,
+	top: 5,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
+".cincoDigitos[formFactor=tablet]": {
+	width: 65
+}
+".seisDigitos[formFactor=tablet]": {
+	width: 75
+}
+".umDigitos[formFactor=tablet]": {
+	width: 22
+}
+".blocoFinal[formFactor=tablet]": {
+	width: 165
+}

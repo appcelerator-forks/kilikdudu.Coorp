@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/PortalUAU_WS/ProcessoPagamento" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/PortalUAU_WS/ProcessoPagamento" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/PortalUAU_WS/ProcessoPagamento">
+      <s:element name="ConsultarProcessosPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empresaObra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="periodoInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="periodoFim" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="mostrarProcessosAssistentePagamento" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="mostrarProcessosPagamentoAAprovar" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDepartamento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorInicial" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorFinal" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessosPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessosPagamentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarFaixaValorUsuario">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarFaixaValorUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarFaixaValorUsuarioResult" type="tns:ArrayOfDouble" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDouble">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="double" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AlterarProcessoPagamentoV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="processosPagamentosAAprovar" type="tns:ArrayOfParametrosProcessoPagamento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParametrosProcessoPagamento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="parametrosProcessoPagamento" nillable="true" type="tns:parametrosProcessoPagamento" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="parametrosProcessoPagamento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresaValue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoObraValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numeroParcelaValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="numeroProcessoValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="confirmarAprovacaoValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoDepartamentoValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AlterarProcessoPagamentoVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarProcessoPagamentoVResult" type="tns:ArrayOfRetornoProcQueNaoForamConfirmados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRetornoProcQueNaoForamConfirmados">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="retornoProcQueNaoForamConfirmados" nillable="true" type="tns:retornoProcQueNaoForamConfirmados" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="retornoProcQueNaoForamConfirmados">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresaValue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoObraValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numeroProcessoValue" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="confirmarAprovacaoValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensagemInconsistencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarItensProcessosPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoObra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoContrato" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarItensProcessosPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarItensProcessosPagamentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoPagamentoObservacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoObra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroParcela" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="observacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoPagamentoObservacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AlterarProcessoPagamentoObservacaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarTodosDepartamentos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarTodosDepartamentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarTodosDepartamentosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDepartamentosUsuario">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarDepartamentosUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDepartamentosUsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoPagamentoDepartamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoObra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroProcesso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoDepartamento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarProcessoPagamentoDepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AlterarProcessoPagamentoDepartamentoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAprovacaoEmissao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroParcela" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Obra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAprovacaoEmissaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAprovacaoEmissaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoEmissaoPagamentoResumido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="whereClausule" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProcessoEmissaoPagamentoResumidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProcessoEmissaoPagamentoResumidoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContaProcessoEmissaoPagamentoResumido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContaProcessoEmissaoPagamentoResumidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContaProcessoEmissaoPagamentoResumidoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarAprovacaoProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codObra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroProcesso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroParcela" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoProcesso" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="aprovarProcesso" type="tns:StatusAprovacaoProcesso" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="StatusAprovacaoProcesso">
+        <s:restriction base="s:string">
+          <s:enumeration value="Sim" />
+          <s:enumeration value="Nao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ValidarAprovacaoProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidarAprovacaoProcessoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoExecucao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoMensagemResultadoExecucao" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sucesso" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Continua" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoMensagemResultadoExecucao">
+        <s:restriction base="s:string">
+          <s:enumeration value="Informativa" />
+          <s:enumeration value="Confirmacao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AprovarProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codObra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroProcesso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroParcela" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoProcesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="aprovarOProcesso" type="tns:StatusAprovacaoProcesso" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AprovarProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AprovarProcessoResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarProcessosPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosPagamento" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessosPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessosPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFaixaValorUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarFaixaValorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFaixaValorUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarFaixaValorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPagamentoVSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPagamentoV" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPagamentoVSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPagamentoVResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensProcessosPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarItensProcessosPagamento" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarItensProcessosPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarItensProcessosPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPagamentoObservacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPagamentoObservacao" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPagamentoObservacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPagamentoObservacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarTodosDepartamentosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarTodosDepartamentos" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarTodosDepartamentosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarTodosDepartamentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDepartamentosUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDepartamentosUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDepartamentosUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDepartamentosUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPagamentoDepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPagamentoDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="AlterarProcessoPagamentoDepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarProcessoPagamentoDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAprovacaoEmissaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAprovacaoEmissao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAprovacaoEmissaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAprovacaoEmissaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoEmissaoPagamentoResumidoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoEmissaoPagamentoResumido" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProcessoEmissaoPagamentoResumidoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProcessoEmissaoPagamentoResumidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContaProcessoEmissaoPagamentoResumidoSoapIn">
+    <wsdl:part name="parameters" element="tns:ContaProcessoEmissaoPagamentoResumido" />
+  </wsdl:message>
+  <wsdl:message name="ContaProcessoEmissaoPagamentoResumidoSoapOut">
+    <wsdl:part name="parameters" element="tns:ContaProcessoEmissaoPagamentoResumidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarAprovacaoProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarAprovacaoProcesso" />
+  </wsdl:message>
+  <wsdl:message name="ValidarAprovacaoProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarAprovacaoProcessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AprovarProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:AprovarProcesso" />
+  </wsdl:message>
+  <wsdl:message name="AprovarProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:AprovarProcessoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProcessoPagamentoSoap">
+    <wsdl:operation name="ConsultarProcessosPagamento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta os processos de pagamento oriundos do assistente de pagamento</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarProcessosPagamentoSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessosPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFaixaValorUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta a faixa de valores de acordo com a alçada da empresa</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarFaixaValorUsuarioSoapIn" />
+      <wsdl:output message="tns:ConsultarFaixaValorUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoV">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">aprova ou remove aprovação do valor do processo de pagamento.</wsdl:documentation>
+      <wsdl:input message="tns:AlterarProcessoPagamentoVSoapIn" />
+      <wsdl:output message="tns:AlterarProcessoPagamentoVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensProcessosPagamento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta os insumos de um processo de pagamento</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarItensProcessosPagamentoSoapIn" />
+      <wsdl:output message="tns:ConsultarItensProcessosPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoObservacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Altera a observação do processo de pagamento</wsdl:documentation>
+      <wsdl:input message="tns:AlterarProcessoPagamentoObservacaoSoapIn" />
+      <wsdl:output message="tns:AlterarProcessoPagamentoObservacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTodosDepartamentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta todos os departamentos cadastrados</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarTodosDepartamentosSoapIn" />
+      <wsdl:output message="tns:ConsultarTodosDepartamentosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDepartamentosUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta os departamentos do usuário logado</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDepartamentosUsuarioSoapIn" />
+      <wsdl:output message="tns:ConsultarDepartamentosUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoDepartamento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Altera o departamento do processo de pagamento</wsdl:documentation>
+      <wsdl:input message="tns:AlterarProcessoPagamentoDepartamentoSoapIn" />
+      <wsdl:output message="tns:AlterarProcessoPagamentoDepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAprovacaoEmissao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca os Processo de Emissão de Pagamento</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAprovacaoEmissaoSoapIn" />
+      <wsdl:output message="tns:ConsultarAprovacaoEmissaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoEmissaoPagamentoResumido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca os Processo de Emissão de Pagamento</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarProcessoEmissaoPagamentoResumidoSoapIn" />
+      <wsdl:output message="tns:ConsultarProcessoEmissaoPagamentoResumidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContaProcessoEmissaoPagamentoResumido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Conta os Processo de Emissão de Pagamento</wsdl:documentation>
+      <wsdl:input message="tns:ContaProcessoEmissaoPagamentoResumidoSoapIn" />
+      <wsdl:output message="tns:ContaProcessoEmissaoPagamentoResumidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAprovacaoProcesso">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida se um processo de pagamento pode ser aprovado</wsdl:documentation>
+      <wsdl:input message="tns:ValidarAprovacaoProcessoSoapIn" />
+      <wsdl:output message="tns:ValidarAprovacaoProcessoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AprovarProcesso">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Aprovar um processo de pagamento</wsdl:documentation>
+      <wsdl:input message="tns:AprovarProcessoSoapIn" />
+      <wsdl:output message="tns:AprovarProcessoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcessoPagamentoSoap" type="tns:ProcessoPagamentoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarProcessosPagamento">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarProcessosPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFaixaValorUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarFaixaValorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoV">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AlterarProcessoPagamentoV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensProcessosPagamento">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarItensProcessosPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoObservacao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AlterarProcessoPagamentoObservacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTodosDepartamentos">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarTodosDepartamentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDepartamentosUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarDepartamentosUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoDepartamento">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AlterarProcessoPagamentoDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAprovacaoEmissao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarAprovacaoEmissao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoEmissaoPagamentoResumido">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarProcessoEmissaoPagamentoResumido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContaProcessoEmissaoPagamentoResumido">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ContaProcessoEmissaoPagamentoResumido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAprovacaoProcesso">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ValidarAprovacaoProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprovarProcesso">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AprovarProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProcessoPagamentoSoap12" type="tns:ProcessoPagamentoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarProcessosPagamento">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarProcessosPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFaixaValorUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarFaixaValorUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoV">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AlterarProcessoPagamentoV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarItensProcessosPagamento">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarItensProcessosPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoObservacao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AlterarProcessoPagamentoObservacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTodosDepartamentos">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarTodosDepartamentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDepartamentosUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarDepartamentosUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarProcessoPagamentoDepartamento">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AlterarProcessoPagamentoDepartamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAprovacaoEmissao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarAprovacaoEmissao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProcessoEmissaoPagamentoResumido">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ConsultarProcessoEmissaoPagamentoResumido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContaProcessoEmissaoPagamentoResumido">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ContaProcessoEmissaoPagamentoResumido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAprovacaoProcesso">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/ValidarAprovacaoProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprovarProcesso">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/ProcessoPagamento/AprovarProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessoPagamento">
+    <wsdl:port name="ProcessoPagamentoSoap" binding="tns:ProcessoPagamentoSoap">
+      <soap:address location="http://localhost:3016/Webservices/ProcessoPagamento.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProcessoPagamentoSoap12" binding="tns:ProcessoPagamentoSoap12">
+      <soap12:address location="http://localhost:3016/Webservices/ProcessoPagamento.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

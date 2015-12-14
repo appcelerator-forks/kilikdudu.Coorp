@@ -1,0 +1,10 @@
+"#winHistoricoInsumo": {
+	orientationModes: [Titanium.UI.LANDSCAPE_LEFT, Titanium.UI.LANDSCAPE_RIGHT]
+}
+"#chartWebView" : {
+	width: Titanium.UI.FILL,
+	enableZoomControls: false,
+	top:50,
+	bottom: 0,
+	scalesPageToFit: true
+}

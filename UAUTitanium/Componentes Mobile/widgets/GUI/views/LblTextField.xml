@@ -1,0 +1,9 @@
+<Alloy>
+	<View class="TextFieldBox"> 
+		<Label id="lblNovoNome" class="TextFieldTitle" /> 
+		<View id="boxInput"> 
+			<TextField id="novoNome" />
+			<View backgroundColor="black" height="1" width="100%" bottom="0" id="linha" />
+		</View>
+	</View>
+</Alloy>

@@ -1,0 +1,6 @@
+
+"#info": {
+	top: 10,
+	height: Titanium.UI.SIZE,
+	bottom: 10
+}

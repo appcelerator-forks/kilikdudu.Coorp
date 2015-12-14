@@ -1,0 +1,19 @@
+<Alloy>
+	<Collection id="fornecedores" src="FornecedorSimulacao" instance="true" />
+	<View id="mestre" backgroundColor="#f1f1f1">
+		<TableView id="minhaListaItens" dataCollection="$.fornecedores" dataTransform="formatar" onClick="detalhar" backgroundColor="transparent" >
+			<TableViewRow class="RowDetail" className="RowListaFornecedoresSimulacao" color="white" fornecedor="{CodFornecedor}" nome="{NomeFornecedor}" totais="{Totais}" >
+				<View class="shadowView" layout="vertical" width="95%" height="Ti.UI.SIZE" top="5" >
+					<Label text="{lblNomeFornecedor}" class="tituloRowLista descricaoTitulo" /> 
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="total" descricao="Sub-Total: " valor="{SubTotal}" />
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="bonus" descricao="Desconto: " valor="{Desconto}" />
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="onus" descricao="Vl. Transp.: " valor="{ValorTransp}" />
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="total" descricao="Total: " valor="{Total}" />
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="onus" descricao="Dif. Aliq. ICMS: " valor="{DifAliqICMS}" />
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="total" descricao="Tot. Com Dif. ICMS: " valor="{TotalComDifICMS}" />
+					<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" descricao="Condicao: " valor="{Condicao}" />
+				</View>
+			</TableViewRow>
+		</TableView> 
+	</View>
+</Alloy>

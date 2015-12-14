@@ -1,0 +1,16 @@
+<Alloy>
+	<ScrollView id="caixa" class="BoxLogin">
+		<View height="Ti.UI.SIZE" top=5>
+			<Widget src="GUI" name="ComboBox" id="empresa" onChange="setUsuarioLogin" onListlngclick="deletaEmpresa" />
+		</View>
+		<View height="Ti.UI.SIZE" top=5>
+			<Widget src="GUI" name="LblTextField" id="usrname" />
+		</View>
+		<View height="Ti.UI.SIZE" top=5>
+			<Widget src="GUI" name="LblTextField" id="senha" />
+		</View>
+		<Button width="90%" left="5%" id="btLogin" class="CustomButton" onClick="checkLogin" top=15 >Entrar</Button>
+		<Button width="90%" left="5%" id="btCadastrar" class="CustomButton" onClick="cadastrar" top=5 >Crie uma</Button> 
+		<Button width="90%" left="5%" id="btEsqueciSenha" class="CustomButton" onClick="esqueciSenha" bottom=10 top=5 >Esqueci a senha</Button>
+	</ScrollView>
+</Alloy>

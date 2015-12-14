@@ -1,0 +1,11 @@
+<Alloy>
+	<View class="TextFieldBox" height="Ti.UI.SIZE" > 
+		<Label id="lblDesc" class="TextFieldTitle" />
+		<View id="boxControles">  
+			<Label id="Valor" />
+			<View id="linhaDesc" class="divisoria" /> 
+			<Button id="btPlus" onClick="Plus" /> 
+			<Button id="btMinus" onClick="Minus" />
+		</View> 
+	</View>
+</Alloy>

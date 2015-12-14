@@ -1,0 +1,20 @@
+<Alloy>
+	<Collection src="Novidade" id="novidades" instance="true" />
+	<Window id="winListaNovidades" class="janela">
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<Label id="subtitulo" class="titulo" >Novidades do módulo</Label>
+		<View class="divisoria" width="96%" backgroundColor="black" top="110" />
+		<TableView id="minhaListaNovidades" dataCollection="$.novidades" dataTransform="formatar" >
+			<TableViewRow class="RowDetail" className="ListaNovidadesRow" title="{Busca}" >
+				<View layout="vertical" width="100%" height="Ti.UI.SIZE" top="10" backgroundColor="white">
+					<Label class="tituloRowLista descricaoTitulo" text="{Projeto}" /> 
+					<Label class="descricaoRowLista descricao" html="{Descricao}" platform="android" wordWrap="true" ellipsize="false" />
+					<Widget class="descricaoRowLista descricao" src="nl.fokkezb.html2as.widget" html="{Descricao}" platform="ios"  /> 
+					<Button id="btnVirtual" onClick="verVirtual" link="{linkVirtual}" enabled="{ativaLink}" class="CustomButton">Ver no Virtuau</Button> 
+					<View height="10" />
+				</View>
+				<View class="divisoria" width="96%" backgroundImage="/images/linhaBlack.png" bottom="0" />
+			</TableViewRow>
+		</TableView>
+	</Window>
+</Alloy>

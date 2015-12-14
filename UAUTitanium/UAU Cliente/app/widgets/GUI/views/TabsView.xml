@@ -1,0 +1,6 @@
+<Alloy>
+	<View height="100%" width="100%">
+		<View id="pagingControl" height="40" top="0" />
+		<ScrollableView id="boxTabsView" top="40" bottom="0" width="100%" />
+	</View>
+</Alloy>

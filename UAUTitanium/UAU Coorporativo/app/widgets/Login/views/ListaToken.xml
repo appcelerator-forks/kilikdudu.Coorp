@@ -1,0 +1,17 @@
+<Alloy>
+	<Collection src="Empresa" id="empresas" instance="true" />
+	<Window id="winToken" class="janela">
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<TableView id="listaTokens" dataCollection="$.empresas" >
+			<TableViewRow class="RowDetail" className="ListaTokenRow">
+				<View layout="vertical" width="80%" height="Ti.UI.SIZE" left="2%" top="10">
+					<Label id="descEmpresa" text="{descricao}" class="descricaoTitulo" />
+					<Label id="numToken" text="{token}" class="descricao" />
+					<View height="10" />
+				</View>
+				<Button id="btnDelete" chave="{num}" onClick="deletar" />
+				<View width="98%" backgroundImage="/images/linhaBlack.png" bottom="0" class="divisoria" />
+			</TableViewRow>
+		</TableView>
+	</Window>
+</Alloy>

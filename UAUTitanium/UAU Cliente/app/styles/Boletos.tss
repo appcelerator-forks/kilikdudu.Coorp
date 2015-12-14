@@ -1,0 +1,33 @@
+"#lblEmpty": { 
+	wordWrap: true,
+	font: {fontSize: 16},
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	opacity: 0
+}
+"#mestre": {
+	width: Titanium.UI.FILL,
+	top: 100,
+	bottom: 50
+} 
+"#listaBoletos": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	scrollable: true
+} 
+
+"#valor": {
+	width: "90%",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	wordWrap: false,
+	ellipsize: true 
+}
+".detalheBoleto": {
+	width: "90%",
+	top: 5,
+	left: "9%",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	wordWrap: false,
+	ellipsize: true
+}

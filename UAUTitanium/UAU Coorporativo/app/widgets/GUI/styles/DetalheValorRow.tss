@@ -1,0 +1,30 @@
+".onus": {
+	color: "#ca060e"
+}
+".bonus": {
+	color: "#009a3d"
+}
+".total": {
+	color: "black"
+}
+".default": {
+	color: "#505050"
+}
+"#boxDetalhe": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
+	backgroundColor: "transparent",
+	layout: "horizontal"
+}
+"#descricao": {
+	width: "60%",
+	color: "black",
+	wordWrap: true,
+	ellipsize: false
+}
+"#valor": {
+	width: "39%",
+	left:"1%",
+	wordWrap: true,
+	ellipsize: false
+}

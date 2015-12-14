@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/SuporteNet_Site/wsNovidade" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/SuporteNet_Site/wsNovidade" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/SuporteNet_Site/wsNovidade">
+      <s:element name="ConsultarNovidadePorModuloVersao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumModulo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumVersao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarNovidadePorModuloVersaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarNovidadePorModuloVersaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarNovidadeCriticaPorModuloVersao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumModulo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumVersao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarNovidadeCriticaPorModuloVersaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarNovidadeCriticaPorModuloVersaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarNovidadePorModuloVersaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarNovidadePorModuloVersao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarNovidadePorModuloVersaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarNovidadePorModuloVersaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarNovidadeCriticaPorModuloVersaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarNovidadeCriticaPorModuloVersao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarNovidadeCriticaPorModuloVersaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarNovidadeCriticaPorModuloVersaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsNovidadeSoap">
+    <wsdl:operation name="ConsultarNovidadePorModuloVersao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta as novidades por módulo e versão.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarNovidadePorModuloVersaoSoapIn" />
+      <wsdl:output message="tns:ConsultarNovidadePorModuloVersaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarNovidadeCriticaPorModuloVersao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta as novidades críticas por módulo e versão maior que a informada.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarNovidadeCriticaPorModuloVersaoSoapIn" />
+      <wsdl:output message="tns:ConsultarNovidadeCriticaPorModuloVersaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsNovidadeSoap" type="tns:wsNovidadeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarNovidadePorModuloVersao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_Site/wsNovidade/ConsultarNovidadePorModuloVersao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarNovidadeCriticaPorModuloVersao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_Site/wsNovidade/ConsultarNovidadeCriticaPorModuloVersao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsNovidadeSoap12" type="tns:wsNovidadeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarNovidadePorModuloVersao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_Site/wsNovidade/ConsultarNovidadePorModuloVersao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarNovidadeCriticaPorModuloVersao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_Site/wsNovidade/ConsultarNovidadeCriticaPorModuloVersao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsNovidade">
+    <wsdl:port name="wsNovidadeSoap" binding="tns:wsNovidadeSoap">
+      <soap:address location="http://localhost:10730/webservices/wsnovidade.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsNovidadeSoap12" binding="tns:wsNovidadeSoap12">
+      <soap12:address location="http://localhost:10730/webservices/wsnovidade.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

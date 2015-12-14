@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="boxCabecalho">
+		<ImageView id="imagem" />
+		<View id="boxTitulos" />
+	</View>
+</Alloy>

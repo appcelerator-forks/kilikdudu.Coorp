@@ -1,0 +1,14 @@
+<Alloy>
+	<Collection id="quemaprovou" src="AprovacaoMedicao" instance="true" />
+	<View id="mestre" backgroundColor="#f1f1f1" > 
+		<TableView id="minhaListaAprovacao" dataCollection="$.quemaprovou" dataTransform="formatar" backgroundColor="transparent" >
+			<TableViewRow class="RowDetail" className="ListaAprovacaoSimulacaoRow" >
+				<View class="shadowView" top="5" layout="vertical" width="95%" height="Ti.UI.SIZE" top="10">
+					<Label text="{Usuario}" class="tituloRowLista descricaoTitulo" /> 
+					<Label text="{Data}" class="descricaoRowLista descricao" />
+					<View height="10" />
+				</View>
+			</TableViewRow>
+		</TableView>
+	</View>  
+</Alloy>

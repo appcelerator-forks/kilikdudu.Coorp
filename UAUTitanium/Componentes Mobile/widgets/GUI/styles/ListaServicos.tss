@@ -1,0 +1,51 @@
+"#boxListaServicos": {
+	width: Alloy.Globals.Servicos.Largura,
+	height: Titanium.UI.FILL,
+	left: 0,
+	backgroundColor: "white",
+	layout: 'vertical'
+}
+"#headerListaServicos": {
+	width: Titanium.UI.FILL,
+	height: "30%",
+	backgroundColor: Alloy.Globals.MainColor
+}
+"#conteudoHeader": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
+	layout: "vertical",
+	bottom: 0
+}
+"#icone": {
+	height: 68,
+	width: "90%",
+	bottom: 15,
+	left: "5%",
+	backgroundImage: "/images/empresa.png",
+}
+"#usuario": {
+	width: "90%",
+	bottom: 2,
+	height: 24,
+	font: {fontSize: 14},
+	color: "white",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	wordWrap: false,
+	ellipsize: true
+}
+"#empresa": {
+	width: "90%",
+	bottom: 2,
+	height: 24,
+	font: {fontSize: 14},
+	color: "white",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	wordWrap: false,
+	ellipsize: true
+}
+"#servicos": {
+	width: Titanium.UI.FILL,
+	top: "2%",
+	height: "70%",
+	scrollable: true
+}

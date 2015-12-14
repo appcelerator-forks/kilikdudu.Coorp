@@ -1,0 +1,8 @@
+<Alloy>
+	<Window id="winDetalhes" class="janela" >
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<View id="conteudo">
+			<Widget src="GUI" name="TabsView" id="minhaScrollable" />
+		</View>
+	</Window>
+</Alloy>

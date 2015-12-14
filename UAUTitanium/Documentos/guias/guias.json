@@ -1,0 +1,13 @@
+[
+	{
+		"title": "Globaltec Guias - Aplicativos Titanium Alloy",
+		"items": [
+			{
+				"name": "Diagramas",
+				"url": "tutoriais/diagramas",
+				"title": "Diagramas",
+				"description": "Diagramas mostrando a arquitetura atual dos aplicativos desenvolvidos na ferramenta Titanium Alloy"
+			}
+		]
+	}
+]

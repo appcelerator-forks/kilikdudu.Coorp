@@ -1,0 +1,15 @@
+<Alloy>
+	<Collection id="quemaprovou" src="AprovacaoEmissao" instance="true" />
+	<View id="mestre"> 
+		<TableView id="minhaListaAprovacao" dataCollection="$.quemaprovou" dataTransform="formatar" >
+			<TableViewRow class="RowDetail" className="ListaAprovacaoRow" >
+				<View layout="vertical" width="Ti.UI.FILL" height="Ti.UI.SIZE" top="10">
+					<Label text="{Quem}" class="tituloRowLista descricaoTitulo" /> 
+					<Label text="{DataAprovacao}" class="descricaoRowLista descricao" />
+					<View height="10" />
+				</View>
+				<View class="divisoria" width="96%" backgroundImage="/images/linhaBlack.png" bottom="0" />
+			</TableViewRow>
+		</TableView>
+	</View>  
+</Alloy>

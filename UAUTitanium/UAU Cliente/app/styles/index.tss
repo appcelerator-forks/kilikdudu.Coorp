@@ -1,0 +1,26 @@
+"#janela": {
+	backgroundColor: "#F0F0F0"
+}
+"#boxAuxLogin": {
+	layout: 'vertical',
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.SIZE
+}
+"#boxTitulo": {
+	width: 280,
+	height: Titanium.UI.SIZE,
+	bottom: 20,
+	layout: 'vertical',
+	top: 0
+}
+"#imgIcone": {
+	width: 48,
+	height: 48,
+	bottom: 5,
+	image: "/images/icone.png"
+}
+"#titulo": {
+	bottom: 0,
+	font: {fontSize: 24},
+	color: "#363636"
+}

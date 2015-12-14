@@ -1,0 +1,5 @@
+"#conteudoLogin": {
+	top: 50,
+	bottom: 0,
+	width: Ti.UI.FILL
+}

@@ -1,0 +1,32 @@
+<Alloy>
+	<ScrollView id="scrlMestre" >
+		<View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.FILL" top="5" >
+			<View layout="horizontal" width="90%" height="Ti.UI.SIZE" >
+				<Label class="titulo" id="HeaderAprovar" >Aprovado: </Label> 
+				<Switch id="switcherAprovar" class="meuSwitch" width="Ti.UI.SIZE" value="false" left="10" /> 
+		</View>
+			<View backgroundColor="black" width="Ti.UI.FILL" class="divisoria" top="5" />
+			<Widget id="ValPagar" src="GUI" name="LblHtml" descText="Val. Tot. Processo: " width="90%" top="5" />
+			<Widget id="Fornecedor" src="GUI" name="LblHtml" descText="Fornecedor: " width="90%" top="5" />
+			<Widget id="DataProrrogacao" src="GUI" name="LblHtml" descText="Data Prorrogação: " width="90%" top="5" />
+			<Widget id="Observacao" src="GUI" name="LblHtml" descText="Obs. Pagamento: " width="90%" top="5" />
+			<Widget id="NumeroProcesso" src="GUI" name="LblHtml" descText="Processo: " width="90%" top="5" />
+			<Widget id="Parcela" src="GUI" name="LblHtml" descText="Parcela: " width="90%" top="5" />
+			<Widget id="DataVencimento" src="GUI" name="LblHtml" descText="Data de Vencimento: " width="90%" top="5" />
+			<Widget id="DocumentoFiscal" src="GUI" name="LblHtml" descText="Doc. Fiscal: " width="90%" top="5" />
+			<Widget id="ValorDocumentoFiscal" src="GUI" name="LblHtml" descText="Val. Doc. Fiscal: " width="90%" top="5" />
+			<Widget id="ValorProcesso" src="GUI" name="LblHtml" descText="Val. Processo: " width="90%" top="5" />
+			<Widget id="Acrescimo" src="GUI" name="LblHtml" descText="Acréscimo: " width="90%" top="5" />
+			<Widget id="Desconto" src="GUI" name="LblHtml" descText="Desconto: " width="90%" top="5" />
+			<Widget id="BancoConta" src="GUI" name="LblHtml" descText="Banco e Conta: " width="90%" top="5" />	
+			<Widget id="TipoEmissao" src="GUI" name="LblHtml" descText="Tipo de Emissão: " width="90%" top="5" />
+			<Widget id="Empresa" src="GUI" name="LblHtml" descText="Empresa: " width="90%" top="5" />
+			<Widget id="Obra" src="GUI" name="LblHtml" descText="Obra: " width="90%" top="5" />
+			<Widget id="NumeroCotacao" src="GUI" name="LblHtml" descText="Nº Cotação: " width="90%" top="5" />
+			<Widget id="OrdemCompra" src="GUI" name="LblHtml" descText="Ordem de Compra: " width="90%" top="5" />
+			<Widget id="Contrato" src="GUI" name="LblHtml" descText="Contrato: " width="90%" top="5" />
+			<Widget id="Medicao" src="GUI" name="LblHtml" descText="Medição: " width="90%" top="5" />
+			<Widget id="DataGeracao" src="GUI" name="LblHtml" descText="Data de Geração: " width="90%" top="5" />
+		</View>
+	</ScrollView>
+</Alloy>

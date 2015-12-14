@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport"
+	      content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
+		<script src="jquery.min.js"></script>
+		<script src="highcharts.js"></script>
+		<script type="text/javascript">
+			function plotChart(dados, viewConfig) {
+				var chartConfig = JSON.parse(dados);
+				var viewConfigObj = JSON.parse(viewConfig);
+				document.getElementById("container").style.width=viewConfigObj.width;
+				document.getElementById("container").style.height=viewConfigObj.height;
+		        new Highcharts.Chart(chartConfig);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="container"></div>
+	</body>
+	
+</html>

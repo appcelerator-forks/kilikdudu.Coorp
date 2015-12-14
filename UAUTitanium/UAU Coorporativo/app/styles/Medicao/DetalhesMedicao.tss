@@ -1,0 +1,5 @@
+"#conteudo": {
+	width: Titanium.UI.FILL,
+	top: 48,
+	bottom: 0
+}

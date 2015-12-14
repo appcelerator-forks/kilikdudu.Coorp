@@ -1,0 +1,18 @@
+<Alloy>
+	<Window id="winCadastroPreliminar" class="janela" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<ScrollView id="scrlCadastro" >
+			<Widget src="GUI" name="RadioGroup" id="natureza" titulo="*Natureza" onChange="alteraNatureza" /> 
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="DateInput" id="dataNascimento" />
+			</View>
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="cpfcnpj" onBlur="validaCpfCnpj" /> 
+			</View>
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="email" /> 
+			</View>
+			<Button width="90%" left="5%" onClick="entrar" class="CustomButton" top=10 >Entrar</Button>
+		</ScrollView>
+	</Window>
+</Alloy>

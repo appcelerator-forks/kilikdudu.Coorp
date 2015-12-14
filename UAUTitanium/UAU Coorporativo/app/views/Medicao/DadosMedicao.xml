@@ -1,0 +1,23 @@
+<Alloy>
+	<ScrollView id="scrlMestre" >
+		<View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.FILL" top=5  >
+			<View layout="horizontal" width="90%" height="Ti.UI.SIZE" >
+				<Label class="titulo" id="HeaderAprovar" >Aprovado: </Label> 
+				<Switch id="switcherAprovar" class="meuSwitch" width="Ti.UI.SIZE" value="false" left="10" /> 
+		</View>
+			<View backgroundColor="black" width="Ti.UI.FILL" class="divisoria" top="5" />
+			<Widget id="ValorLiquido" src="GUI" name="LblHtml" descText="Val. Líq. Contrato: " width="90%" top="5" />
+			<Widget id="Contratado" src="GUI" name="LblHtml" descText="Contratado: " width="90%" top="5" />
+			<Widget id="DataMedicao" src="GUI" name="LblHtml" descText="Data: " width="90%" top="5" />
+			<Widget id="ObsMedicao" src="GUI" name="LblHtml" descText="Obs. da Medição: " width="90%" top="5" />
+			<Widget id="Contrato" src="GUI" name="LblHtml" descText="Nº Contrato: " width="90%" top="5" />
+			<Widget id="CodMedicao" src="GUI" name="LblHtml" descText="Nº Medicao: " width="90%" top="5" />
+			<Widget id="ValorMedicao" src="GUI" name="LblHtml" descText="Val. Medição: " width="90%" top="5" />
+			<Widget id="ValorDesconto" src="GUI" name="LblHtml" descText="Val. Descontos: " width="90%" top="5" />
+			<Widget id="ValorAdiantamento" src="GUI" name="LblHtml" descText="Val. Adiantamentos: " width="90%" top="5" />
+			<Widget id="ValorAcrescimo" src="GUI" name="LblHtml" descText="Val. Acréscimos: " width="90%" top="5" />
+			<Widget id="DescEmpresa" src="GUI" name="LblHtml" descText="Empresa: " width="90%" top="5" />
+			<Widget id="DescObra" src="GUI" name="LblHtml" descText="Obra: " width="90%" top="5" />
+		</View>
+	</ScrollView>
+</Alloy>

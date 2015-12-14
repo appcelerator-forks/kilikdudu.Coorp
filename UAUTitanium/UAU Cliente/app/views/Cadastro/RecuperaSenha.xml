@@ -1,0 +1,12 @@
+<Alloy>
+	<Window id="winRecuperaSenha" class="janela" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<ScrollView id="scrlRecuperaSenha" > 
+			<Widget src="GUI" name="RadioGroup" id="tipo" titulo="*Como gostaria de recuperar ?" onChange="alteraTipo" /> 
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="loginemail" />  
+			</View>
+			<Button width="90%" left="5%" onClick="recuperar" class="CustomButton" top=10 >Recuperar</Button>
+		</ScrollView>
+	</Window>
+</Alloy>

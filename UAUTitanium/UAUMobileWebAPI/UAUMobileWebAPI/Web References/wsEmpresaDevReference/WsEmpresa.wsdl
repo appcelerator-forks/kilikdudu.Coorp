@@ -1,0 +1,3145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/SuporteNET_WS/WsEmpresa" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/SuporteNET_WS/WsEmpresa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/SuporteNET_WS/WsEmpresa">
+      <s:element name="ConsultarDescricao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_emp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDescricaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDescricaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPelaChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_emp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPelaChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPelaChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmpresaCancelada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmpresaCanceladaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EmpresaCanceladaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consultar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarAtivos" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarInativos" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarClientes" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarContatos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarComPermissao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Programa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarAtivos" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarInativos" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarClientes" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetornarContatos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarComPermissaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarComPermissaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPorTarefa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_Tar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPorTarefaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPorTarefaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Inserir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_EmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="_EmpresaInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Num_emp" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descr_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpf_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ender_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Setor_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cidade_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uf_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cep_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferEnd_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Datacad_emp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status_emp" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndWWW_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtInat_emp" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataAlt_emp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeFant_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Anexos_emp" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="InscrMunic_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InscrEst_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estacoes_emp" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Obs_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrAlt_emp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contato_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdeHora_emp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VlrHora_emp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataUltAtualizacao_emp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClienteVinculado_emp" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VlrHoraFac_emp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="VlrHoraFacExc_emp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoCobranca_emp" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataContrato_emp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EstacoesUso_emp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataAltEstUso_emp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrResp_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VlrHoraContrato_emp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdeHoraContrato_emp" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndiceReajuste_emp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistanciaSede_emp" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCancelamento_emp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermitirLicExcedentes_emp" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserirResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Alterar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjInfo" type="tns:_EmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarResponsavelDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="infoEmpresa" type="tns:_EmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarResponsavelDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarHorasCronograma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="infoEmpresa" type="tns:_EmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarHorasCronogramaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Deletar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_emp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletarResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTelefone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmp_tel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTelefoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarTelefoneResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTelefonePelaChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_tel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTelefonePelaChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarTelefonePelaChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirTelefone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_TelefoneEmpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="_TelefoneEmpInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Num_tel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_tel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fone_tel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDD_tel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ramal_tel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo_tel" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_tel" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_tel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Obs_tel" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirTelefoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirTelefoneResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarTelefone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjInfo" type="tns:_TelefoneEmpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarTelefoneResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletarTelefone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_tel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarTelefoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletarTelefoneResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarConexao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmp_con" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarConexaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarConexaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirConexao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_ConexaoEmpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="_ConexaoEmpInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Num_con" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumConex_con" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo_con" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrLogin_con" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha_con" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_con" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_con" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Obs_con" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_con" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCon_con" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCon_con" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirConexaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InserirConexaoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarConexao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjInfo" type="tns:_ConexaoEmpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarConexaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletarConexao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Num_con" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarConexaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletarConexaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConectarUsuarioNaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroConexao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConectarUsuarioNaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DesconectarUsuarioDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroConexao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DesconectarUsuarioDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+        <s:complexType />
+      </s:element>
+      <s:element name="LiberarConexoesDasEmpresasAposUmDiaDeUsoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarModuloEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_Emp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarModuloEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarModuloEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirModuloEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_ModuloEmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="_ModuloEmpresaInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_ModEmp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumMod_ModEmp" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_ModEmp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_ModEmp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataExpiracao_ModEmp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdeCadastro_ModEmp" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirModuloEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletarModuloEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NumEmp_ModEmp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumMod_ModEmp" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarModuloEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletarModuloEmpresaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarModuloEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modEmpInfo" type="tns:_ModuloEmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarModuloEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarHistoricoModuloEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarHistoricoModuloEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarHistoricoModuloEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarModuloEmpresaPorModuloEEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numeroEmpresa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroModulo" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarModuloEmpresaPorModuloEEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarModuloEmpresaPorModuloEEmpresaResult" type="tns:_ModuloEmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CarregarConfPortalEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmp_PWeb" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="_ConfPortalUAUInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_PWeb" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLWS_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailContato_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EmpresaUAU_PWeb" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObraUAU_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_Pweb" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataAlt_Pweb" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrAlt_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtInat_PWeb" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescrPortalUAU_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HTML_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLPaginaCentro_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumHospUauWeb_PWeb" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CarregarConfPortalEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CarregarConfPortalEmpresaResult" type="tns:_ConfPortalUAUInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosConfPortalUauPorToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosConfPortalUauPorTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosConfPortalUauPorTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeraTokenEmpresaPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeraTokenEmpresaPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GeraTokenEmpresaPorCodigoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HabilitarPortalEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_ConfPortalUAUInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HabilitarPortalEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DesabilitarPortalEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DesabilitarPortalEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarConfPortalSupNet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfPortaluauInfo" type="tns:_ConfPortalUAUInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarConfPortalSupNetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExisteConfiguracaoUauWebComHospedagem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_hosp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisteConfiguracaoUauWebComHospedagemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExisteConfiguracaoUauWebComHospedagemResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaLogDiferencaLicencaPorEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intNumEmp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaLogDiferencaLicencaPorEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaLogDiferencaLicencaPorEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarModulosCustomizadoDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_Emp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarModulosCustomizadoDaEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarModulosCustomizadoDaEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarMenusModuloEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_Emp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarMenusModuloEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarMenusModuloEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirModuloCustomizadoDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_ItemMenuModuloEmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="_ItemMenuModuloEmpresaInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_ItemMnuModEmp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumMod_ItemMnuModEmp" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeMenuPai_ItemMnuModEmp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeMenu_ItemMnuModEmp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_ItemMnuModEmp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_ItemMnuModEmp" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirModuloCustomizadoDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InserirPermissoesModuloCustomizadoDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaInfo" type="tns:ArrayOf_ItemMenuModuloEmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOf_ItemMenuModuloEmpresaInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="_ItemMenuModuloEmpresaInfo" nillable="true" type="tns:_ItemMenuModuloEmpresaInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirPermissoesModuloCustomizadoDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarModuloCustomizadoDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="tns:_ItemMenuModuloEmpresaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarModuloCustomizadoDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletarModuloCustomizadoDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmp_ItemMnuModEmp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumMod_ItemMnuModEmp" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeMenu_ItemMnuModEmp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeMenuPai_ItemMnuModEmp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarModuloCustomizadoDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletaTodosModuloCustomizadoDaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmp_ItemMnuModEmp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumMod_ItemMnuModEmp" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletaTodosModuloCustomizadoDaEmpresaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="_ModuloEmpresaInfo" nillable="true" type="tns:_ModuloEmpresaInfo" />
+      <s:element name="_ConfPortalUAUInfo" nillable="true" type="tns:_ConfPortalUAUInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarDescricaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDescricao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDescricaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDescricaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPelaChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPelaChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaCanceladaSoapIn">
+    <wsdl:part name="parameters" element="tns:EmpresaCancelada" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaCanceladaSoapOut">
+    <wsdl:part name="parameters" element="tns:EmpresaCanceladaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarSoapIn">
+    <wsdl:part name="parameters" element="tns:Consultar" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComPermissaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarComPermissao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComPermissaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarComPermissaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPorTarefaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPorTarefa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPorTarefaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPorTarefaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirSoapIn">
+    <wsdl:part name="parameters" element="tns:Inserir" />
+  </wsdl:message>
+  <wsdl:message name="InserirSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSoapIn">
+    <wsdl:part name="parameters" element="tns:Alterar" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarResponsavelDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarResponsavelDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="AlterarResponsavelDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarResponsavelDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarHorasCronogramaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarHorasCronograma" />
+  </wsdl:message>
+  <wsdl:message name="AlterarHorasCronogramaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarHorasCronogramaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarSoapIn">
+    <wsdl:part name="parameters" element="tns:Deletar" />
+  </wsdl:message>
+  <wsdl:message name="DeletarSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefoneSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarTelefone" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefoneSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarTelefoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefonePelaChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarTelefonePelaChave" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefonePelaChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarTelefonePelaChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirTelefoneSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirTelefone" />
+  </wsdl:message>
+  <wsdl:message name="InserirTelefoneSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirTelefoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarTelefoneSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarTelefone" />
+  </wsdl:message>
+  <wsdl:message name="AlterarTelefoneSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarTelefoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarTelefoneSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletarTelefone" />
+  </wsdl:message>
+  <wsdl:message name="DeletarTelefoneSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarTelefoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarConexaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarConexao" />
+  </wsdl:message>
+  <wsdl:message name="ListarConexaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarConexaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirConexaoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirConexao" />
+  </wsdl:message>
+  <wsdl:message name="InserirConexaoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirConexaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarConexaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarConexao" />
+  </wsdl:message>
+  <wsdl:message name="AlterarConexaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarConexaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarConexaoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletarConexao" />
+  </wsdl:message>
+  <wsdl:message name="DeletarConexaoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarConexaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConectarUsuarioNaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConectarUsuarioNaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConectarUsuarioNaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConectarUsuarioNaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DesconectarUsuarioDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:DesconectarUsuarioDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="DesconectarUsuarioDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:DesconectarUsuarioDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="LiberarConexoesDasEmpresasAposUmDiaDeUsoSoapIn">
+    <wsdl:part name="parameters" element="tns:LiberarConexoesDasEmpresasAposUmDiaDeUso" />
+  </wsdl:message>
+  <wsdl:message name="LiberarConexoesDasEmpresasAposUmDiaDeUsoSoapOut">
+    <wsdl:part name="parameters" element="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarModuloEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarModuloEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ListarModuloEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarModuloEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirModuloEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirModuloEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="InserirModuloEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirModuloEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletarModuloEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarModuloEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarModuloEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarModuloEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="AlterarModuloEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarModuloEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoModuloEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarHistoricoModuloEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoModuloEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarHistoricoModuloEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarModuloEmpresaPorModuloEEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarModuloEmpresaPorModuloEEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarModuloEmpresaPorModuloEEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarModuloEmpresaPorModuloEEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CarregarConfPortalEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:CarregarConfPortalEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="CarregarConfPortalEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:CarregarConfPortalEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosConfPortalUauPorToken" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosConfPortalUauPorTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:GeraTokenEmpresaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:GeraTokenEmpresaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="HabilitarPortalEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:HabilitarPortalEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="HabilitarPortalEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:HabilitarPortalEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DesabilitarPortalEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:DesabilitarPortalEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="DesabilitarPortalEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:DesabilitarPortalEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarConfPortalSupNetSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarConfPortalSupNet" />
+  </wsdl:message>
+  <wsdl:message name="AlterarConfPortalSupNetSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarConfPortalSupNetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExisteConfiguracaoUauWebComHospedagemSoapIn">
+    <wsdl:part name="parameters" element="tns:ExisteConfiguracaoUauWebComHospedagem" />
+  </wsdl:message>
+  <wsdl:message name="ExisteConfiguracaoUauWebComHospedagemSoapOut">
+    <wsdl:part name="parameters" element="tns:ExisteConfiguracaoUauWebComHospedagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLogDiferencaLicencaPorEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaLogDiferencaLicencaPorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLogDiferencaLicencaPorEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaLogDiferencaLicencaPorEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarModulosCustomizadoDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarModulosCustomizadoDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ListarModulosCustomizadoDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarModulosCustomizadoDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMenusModuloEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarMenusModuloEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMenusModuloEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarMenusModuloEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirModuloCustomizadoDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirModuloCustomizadoDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="InserirModuloCustomizadoDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirModuloCustomizadoDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirPermissoesModuloCustomizadoDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirPermissoesModuloCustomizadoDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="InserirPermissoesModuloCustomizadoDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirPermissoesModuloCustomizadoDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarModuloCustomizadoDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarModuloCustomizadoDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="AlterarModuloCustomizadoDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarModuloCustomizadoDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloCustomizadoDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletarModuloCustomizadoDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloCustomizadoDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarModuloCustomizadoDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletaTodosModuloCustomizadoDaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletaTodosModuloCustomizadoDaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="DeletaTodosModuloCustomizadoDaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletaTodosModuloCustomizadoDaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDescricaoHttpGetIn">
+    <wsdl:part name="Num_emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDescricaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpGetIn">
+    <wsdl:part name="Num_emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaCanceladaHttpGetIn">
+    <wsdl:part name="numeroEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaCanceladaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHttpGetIn">
+    <wsdl:part name="RetornarAtivos" type="s:string" />
+    <wsdl:part name="RetornarInativos" type="s:string" />
+    <wsdl:part name="RetornarClientes" type="s:string" />
+    <wsdl:part name="RetornarContatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComPermissaoHttpGetIn">
+    <wsdl:part name="Programa" type="s:string" />
+    <wsdl:part name="RetornarAtivos" type="s:string" />
+    <wsdl:part name="RetornarInativos" type="s:string" />
+    <wsdl:part name="RetornarClientes" type="s:string" />
+    <wsdl:part name="RetornarContatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComPermissaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPorTarefaHttpGetIn">
+    <wsdl:part name="Num_Tar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPorTarefaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpGetIn">
+    <wsdl:part name="Num_emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefoneHttpGetIn">
+    <wsdl:part name="NumEmp_tel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefoneHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefonePelaChaveHttpGetIn">
+    <wsdl:part name="Num_tel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefonePelaChaveHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarTelefoneHttpGetIn">
+    <wsdl:part name="Num_tel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarTelefoneHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ListarConexaoHttpGetIn">
+    <wsdl:part name="NumEmp_con" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarConexaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarConexaoHttpGetIn">
+    <wsdl:part name="Num_con" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarConexaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConectarUsuarioNaEmpresaHttpGetIn">
+    <wsdl:part name="numeroConexao" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConectarUsuarioNaEmpresaHttpGetOut" />
+  <wsdl:message name="DesconectarUsuarioDaEmpresaHttpGetIn">
+    <wsdl:part name="numeroConexao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DesconectarUsuarioDaEmpresaHttpGetOut" />
+  <wsdl:message name="LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpGetIn" />
+  <wsdl:message name="LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpGetOut" />
+  <wsdl:message name="ListarModuloEmpresaHttpGetIn">
+    <wsdl:part name="Num_Emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarModuloEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloEmpresaHttpGetIn">
+    <wsdl:part name="NumEmp_ModEmp" type="s:string" />
+    <wsdl:part name="NumMod_ModEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoModuloEmpresaHttpGetIn">
+    <wsdl:part name="numeroEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoModuloEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarModuloEmpresaPorModuloEEmpresaHttpGetIn">
+    <wsdl:part name="numeroEmpresa" type="s:string" />
+    <wsdl:part name="numeroModulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarModuloEmpresaPorModuloEEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:_ModuloEmpresaInfo" />
+  </wsdl:message>
+  <wsdl:message name="CarregarConfPortalEmpresaHttpGetIn">
+    <wsdl:part name="NumEmp_PWeb" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CarregarConfPortalEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:_ConfPortalUAUInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpGetIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DesabilitarPortalEmpresaHttpGetIn">
+    <wsdl:part name="NumEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DesabilitarPortalEmpresaHttpGetOut" />
+  <wsdl:message name="ExisteConfiguracaoUauWebComHospedagemHttpGetIn">
+    <wsdl:part name="Num_hosp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExisteConfiguracaoUauWebComHospedagemHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLogDiferencaLicencaPorEmpresaHttpGetIn">
+    <wsdl:part name="intNumEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLogDiferencaLicencaPorEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ListarModulosCustomizadoDaEmpresaHttpGetIn">
+    <wsdl:part name="Num_Emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarModulosCustomizadoDaEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMenusModuloEmpresaHttpGetIn">
+    <wsdl:part name="Num_Emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMenusModuloEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloCustomizadoDaEmpresaHttpGetIn">
+    <wsdl:part name="NumEmp_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NumMod_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NomeMenu_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NomeMenuPai_ItemMnuModEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloCustomizadoDaEmpresaHttpGetOut" />
+  <wsdl:message name="DeletaTodosModuloCustomizadoDaEmpresaHttpGetIn">
+    <wsdl:part name="NumEmp_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NumMod_ItemMnuModEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletaTodosModuloCustomizadoDaEmpresaHttpGetOut" />
+  <wsdl:message name="ConsultarDescricaoHttpPostIn">
+    <wsdl:part name="Num_emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDescricaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpPostIn">
+    <wsdl:part name="Num_emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaCanceladaHttpPostIn">
+    <wsdl:part name="numeroEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaCanceladaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHttpPostIn">
+    <wsdl:part name="RetornarAtivos" type="s:string" />
+    <wsdl:part name="RetornarInativos" type="s:string" />
+    <wsdl:part name="RetornarClientes" type="s:string" />
+    <wsdl:part name="RetornarContatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComPermissaoHttpPostIn">
+    <wsdl:part name="Programa" type="s:string" />
+    <wsdl:part name="RetornarAtivos" type="s:string" />
+    <wsdl:part name="RetornarInativos" type="s:string" />
+    <wsdl:part name="RetornarClientes" type="s:string" />
+    <wsdl:part name="RetornarContatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarComPermissaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPorTarefaHttpPostIn">
+    <wsdl:part name="Num_Tar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPorTarefaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpPostIn">
+    <wsdl:part name="Num_emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefoneHttpPostIn">
+    <wsdl:part name="NumEmp_tel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefoneHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefonePelaChaveHttpPostIn">
+    <wsdl:part name="Num_tel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarTelefonePelaChaveHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarTelefoneHttpPostIn">
+    <wsdl:part name="Num_tel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarTelefoneHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ListarConexaoHttpPostIn">
+    <wsdl:part name="NumEmp_con" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarConexaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarConexaoHttpPostIn">
+    <wsdl:part name="Num_con" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarConexaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConectarUsuarioNaEmpresaHttpPostIn">
+    <wsdl:part name="numeroConexao" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConectarUsuarioNaEmpresaHttpPostOut" />
+  <wsdl:message name="DesconectarUsuarioDaEmpresaHttpPostIn">
+    <wsdl:part name="numeroConexao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DesconectarUsuarioDaEmpresaHttpPostOut" />
+  <wsdl:message name="LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpPostIn" />
+  <wsdl:message name="LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpPostOut" />
+  <wsdl:message name="ListarModuloEmpresaHttpPostIn">
+    <wsdl:part name="Num_Emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarModuloEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloEmpresaHttpPostIn">
+    <wsdl:part name="NumEmp_ModEmp" type="s:string" />
+    <wsdl:part name="NumMod_ModEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoModuloEmpresaHttpPostIn">
+    <wsdl:part name="numeroEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoModuloEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarModuloEmpresaPorModuloEEmpresaHttpPostIn">
+    <wsdl:part name="numeroEmpresa" type="s:string" />
+    <wsdl:part name="numeroModulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarModuloEmpresaPorModuloEEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:_ModuloEmpresaInfo" />
+  </wsdl:message>
+  <wsdl:message name="CarregarConfPortalEmpresaHttpPostIn">
+    <wsdl:part name="NumEmp_PWeb" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CarregarConfPortalEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:_ConfPortalUAUInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpPostIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DesabilitarPortalEmpresaHttpPostIn">
+    <wsdl:part name="NumEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DesabilitarPortalEmpresaHttpPostOut" />
+  <wsdl:message name="ExisteConfiguracaoUauWebComHospedagemHttpPostIn">
+    <wsdl:part name="Num_hosp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExisteConfiguracaoUauWebComHospedagemHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLogDiferencaLicencaPorEmpresaHttpPostIn">
+    <wsdl:part name="intNumEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaLogDiferencaLicencaPorEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ListarModulosCustomizadoDaEmpresaHttpPostIn">
+    <wsdl:part name="Num_Emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarModulosCustomizadoDaEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMenusModuloEmpresaHttpPostIn">
+    <wsdl:part name="Num_Emp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BuscarMenusModuloEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloCustomizadoDaEmpresaHttpPostIn">
+    <wsdl:part name="NumEmp_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NumMod_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NomeMenu_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NomeMenuPai_ItemMnuModEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarModuloCustomizadoDaEmpresaHttpPostOut" />
+  <wsdl:message name="DeletaTodosModuloCustomizadoDaEmpresaHttpPostIn">
+    <wsdl:part name="NumEmp_ItemMnuModEmp" type="s:string" />
+    <wsdl:part name="NumMod_ItemMnuModEmp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletaTodosModuloCustomizadoDaEmpresaHttpPostOut" />
+  <wsdl:portType name="WsEmpresaSoap">
+    <wsdl:operation name="ConsultarDescricao">
+      <wsdl:input message="tns:ConsultarDescricaoSoapIn" />
+      <wsdl:output message="tns:ConsultarDescricaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <wsdl:input message="tns:ConsultarPelaChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarPelaChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <wsdl:input message="tns:EmpresaCanceladaSoapIn" />
+      <wsdl:output message="tns:EmpresaCanceladaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input message="tns:ConsultarSoapIn" />
+      <wsdl:output message="tns:ConsultarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <wsdl:input message="tns:ConsultarComPermissaoSoapIn" />
+      <wsdl:output message="tns:ConsultarComPermissaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <wsdl:input message="tns:ConsultarPorTarefaSoapIn" />
+      <wsdl:output message="tns:ConsultarPorTarefaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Inserir">
+      <wsdl:input message="tns:InserirSoapIn" />
+      <wsdl:output message="tns:InserirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <wsdl:input message="tns:AlterarSoapIn" />
+      <wsdl:output message="tns:AlterarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarResponsavelDaEmpresa">
+      <wsdl:input message="tns:AlterarResponsavelDaEmpresaSoapIn" />
+      <wsdl:output message="tns:AlterarResponsavelDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarHorasCronograma">
+      <wsdl:input message="tns:AlterarHorasCronogramaSoapIn" />
+      <wsdl:output message="tns:AlterarHorasCronogramaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <wsdl:input message="tns:DeletarSoapIn" />
+      <wsdl:output message="tns:DeletarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <wsdl:input message="tns:ListarTelefoneSoapIn" />
+      <wsdl:output message="tns:ListarTelefoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <wsdl:input message="tns:ListarTelefonePelaChaveSoapIn" />
+      <wsdl:output message="tns:ListarTelefonePelaChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirTelefone">
+      <wsdl:input message="tns:InserirTelefoneSoapIn" />
+      <wsdl:output message="tns:InserirTelefoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTelefone">
+      <wsdl:input message="tns:AlterarTelefoneSoapIn" />
+      <wsdl:output message="tns:AlterarTelefoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <wsdl:input message="tns:DeletarTelefoneSoapIn" />
+      <wsdl:output message="tns:DeletarTelefoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <wsdl:input message="tns:ListarConexaoSoapIn" />
+      <wsdl:output message="tns:ListarConexaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirConexao">
+      <wsdl:input message="tns:InserirConexaoSoapIn" />
+      <wsdl:output message="tns:InserirConexaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarConexao">
+      <wsdl:input message="tns:AlterarConexaoSoapIn" />
+      <wsdl:output message="tns:AlterarConexaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <wsdl:input message="tns:DeletarConexaoSoapIn" />
+      <wsdl:output message="tns:DeletarConexaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <wsdl:input message="tns:ConectarUsuarioNaEmpresaSoapIn" />
+      <wsdl:output message="tns:ConectarUsuarioNaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <wsdl:input message="tns:DesconectarUsuarioDaEmpresaSoapIn" />
+      <wsdl:output message="tns:DesconectarUsuarioDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <wsdl:input message="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoSoapIn" />
+      <wsdl:output message="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:ListarModuloEmpresaSoapIn" />
+      <wsdl:output message="tns:ListarModuloEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserir um módulo para uma empresa especifica</wsdl:documentation>
+      <wsdl:input message="tns:InserirModuloEmpresaSoapIn" />
+      <wsdl:output message="tns:InserirModuloEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo para uma empresa especifica</wsdl:documentation>
+      <wsdl:input message="tns:DeletarModuloEmpresaSoapIn" />
+      <wsdl:output message="tns:DeletarModuloEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Altera a data de expiração e qtde de cadastros para um módulo e empresa</wsdl:documentation>
+      <wsdl:input message="tns:AlterarModuloEmpresaSoapIn" />
+      <wsdl:output message="tns:AlterarModuloEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta o historico de alteração da tabela moduloempresa por empresa</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarHistoricoModuloEmpresaSoapIn" />
+      <wsdl:output message="tns:ConsultarHistoricoModuloEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <wsdl:input message="tns:ConsultarModuloEmpresaPorModuloEEmpresaSoapIn" />
+      <wsdl:output message="tns:ConsultarModuloEmpresaPorModuloEEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <wsdl:input message="tns:CarregarConfPortalEmpresaSoapIn" />
+      <wsdl:output message="tns:CarregarConfPortalEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorTokenSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <wsdl:input message="tns:GeraTokenEmpresaPorCodigoSoapIn" />
+      <wsdl:output message="tns:GeraTokenEmpresaPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarPortalEmpresa">
+      <wsdl:input message="tns:HabilitarPortalEmpresaSoapIn" />
+      <wsdl:output message="tns:HabilitarPortalEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <wsdl:input message="tns:DesabilitarPortalEmpresaSoapIn" />
+      <wsdl:output message="tns:DesabilitarPortalEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarConfPortalSupNet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Altera alguns dados de configuração do portalUau. São alterados apenas a descrição da empresa e o e-mail. Estes dados agora podem ser alterados diretamente do Portaluau através da tela de configurações gerais.</wsdl:documentation>
+      <wsdl:input message="tns:AlterarConfPortalSupNetSoapIn" />
+      <wsdl:output message="tns:AlterarConfPortalSupNetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <wsdl:input message="tns:ExisteConfiguracaoUauWebComHospedagemSoapIn" />
+      <wsdl:output message="tns:ExisteConfiguracaoUauWebComHospedagemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta os dados gravados na tabela LogDiferencaLicencas por empresa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaLogDiferencaLicencaPorEmpresaSoapIn" />
+      <wsdl:output message="tns:ConsultaLogDiferencaLicencaPorEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos customizados que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:ListarModulosCustomizadoDaEmpresaSoapIn" />
+      <wsdl:output message="tns:ListarModulosCustomizadoDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos customizados que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarMenusModuloEmpresaSoapIn" />
+      <wsdl:output message="tns:BuscarMenusModuloEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserir ou alterar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:InserirModuloCustomizadoDaEmpresaSoapIn" />
+      <wsdl:output message="tns:InserirModuloCustomizadoDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirPermissoesModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserir ou alterar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:InserirPermissoesModuloCustomizadoDaEmpresaSoapIn" />
+      <wsdl:output message="tns:InserirPermissoesModuloCustomizadoDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserir ou alterar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:AlterarModuloCustomizadoDaEmpresaSoapIn" />
+      <wsdl:output message="tns:AlterarModuloCustomizadoDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:DeletarModuloCustomizadoDaEmpresaSoapIn" />
+      <wsdl:output message="tns:DeletarModuloCustomizadoDaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:DeletaTodosModuloCustomizadoDaEmpresaSoapIn" />
+      <wsdl:output message="tns:DeletaTodosModuloCustomizadoDaEmpresaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WsEmpresaHttpGet">
+    <wsdl:operation name="ConsultarDescricao">
+      <wsdl:input message="tns:ConsultarDescricaoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarDescricaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <wsdl:input message="tns:ConsultarPelaChaveHttpGetIn" />
+      <wsdl:output message="tns:ConsultarPelaChaveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <wsdl:input message="tns:EmpresaCanceladaHttpGetIn" />
+      <wsdl:output message="tns:EmpresaCanceladaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input message="tns:ConsultarHttpGetIn" />
+      <wsdl:output message="tns:ConsultarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <wsdl:input message="tns:ConsultarComPermissaoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarComPermissaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <wsdl:input message="tns:ConsultarPorTarefaHttpGetIn" />
+      <wsdl:output message="tns:ConsultarPorTarefaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <wsdl:input message="tns:DeletarHttpGetIn" />
+      <wsdl:output message="tns:DeletarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <wsdl:input message="tns:ListarTelefoneHttpGetIn" />
+      <wsdl:output message="tns:ListarTelefoneHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <wsdl:input message="tns:ListarTelefonePelaChaveHttpGetIn" />
+      <wsdl:output message="tns:ListarTelefonePelaChaveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <wsdl:input message="tns:DeletarTelefoneHttpGetIn" />
+      <wsdl:output message="tns:DeletarTelefoneHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <wsdl:input message="tns:ListarConexaoHttpGetIn" />
+      <wsdl:output message="tns:ListarConexaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <wsdl:input message="tns:DeletarConexaoHttpGetIn" />
+      <wsdl:output message="tns:DeletarConexaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <wsdl:input message="tns:ConectarUsuarioNaEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ConectarUsuarioNaEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <wsdl:input message="tns:DesconectarUsuarioDaEmpresaHttpGetIn" />
+      <wsdl:output message="tns:DesconectarUsuarioDaEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <wsdl:input message="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpGetIn" />
+      <wsdl:output message="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:ListarModuloEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ListarModuloEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo para uma empresa especifica</wsdl:documentation>
+      <wsdl:input message="tns:DeletarModuloEmpresaHttpGetIn" />
+      <wsdl:output message="tns:DeletarModuloEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta o historico de alteração da tabela moduloempresa por empresa</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarHistoricoModuloEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ConsultarHistoricoModuloEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <wsdl:input message="tns:ConsultarModuloEmpresaPorModuloEEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ConsultarModuloEmpresaPorModuloEEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <wsdl:input message="tns:CarregarConfPortalEmpresaHttpGetIn" />
+      <wsdl:output message="tns:CarregarConfPortalEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorTokenHttpGetIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <wsdl:input message="tns:GeraTokenEmpresaPorCodigoHttpGetIn" />
+      <wsdl:output message="tns:GeraTokenEmpresaPorCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <wsdl:input message="tns:DesabilitarPortalEmpresaHttpGetIn" />
+      <wsdl:output message="tns:DesabilitarPortalEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <wsdl:input message="tns:ExisteConfiguracaoUauWebComHospedagemHttpGetIn" />
+      <wsdl:output message="tns:ExisteConfiguracaoUauWebComHospedagemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta os dados gravados na tabela LogDiferencaLicencas por empresa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaLogDiferencaLicencaPorEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ConsultaLogDiferencaLicencaPorEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos customizados que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:ListarModulosCustomizadoDaEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ListarModulosCustomizadoDaEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos customizados que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarMenusModuloEmpresaHttpGetIn" />
+      <wsdl:output message="tns:BuscarMenusModuloEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:DeletarModuloCustomizadoDaEmpresaHttpGetIn" />
+      <wsdl:output message="tns:DeletarModuloCustomizadoDaEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:DeletaTodosModuloCustomizadoDaEmpresaHttpGetIn" />
+      <wsdl:output message="tns:DeletaTodosModuloCustomizadoDaEmpresaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WsEmpresaHttpPost">
+    <wsdl:operation name="ConsultarDescricao">
+      <wsdl:input message="tns:ConsultarDescricaoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarDescricaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <wsdl:input message="tns:ConsultarPelaChaveHttpPostIn" />
+      <wsdl:output message="tns:ConsultarPelaChaveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <wsdl:input message="tns:EmpresaCanceladaHttpPostIn" />
+      <wsdl:output message="tns:EmpresaCanceladaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input message="tns:ConsultarHttpPostIn" />
+      <wsdl:output message="tns:ConsultarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <wsdl:input message="tns:ConsultarComPermissaoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarComPermissaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <wsdl:input message="tns:ConsultarPorTarefaHttpPostIn" />
+      <wsdl:output message="tns:ConsultarPorTarefaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <wsdl:input message="tns:DeletarHttpPostIn" />
+      <wsdl:output message="tns:DeletarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <wsdl:input message="tns:ListarTelefoneHttpPostIn" />
+      <wsdl:output message="tns:ListarTelefoneHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <wsdl:input message="tns:ListarTelefonePelaChaveHttpPostIn" />
+      <wsdl:output message="tns:ListarTelefonePelaChaveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <wsdl:input message="tns:DeletarTelefoneHttpPostIn" />
+      <wsdl:output message="tns:DeletarTelefoneHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <wsdl:input message="tns:ListarConexaoHttpPostIn" />
+      <wsdl:output message="tns:ListarConexaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <wsdl:input message="tns:DeletarConexaoHttpPostIn" />
+      <wsdl:output message="tns:DeletarConexaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <wsdl:input message="tns:ConectarUsuarioNaEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ConectarUsuarioNaEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <wsdl:input message="tns:DesconectarUsuarioDaEmpresaHttpPostIn" />
+      <wsdl:output message="tns:DesconectarUsuarioDaEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <wsdl:input message="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpPostIn" />
+      <wsdl:output message="tns:LiberarConexoesDasEmpresasAposUmDiaDeUsoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:ListarModuloEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ListarModuloEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo para uma empresa especifica</wsdl:documentation>
+      <wsdl:input message="tns:DeletarModuloEmpresaHttpPostIn" />
+      <wsdl:output message="tns:DeletarModuloEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta o historico de alteração da tabela moduloempresa por empresa</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarHistoricoModuloEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ConsultarHistoricoModuloEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <wsdl:input message="tns:ConsultarModuloEmpresaPorModuloEEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ConsultarModuloEmpresaPorModuloEEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <wsdl:input message="tns:CarregarConfPortalEmpresaHttpPostIn" />
+      <wsdl:output message="tns:CarregarConfPortalEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorTokenHttpPostIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <wsdl:input message="tns:GeraTokenEmpresaPorCodigoHttpPostIn" />
+      <wsdl:output message="tns:GeraTokenEmpresaPorCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <wsdl:input message="tns:DesabilitarPortalEmpresaHttpPostIn" />
+      <wsdl:output message="tns:DesabilitarPortalEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <wsdl:input message="tns:ExisteConfiguracaoUauWebComHospedagemHttpPostIn" />
+      <wsdl:output message="tns:ExisteConfiguracaoUauWebComHospedagemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta os dados gravados na tabela LogDiferencaLicencas por empresa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaLogDiferencaLicencaPorEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ConsultaLogDiferencaLicencaPorEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos customizados que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:ListarModulosCustomizadoDaEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ListarModulosCustomizadoDaEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta, para uma empresa, os módulos customizados que ela possui acesso.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarMenusModuloEmpresaHttpPostIn" />
+      <wsdl:output message="tns:BuscarMenusModuloEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:DeletarModuloCustomizadoDaEmpresaHttpPostIn" />
+      <wsdl:output message="tns:DeletarModuloCustomizadoDaEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletar um módulo customizado de uma empresa</wsdl:documentation>
+      <wsdl:input message="tns:DeletaTodosModuloCustomizadoDaEmpresaHttpPostIn" />
+      <wsdl:output message="tns:DeletaTodosModuloCustomizadoDaEmpresaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsEmpresaSoap" type="tns:WsEmpresaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarDescricao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarDescricao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarPelaChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/EmpresaCancelada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Consultar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarComPermissao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarPorTarefa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inserir">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Inserir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Alterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarResponsavelDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarResponsavelDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarHorasCronograma">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarHorasCronograma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Deletar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarTelefone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarTelefonePelaChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirTelefone">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirTelefone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTelefone">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarTelefone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarTelefone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarConexao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirConexao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirConexao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarConexao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarConexao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarConexao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConectarUsuarioNaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DesconectarUsuarioDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/LiberarConexoesDasEmpresasAposUmDiaDeUso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirModuloEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarModuloEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarHistoricoModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarModuloEmpresaPorModuloEEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/CarregarConfPortalEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarDadosConfPortalUauPorToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/GeraTokenEmpresaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarPortalEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/HabilitarPortalEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DesabilitarPortalEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarConfPortalSupNet">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarConfPortalSupNet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ExisteConfiguracaoUauWebComHospedagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultaLogDiferencaLicencaPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarModulosCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/BuscarMenusModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirModuloCustomizadoDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirPermissoesModuloCustomizadoDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirPermissoesModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarModuloCustomizadoDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletaTodosModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsEmpresaSoap12" type="tns:WsEmpresaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarDescricao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarDescricao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarPelaChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/EmpresaCancelada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Consultar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarComPermissao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarPorTarefa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inserir">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Inserir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Alterar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarResponsavelDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarResponsavelDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarHorasCronograma">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarHorasCronograma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/Deletar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarTelefone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarTelefonePelaChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirTelefone">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirTelefone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTelefone">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarTelefone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarTelefone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarConexao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirConexao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirConexao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarConexao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarConexao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarConexao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConectarUsuarioNaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DesconectarUsuarioDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/LiberarConexoesDasEmpresasAposUmDiaDeUso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirModuloEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarModuloEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarHistoricoModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarModuloEmpresaPorModuloEEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/CarregarConfPortalEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultarDadosConfPortalUauPorToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/GeraTokenEmpresaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilitarPortalEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/HabilitarPortalEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DesabilitarPortalEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarConfPortalSupNet">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarConfPortalSupNet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ExisteConfiguracaoUauWebComHospedagem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ConsultaLogDiferencaLicencaPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/ListarModulosCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/BuscarMenusModuloEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirModuloCustomizadoDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirPermissoesModuloCustomizadoDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/InserirPermissoesModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarModuloCustomizadoDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/AlterarModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletarModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNET_WS/WsEmpresa/DeletaTodosModuloCustomizadoDaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsEmpresaHttpGet" type="tns:WsEmpresaHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ConsultarDescricao">
+      <http:operation location="/ConsultarDescricao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <http:operation location="/ConsultarPelaChave" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <http:operation location="/EmpresaCancelada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <http:operation location="/Consultar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <http:operation location="/ConsultarComPermissao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <http:operation location="/ConsultarPorTarefa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <http:operation location="/Deletar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <http:operation location="/ListarTelefone" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <http:operation location="/ListarTelefonePelaChave" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <http:operation location="/DeletarTelefone" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <http:operation location="/ListarConexao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <http:operation location="/DeletarConexao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <http:operation location="/ConectarUsuarioNaEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <http:operation location="/DesconectarUsuarioDaEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <http:operation location="/LiberarConexoesDasEmpresasAposUmDiaDeUso" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <http:operation location="/ListarModuloEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <http:operation location="/DeletarModuloEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <http:operation location="/ConsultarHistoricoModuloEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <http:operation location="/ConsultarModuloEmpresaPorModuloEEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <http:operation location="/CarregarConfPortalEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <http:operation location="/ConsultarDadosConfPortalUauPorToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <http:operation location="/GeraTokenEmpresaPorCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <http:operation location="/DesabilitarPortalEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <http:operation location="/ExisteConfiguracaoUauWebComHospedagem" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <http:operation location="/ConsultaLogDiferencaLicencaPorEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <http:operation location="/ListarModulosCustomizadoDaEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <http:operation location="/BuscarMenusModuloEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <http:operation location="/DeletarModuloCustomizadoDaEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <http:operation location="/DeletaTodosModuloCustomizadoDaEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsEmpresaHttpPost" type="tns:WsEmpresaHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ConsultarDescricao">
+      <http:operation location="/ConsultarDescricao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPelaChave">
+      <http:operation location="/ConsultarPelaChave" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmpresaCancelada">
+      <http:operation location="/EmpresaCancelada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <http:operation location="/Consultar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarComPermissao">
+      <http:operation location="/ConsultarComPermissao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorTarefa">
+      <http:operation location="/ConsultarPorTarefa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <http:operation location="/Deletar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefone">
+      <http:operation location="/ListarTelefone" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTelefonePelaChave">
+      <http:operation location="/ListarTelefonePelaChave" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarTelefone">
+      <http:operation location="/DeletarTelefone" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarConexao">
+      <http:operation location="/ListarConexao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarConexao">
+      <http:operation location="/DeletarConexao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConectarUsuarioNaEmpresa">
+      <http:operation location="/ConectarUsuarioNaEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarUsuarioDaEmpresa">
+      <http:operation location="/DesconectarUsuarioDaEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LiberarConexoesDasEmpresasAposUmDiaDeUso">
+      <http:operation location="/LiberarConexoesDasEmpresasAposUmDiaDeUso" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ListarModuloEmpresa">
+      <http:operation location="/ListarModuloEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloEmpresa">
+      <http:operation location="/DeletarModuloEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoModuloEmpresa">
+      <http:operation location="/ConsultarHistoricoModuloEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarModuloEmpresaPorModuloEEmpresa">
+      <http:operation location="/ConsultarModuloEmpresaPorModuloEEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarregarConfPortalEmpresa">
+      <http:operation location="/CarregarConfPortalEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <http:operation location="/ConsultarDadosConfPortalUauPorToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <http:operation location="/GeraTokenEmpresaPorCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesabilitarPortalEmpresa">
+      <http:operation location="/DesabilitarPortalEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteConfiguracaoUauWebComHospedagem">
+      <http:operation location="/ExisteConfiguracaoUauWebComHospedagem" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaLogDiferencaLicencaPorEmpresa">
+      <http:operation location="/ConsultaLogDiferencaLicencaPorEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarModulosCustomizadoDaEmpresa">
+      <http:operation location="/ListarModulosCustomizadoDaEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarMenusModuloEmpresa">
+      <http:operation location="/BuscarMenusModuloEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarModuloCustomizadoDaEmpresa">
+      <http:operation location="/DeletarModuloCustomizadoDaEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeletaTodosModuloCustomizadoDaEmpresa">
+      <http:operation location="/DeletaTodosModuloCustomizadoDaEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsEmpresa">
+    <wsdl:port name="WsEmpresaSoap" binding="tns:WsEmpresaSoap">
+      <soap:address location="http://localhost:8282/WsEmpresa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsEmpresaSoap12" binding="tns:WsEmpresaSoap12">
+      <soap12:address location="http://localhost:8282/WsEmpresa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsEmpresaHttpGet" binding="tns:WsEmpresaHttpGet">
+      <http:address location="http://localhost:8282/WsEmpresa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsEmpresaHttpPost" binding="tns:WsEmpresaHttpPost">
+      <http:address location="http://localhost:8282/WsEmpresa.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,11 @@
+<Alloy>
+	<View class="shadowView" layout="vertical" id="boxTotaisItem" >
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Sub-Total: " tipo="total" id="SubTotal" />
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Desconto: " tipo="bonus" id="Desconto" />
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Transp.: " tipo="onus" id="Transp" />
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Total: " tipo="total" id="Total" />
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Val. Dif. ICMS: " id="ValDifICMS" tipo="onus"/> 
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Tot. Com Dif. ICMS: " id="TotComDifICMS" tipo="total" />
+		<Widget src="GUI" name="DetalheValorRow" class="tituloRowLista" descricao="Condição: " id="Condicao" />
+	</View>
+</Alloy>

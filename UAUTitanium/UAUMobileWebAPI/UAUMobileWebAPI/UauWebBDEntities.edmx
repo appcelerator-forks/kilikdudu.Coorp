@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="uau1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CamposPersonConfEspelho">
+          <Key>
+            <PropertyRef Name="Codigo_cpce" />
+            <PropertyRef Name="CodigoCfg_cpce" />
+            <PropertyRef Name="NumEmp_cpce" />
+          </Key>
+          <Property Name="Codigo_cpce" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoCfg_cpce" Type="int" Nullable="false" />
+          <Property Name="NumEmp_cpce" Type="int" Nullable="false" />
+          <Property Name="Descricao_cpce" Type="nvarchar" MaxLength="75" />
+          <Property Name="NomeCampo_cpce" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="Ordem_cpce" Type="smallint" />
+          <Property Name="TipoFormatacao_cpce" Type="nvarchar" MaxLength="10" />
+          <Property Name="TamanhoFormatacao_cpce" Type="int" />
+        </EntityType>
+        <EntityType Name="ConfCadProposta">
+          <Key>
+            <PropertyRef Name="NumEmp_CProp" />
+          </Key>
+          <Property Name="NumEmp_CProp" Type="int" Nullable="false" />
+          <Property Name="MostrarDetComissao_Cprop" Type="bit" Nullable="false" />
+          <Property Name="ResumoContratual_Cprop" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ConfCadUsuario">
+          <Key>
+            <PropertyRef Name="NumEmp_ccu" />
+          </Key>
+          <Property Name="NumEmp_ccu" Type="int" Nullable="false" />
+          <Property Name="AutoManual_ccu" Type="bit" Nullable="false" />
+          <Property Name="AtualizaEmail_ccu" Type="bit" Nullable="false" />
+          <Property Name="AutoCadastro_ccu" Type="bit" Nullable="false" />
+          <Property Name="ConfirmaCadEmail_ccu" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfEspelho">
+          <Key>
+            <PropertyRef Name="Codigo_cfg" />
+            <PropertyRef Name="NumEmp_cfg" />
+          </Key>
+          <Property Name="Codigo_cfg" Type="int" Nullable="false" />
+          <Property Name="NumEmp_cfg" Type="int" Nullable="false" />
+          <Property Name="Descr_cfg" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QtdeColuna_cfg" Type="int" />
+        </EntityType>
+        <EntityType Name="ConfGeralEmpresa">
+          <Key>
+            <PropertyRef Name="NumEmp_cge" />
+            <PropertyRef Name="Configuracao_cge" />
+          </Key>
+          <Property Name="NumEmp_cge" Type="int" Nullable="false" />
+          <Property Name="Configuracao_cge" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valor_cge" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ConfigIRPFParcela">
+          <Key>
+            <PropertyRef Name="NumEmp_cip" />
+            <PropertyRef Name="TipoParc_cip" />
+          </Key>
+          <Property Name="NumEmp_cip" Type="int" Nullable="false" />
+          <Property Name="TipoParc_cip" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DescricaoParc_cip" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ConfPortalUAU">
+          <Key>
+            <PropertyRef Name="NumEmp_PWeb" />
+          </Key>
+          <Property Name="NumEmp_PWeb" Type="int" Nullable="false" />
+          <Property Name="DescrPortalUAU_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="URLWS_PWeb" Type="varchar" MaxLength="100" />
+          <Property Name="EmailContato_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="EmpresaUAU_PWeb" Type="smallint" />
+          <Property Name="ObraUAU_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="UsrCad_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="DataCad_Pweb" Type="datetime" />
+          <Property Name="DataAlt_Pweb" Type="datetime" />
+          <Property Name="UsrAlt_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="AtInat_PWeb" Type="smallint" />
+          <Property Name="HTML_PWeb" Type="varchar" MaxLength="1024" />
+          <Property Name="URLPaginaCentro_Pweb" Type="varchar" MaxLength="255" />
+          <Property Name="NomeContato_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="Telefone_PWeb" Type="varchar" MaxLength="50" />
+          <Property Name="UsrLoginUAU_PWeb" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ConfReimpBoleto">
+          <Key>
+            <PropertyRef Name="NumEmp_crb" />
+          </Key>
+          <Property Name="NaoMostraBoletoVencido_crb" Type="bit" Nullable="false" />
+          <Property Name="NumEmp_crb" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfServico">
+          <Key>
+            <PropertyRef Name="NumEmp_cs" />
+          </Key>
+          <Property Name="NumEmp_cs" Type="int" Nullable="false" />
+          <Property Name="MostrarDemonsPagtoCli_cs" Type="bit" Nullable="false" />
+          <Property Name="MostrarReimpBoleto_cs" Type="bit" Nullable="false" />
+          <Property Name="HabilitarAnexos_cs" Type="bit" Nullable="false" />
+          <Property Name="MostrarCadTerrenos_cs" Type="bit" Nullable="false" />
+          <Property Name="BoletoAntecipado_cs" Type="bit" Nullable="false" />
+          <Property Name="InadimplenteGeraBol_cs" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtratoCliente">
+          <Key>
+            <PropertyRef Name="Campo_exc" />
+            <PropertyRef Name="NumEmp_exc" />
+          </Key>
+          <Property Name="Campo_exc" Type="int" Nullable="false" />
+          <Property Name="NumEmp_exc" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtratoMensagem">
+          <Key>
+            <PropertyRef Name="NumEmp_exm" />
+          </Key>
+          <Property Name="NumEmp_exm" Type="int" Nullable="false" />
+          <Property Name="Mensagem_exm" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtratoParcela">
+          <Key>
+            <PropertyRef Name="NumEmp_exp" />
+            <PropertyRef Name="TipoParc_exp" />
+          </Key>
+          <Property Name="NumEmp_exp" Type="int" Nullable="false" />
+          <Property Name="TipoParc_exp" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DescricaoParc_exp" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ItensConfEspelho">
+          <Key>
+            <PropertyRef Name="CodigoCfg_itc" />
+            <PropertyRef Name="Codigo_itc" />
+            <PropertyRef Name="NumEmp_itc" />
+          </Key>
+          <Property Name="CodigoCfg_itc" Type="int" Nullable="false" />
+          <Property Name="Codigo_itc" Type="int" Nullable="false" />
+          <Property Name="Empresa_itc" Type="int" Nullable="false" />
+          <Property Name="Obra_itc" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Produto_itc" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumEmp_itc" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusPersonConfEspelho">
+          <Key>
+            <PropertyRef Name="CodigoCfg_spce" />
+            <PropertyRef Name="NumEmp_spce" />
+            <PropertyRef Name="Status_spce" />
+          </Key>
+          <Property Name="CodigoCfg_spce" Type="int" Nullable="false" />
+          <Property Name="NumEmp_spce" Type="int" Nullable="false" />
+          <Property Name="Status_spce" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_ConfCadProposta_ConfPortalUAU">
+          <End Role="ConfPortalUAU" Type="Self.ConfPortalUAU" Multiplicity="1" />
+          <End Role="ConfCadProposta" Type="Self.ConfCadProposta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ConfPortalUAU">
+              <PropertyRef Name="NumEmp_PWeb" />
+            </Principal>
+            <Dependent Role="ConfCadProposta">
+              <PropertyRef Name="NumEmp_CProp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItensConfEspelho_ConfEspelho">
+          <End Role="ConfEspelho" Type="Self.ConfEspelho" Multiplicity="1" />
+          <End Role="ItensConfEspelho" Type="Self.ItensConfEspelho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConfEspelho">
+              <PropertyRef Name="Codigo_cfg" />
+              <PropertyRef Name="NumEmp_cfg" />
+            </Principal>
+            <Dependent Role="ItensConfEspelho">
+              <PropertyRef Name="CodigoCfg_itc" />
+              <PropertyRef Name="NumEmp_itc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatusPersonConfEspelho_ConfEspelho">
+          <End Role="ConfEspelho" Type="Self.ConfEspelho" Multiplicity="1" />
+          <End Role="StatusPersonConfEspelho" Type="Self.StatusPersonConfEspelho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConfEspelho">
+              <PropertyRef Name="Codigo_cfg" />
+              <PropertyRef Name="NumEmp_cfg" />
+            </Principal>
+            <Dependent Role="StatusPersonConfEspelho">
+              <PropertyRef Name="CodigoCfg_spce" />
+              <PropertyRef Name="NumEmp_spce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="uau1ModelStoreContainer">
+          <EntitySet Name="CamposPersonConfEspelho" EntityType="Self.CamposPersonConfEspelho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfCadProposta" EntityType="Self.ConfCadProposta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfCadUsuario" EntityType="Self.ConfCadUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfEspelho" EntityType="Self.ConfEspelho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfGeralEmpresa" EntityType="Self.ConfGeralEmpresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfigIRPFParcela" EntityType="Self.ConfigIRPFParcela" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfPortalUAU" EntityType="Self.ConfPortalUAU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfReimpBoleto" EntityType="Self.ConfReimpBoleto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfServico" EntityType="Self.ConfServico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExtratoCliente" EntityType="Self.ExtratoCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExtratoMensagem" EntityType="Self.ExtratoMensagem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExtratoParcela" EntityType="Self.ExtratoParcela" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItensConfEspelho" EntityType="Self.ItensConfEspelho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusPersonConfEspelho" EntityType="Self.StatusPersonConfEspelho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ConfCadProposta_ConfPortalUAU" Association="Self.FK_ConfCadProposta_ConfPortalUAU">
+            <End Role="ConfPortalUAU" EntitySet="ConfPortalUAU" />
+            <End Role="ConfCadProposta" EntitySet="ConfCadProposta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItensConfEspelho_ConfEspelho" Association="Self.FK_ItensConfEspelho_ConfEspelho">
+            <End Role="ConfEspelho" EntitySet="ConfEspelho" />
+            <End Role="ItensConfEspelho" EntitySet="ItensConfEspelho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatusPersonConfEspelho_ConfEspelho" Association="Self.FK_StatusPersonConfEspelho_ConfEspelho">
+            <End Role="ConfEspelho" EntitySet="ConfEspelho" />
+            <End Role="StatusPersonConfEspelho" EntitySet="StatusPersonConfEspelho" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="uau1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CamposPersonConfEspelho">
+          <Key>
+            <PropertyRef Name="Codigo_cpce" />
+            <PropertyRef Name="CodigoCfg_cpce" />
+            <PropertyRef Name="NumEmp_cpce" />
+          </Key>
+          <Property Name="Codigo_cpce" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoCfg_cpce" Type="Int32" Nullable="false" />
+          <Property Name="NumEmp_cpce" Type="Int32" Nullable="false" />
+          <Property Name="Descricao_cpce" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="NomeCampo_cpce" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ordem_cpce" Type="Int16" />
+          <Property Name="TipoFormatacao_cpce" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TamanhoFormatacao_cpce" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ConfCadProposta">
+          <Key>
+            <PropertyRef Name="NumEmp_CProp" />
+          </Key>
+          <Property Name="NumEmp_CProp" Type="Int32" Nullable="false" />
+          <Property Name="MostrarDetComissao_Cprop" Type="Boolean" Nullable="false" />
+          <Property Name="ResumoContratual_Cprop" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ConfPortalUAU" Relationship="Self.FK_ConfCadProposta_ConfPortalUAU" FromRole="ConfCadProposta" ToRole="ConfPortalUAU" />
+        </EntityType>
+        <EntityType Name="ConfCadUsuario">
+          <Key>
+            <PropertyRef Name="NumEmp_ccu" />
+          </Key>
+          <Property Name="NumEmp_ccu" Type="Int32" Nullable="false" />
+          <Property Name="AutoManual_ccu" Type="Boolean" Nullable="false" />
+          <Property Name="AtualizaEmail_ccu" Type="Boolean" Nullable="false" />
+          <Property Name="AutoCadastro_ccu" Type="Boolean" Nullable="false" />
+          <Property Name="ConfirmaCadEmail_ccu" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfEspelho">
+          <Key>
+            <PropertyRef Name="Codigo_cfg" />
+            <PropertyRef Name="NumEmp_cfg" />
+          </Key>
+          <Property Name="Codigo_cfg" Type="Int32" Nullable="false" />
+          <Property Name="NumEmp_cfg" Type="Int32" Nullable="false" />
+          <Property Name="Descr_cfg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QtdeColuna_cfg" Type="Int32" />
+          <NavigationProperty Name="ItensConfEspelho" Relationship="Self.FK_ItensConfEspelho_ConfEspelho" FromRole="ConfEspelho" ToRole="ItensConfEspelho" />
+          <NavigationProperty Name="StatusPersonConfEspelho" Relationship="Self.FK_StatusPersonConfEspelho_ConfEspelho" FromRole="ConfEspelho" ToRole="StatusPersonConfEspelho" />
+        </EntityType>
+        <EntityType Name="ConfGeralEmpresa">
+          <Key>
+            <PropertyRef Name="NumEmp_cge" />
+            <PropertyRef Name="Configuracao_cge" />
+          </Key>
+          <Property Name="NumEmp_cge" Type="Int32" Nullable="false" />
+          <Property Name="Configuracao_cge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valor_cge" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ConfigIRPFParcela">
+          <Key>
+            <PropertyRef Name="NumEmp_cip" />
+            <PropertyRef Name="TipoParc_cip" />
+          </Key>
+          <Property Name="NumEmp_cip" Type="Int32" Nullable="false" />
+          <Property Name="TipoParc_cip" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescricaoParc_cip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConfPortalUAU">
+          <Key>
+            <PropertyRef Name="NumEmp_PWeb" />
+          </Key>
+          <Property Name="NumEmp_PWeb" Type="Int32" Nullable="false" />
+          <Property Name="DescrPortalUAU_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="URLWS_PWeb" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailContato_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpresaUAU_PWeb" Type="Int16" />
+          <Property Name="ObraUAU_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsrCad_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataCad_Pweb" Type="DateTime" Precision="3" />
+          <Property Name="DataAlt_Pweb" Type="DateTime" Precision="3" />
+          <Property Name="UsrAlt_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AtInat_PWeb" Type="Int16" />
+          <Property Name="HTML_PWeb" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="URLPaginaCentro_Pweb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NomeContato_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsrLoginUAU_PWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ConfCadProposta" Relationship="Self.FK_ConfCadProposta_ConfPortalUAU" FromRole="ConfPortalUAU" ToRole="ConfCadProposta" />
+        </EntityType>
+        <EntityType Name="ConfReimpBoleto">
+          <Key>
+            <PropertyRef Name="NumEmp_crb" />
+          </Key>
+          <Property Name="NaoMostraBoletoVencido_crb" Type="Boolean" Nullable="false" />
+          <Property Name="NumEmp_crb" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfServico">
+          <Key>
+            <PropertyRef Name="NumEmp_cs" />
+          </Key>
+          <Property Name="NumEmp_cs" Type="Int32" Nullable="false" />
+          <Property Name="MostrarDemonsPagtoCli_cs" Type="Boolean" Nullable="false" />
+          <Property Name="MostrarReimpBoleto_cs" Type="Boolean" Nullable="false" />
+          <Property Name="HabilitarAnexos_cs" Type="Boolean" Nullable="false" />
+          <Property Name="MostrarCadTerrenos_cs" Type="Boolean" Nullable="false" />
+          <Property Name="BoletoAntecipado_cs" Type="Boolean" Nullable="false" />
+          <Property Name="InadimplenteGeraBol_cs" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtratoCliente">
+          <Key>
+            <PropertyRef Name="Campo_exc" />
+            <PropertyRef Name="NumEmp_exc" />
+          </Key>
+          <Property Name="Campo_exc" Type="Int32" Nullable="false" />
+          <Property Name="NumEmp_exc" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtratoMensagem">
+          <Key>
+            <PropertyRef Name="NumEmp_exm" />
+          </Key>
+          <Property Name="NumEmp_exm" Type="Int32" Nullable="false" />
+          <Property Name="Mensagem_exm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExtratoParcela">
+          <Key>
+            <PropertyRef Name="NumEmp_exp" />
+            <PropertyRef Name="TipoParc_exp" />
+          </Key>
+          <Property Name="NumEmp_exp" Type="Int32" Nullable="false" />
+          <Property Name="TipoParc_exp" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescricaoParc_exp" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ItensConfEspelho">
+          <Key>
+            <PropertyRef Name="CodigoCfg_itc" />
+            <PropertyRef Name="Codigo_itc" />
+            <PropertyRef Name="NumEmp_itc" />
+          </Key>
+          <Property Name="CodigoCfg_itc" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_itc" Type="Int32" Nullable="false" />
+          <Property Name="Empresa_itc" Type="Int32" Nullable="false" />
+          <Property Name="Obra_itc" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Produto_itc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumEmp_itc" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConfEspelho" Relationship="Self.FK_ItensConfEspelho_ConfEspelho" FromRole="ItensConfEspelho" ToRole="ConfEspelho" />
+        </EntityType>
+        <EntityType Name="StatusPersonConfEspelho">
+          <Key>
+            <PropertyRef Name="CodigoCfg_spce" />
+            <PropertyRef Name="NumEmp_spce" />
+            <PropertyRef Name="Status_spce" />
+          </Key>
+          <Property Name="CodigoCfg_spce" Type="Int32" Nullable="false" />
+          <Property Name="NumEmp_spce" Type="Int32" Nullable="false" />
+          <Property Name="Status_spce" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConfEspelho" Relationship="Self.FK_StatusPersonConfEspelho_ConfEspelho" FromRole="StatusPersonConfEspelho" ToRole="ConfEspelho" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_ConfCadProposta_ConfPortalUAU">
+          <End Role="ConfPortalUAU" Type="Self.ConfPortalUAU" Multiplicity="1" />
+          <End Role="ConfCadProposta" Type="Self.ConfCadProposta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ConfPortalUAU">
+              <PropertyRef Name="NumEmp_PWeb" />
+            </Principal>
+            <Dependent Role="ConfCadProposta">
+              <PropertyRef Name="NumEmp_CProp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItensConfEspelho_ConfEspelho">
+          <End Role="ConfEspelho" Type="Self.ConfEspelho" Multiplicity="1" />
+          <End Role="ItensConfEspelho" Type="Self.ItensConfEspelho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConfEspelho">
+              <PropertyRef Name="Codigo_cfg" />
+              <PropertyRef Name="NumEmp_cfg" />
+            </Principal>
+            <Dependent Role="ItensConfEspelho">
+              <PropertyRef Name="CodigoCfg_itc" />
+              <PropertyRef Name="NumEmp_itc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatusPersonConfEspelho_ConfEspelho">
+          <End Role="ConfEspelho" Type="Self.ConfEspelho" Multiplicity="1" />
+          <End Role="StatusPersonConfEspelho" Type="Self.StatusPersonConfEspelho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConfEspelho">
+              <PropertyRef Name="Codigo_cfg" />
+              <PropertyRef Name="NumEmp_cfg" />
+            </Principal>
+            <Dependent Role="StatusPersonConfEspelho">
+              <PropertyRef Name="CodigoCfg_spce" />
+              <PropertyRef Name="NumEmp_spce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UauWebBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CamposPersonConfEspelho" EntityType="Self.CamposPersonConfEspelho" />
+          <EntitySet Name="ConfCadProposta" EntityType="Self.ConfCadProposta" />
+          <EntitySet Name="ConfCadUsuario" EntityType="Self.ConfCadUsuario" />
+          <EntitySet Name="ConfEspelho" EntityType="Self.ConfEspelho" />
+          <EntitySet Name="ConfGeralEmpresa" EntityType="Self.ConfGeralEmpresa" />
+          <EntitySet Name="ConfigIRPFParcela" EntityType="Self.ConfigIRPFParcela" />
+          <EntitySet Name="ConfPortalUAU" EntityType="Self.ConfPortalUAU" />
+          <EntitySet Name="ConfReimpBoleto" EntityType="Self.ConfReimpBoleto" />
+          <EntitySet Name="ConfServico" EntityType="Self.ConfServico" />
+          <EntitySet Name="ExtratoCliente" EntityType="Self.ExtratoCliente" />
+          <EntitySet Name="ExtratoMensagem" EntityType="Self.ExtratoMensagem" />
+          <EntitySet Name="ExtratoParcela" EntityType="Self.ExtratoParcela" />
+          <EntitySet Name="ItensConfEspelho" EntityType="Self.ItensConfEspelho" />
+          <EntitySet Name="StatusPersonConfEspelho" EntityType="Self.StatusPersonConfEspelho" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_ConfCadProposta_ConfPortalUAU" Association="Self.FK_ConfCadProposta_ConfPortalUAU">
+            <End Role="ConfPortalUAU" EntitySet="ConfPortalUAU" />
+            <End Role="ConfCadProposta" EntitySet="ConfCadProposta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItensConfEspelho_ConfEspelho" Association="Self.FK_ItensConfEspelho_ConfEspelho">
+            <End Role="ConfEspelho" EntitySet="ConfEspelho" />
+            <End Role="ItensConfEspelho" EntitySet="ItensConfEspelho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatusPersonConfEspelho_ConfEspelho" Association="Self.FK_StatusPersonConfEspelho_ConfEspelho">
+            <End Role="ConfEspelho" EntitySet="ConfEspelho" />
+            <End Role="StatusPersonConfEspelho" EntitySet="StatusPersonConfEspelho" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="uau1ModelStoreContainer" CdmEntityContainer="UauWebBDEntities">
+          <EntitySetMapping Name="CamposPersonConfEspelho">
+            <EntityTypeMapping TypeName="uau1Model.CamposPersonConfEspelho">
+              <MappingFragment StoreEntitySet="CamposPersonConfEspelho">
+                <ScalarProperty Name="Codigo_cpce" ColumnName="Codigo_cpce" />
+                <ScalarProperty Name="CodigoCfg_cpce" ColumnName="CodigoCfg_cpce" />
+                <ScalarProperty Name="NumEmp_cpce" ColumnName="NumEmp_cpce" />
+                <ScalarProperty Name="Descricao_cpce" ColumnName="Descricao_cpce" />
+                <ScalarProperty Name="NomeCampo_cpce" ColumnName="NomeCampo_cpce" />
+                <ScalarProperty Name="Ordem_cpce" ColumnName="Ordem_cpce" />
+                <ScalarProperty Name="TipoFormatacao_cpce" ColumnName="TipoFormatacao_cpce" />
+                <ScalarProperty Name="TamanhoFormatacao_cpce" ColumnName="TamanhoFormatacao_cpce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfCadProposta">
+            <EntityTypeMapping TypeName="uau1Model.ConfCadProposta">
+              <MappingFragment StoreEntitySet="ConfCadProposta">
+                <ScalarProperty Name="NumEmp_CProp" ColumnName="NumEmp_CProp" />
+                <ScalarProperty Name="MostrarDetComissao_Cprop" ColumnName="MostrarDetComissao_Cprop" />
+                <ScalarProperty Name="ResumoContratual_Cprop" ColumnName="ResumoContratual_Cprop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfCadUsuario">
+            <EntityTypeMapping TypeName="uau1Model.ConfCadUsuario">
+              <MappingFragment StoreEntitySet="ConfCadUsuario">
+                <ScalarProperty Name="NumEmp_ccu" ColumnName="NumEmp_ccu" />
+                <ScalarProperty Name="AutoManual_ccu" ColumnName="AutoManual_ccu" />
+                <ScalarProperty Name="AtualizaEmail_ccu" ColumnName="AtualizaEmail_ccu" />
+                <ScalarProperty Name="AutoCadastro_ccu" ColumnName="AutoCadastro_ccu" />
+                <ScalarProperty Name="ConfirmaCadEmail_ccu" ColumnName="ConfirmaCadEmail_ccu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfEspelho">
+            <EntityTypeMapping TypeName="uau1Model.ConfEspelho">
+              <MappingFragment StoreEntitySet="ConfEspelho">
+                <ScalarProperty Name="Codigo_cfg" ColumnName="Codigo_cfg" />
+                <ScalarProperty Name="NumEmp_cfg" ColumnName="NumEmp_cfg" />
+                <ScalarProperty Name="Descr_cfg" ColumnName="Descr_cfg" />
+                <ScalarProperty Name="QtdeColuna_cfg" ColumnName="QtdeColuna_cfg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfGeralEmpresa">
+            <EntityTypeMapping TypeName="uau1Model.ConfGeralEmpresa">
+              <MappingFragment StoreEntitySet="ConfGeralEmpresa">
+                <ScalarProperty Name="NumEmp_cge" ColumnName="NumEmp_cge" />
+                <ScalarProperty Name="Configuracao_cge" ColumnName="Configuracao_cge" />
+                <ScalarProperty Name="Valor_cge" ColumnName="Valor_cge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfigIRPFParcela">
+            <EntityTypeMapping TypeName="uau1Model.ConfigIRPFParcela">
+              <MappingFragment StoreEntitySet="ConfigIRPFParcela">
+                <ScalarProperty Name="NumEmp_cip" ColumnName="NumEmp_cip" />
+                <ScalarProperty Name="TipoParc_cip" ColumnName="TipoParc_cip" />
+                <ScalarProperty Name="DescricaoParc_cip" ColumnName="DescricaoParc_cip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfPortalUAU">
+            <EntityTypeMapping TypeName="uau1Model.ConfPortalUAU">
+              <MappingFragment StoreEntitySet="ConfPortalUAU">
+                <ScalarProperty Name="NumEmp_PWeb" ColumnName="NumEmp_PWeb" />
+                <ScalarProperty Name="DescrPortalUAU_PWeb" ColumnName="DescrPortalUAU_PWeb" />
+                <ScalarProperty Name="URLWS_PWeb" ColumnName="URLWS_PWeb" />
+                <ScalarProperty Name="EmailContato_PWeb" ColumnName="EmailContato_PWeb" />
+                <ScalarProperty Name="EmpresaUAU_PWeb" ColumnName="EmpresaUAU_PWeb" />
+                <ScalarProperty Name="ObraUAU_PWeb" ColumnName="ObraUAU_PWeb" />
+                <ScalarProperty Name="UsrCad_PWeb" ColumnName="UsrCad_PWeb" />
+                <ScalarProperty Name="DataCad_Pweb" ColumnName="DataCad_Pweb" />
+                <ScalarProperty Name="DataAlt_Pweb" ColumnName="DataAlt_Pweb" />
+                <ScalarProperty Name="UsrAlt_PWeb" ColumnName="UsrAlt_PWeb" />
+                <ScalarProperty Name="AtInat_PWeb" ColumnName="AtInat_PWeb" />
+                <ScalarProperty Name="HTML_PWeb" ColumnName="HTML_PWeb" />
+                <ScalarProperty Name="URLPaginaCentro_Pweb" ColumnName="URLPaginaCentro_Pweb" />
+                <ScalarProperty Name="NomeContato_PWeb" ColumnName="NomeContato_PWeb" />
+                <ScalarProperty Name="Telefone_PWeb" ColumnName="Telefone_PWeb" />
+                <ScalarProperty Name="UsrLoginUAU_PWeb" ColumnName="UsrLoginUAU_PWeb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfReimpBoleto">
+            <EntityTypeMapping TypeName="uau1Model.ConfReimpBoleto">
+              <MappingFragment StoreEntitySet="ConfReimpBoleto">
+                <ScalarProperty Name="NaoMostraBoletoVencido_crb" ColumnName="NaoMostraBoletoVencido_crb" />
+                <ScalarProperty Name="NumEmp_crb" ColumnName="NumEmp_crb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfServico">
+            <EntityTypeMapping TypeName="uau1Model.ConfServico">
+              <MappingFragment StoreEntitySet="ConfServico">
+                <ScalarProperty Name="NumEmp_cs" ColumnName="NumEmp_cs" />
+                <ScalarProperty Name="MostrarDemonsPagtoCli_cs" ColumnName="MostrarDemonsPagtoCli_cs" />
+                <ScalarProperty Name="MostrarReimpBoleto_cs" ColumnName="MostrarReimpBoleto_cs" />
+                <ScalarProperty Name="HabilitarAnexos_cs" ColumnName="HabilitarAnexos_cs" />
+                <ScalarProperty Name="MostrarCadTerrenos_cs" ColumnName="MostrarCadTerrenos_cs" />
+                <ScalarProperty Name="BoletoAntecipado_cs" ColumnName="BoletoAntecipado_cs" />
+                <ScalarProperty Name="InadimplenteGeraBol_cs" ColumnName="InadimplenteGeraBol_cs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExtratoCliente">
+            <EntityTypeMapping TypeName="uau1Model.ExtratoCliente">
+              <MappingFragment StoreEntitySet="ExtratoCliente">
+                <ScalarProperty Name="Campo_exc" ColumnName="Campo_exc" />
+                <ScalarProperty Name="NumEmp_exc" ColumnName="NumEmp_exc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExtratoMensagem">
+            <EntityTypeMapping TypeName="uau1Model.ExtratoMensagem">
+              <MappingFragment StoreEntitySet="ExtratoMensagem">
+                <ScalarProperty Name="NumEmp_exm" ColumnName="NumEmp_exm" />
+                <ScalarProperty Name="Mensagem_exm" ColumnName="Mensagem_exm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExtratoParcela">
+            <EntityTypeMapping TypeName="uau1Model.ExtratoParcela">
+              <MappingFragment StoreEntitySet="ExtratoParcela">
+                <ScalarProperty Name="NumEmp_exp" ColumnName="NumEmp_exp" />
+                <ScalarProperty Name="TipoParc_exp" ColumnName="TipoParc_exp" />
+                <ScalarProperty Name="DescricaoParc_exp" ColumnName="DescricaoParc_exp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItensConfEspelho">
+            <EntityTypeMapping TypeName="uau1Model.ItensConfEspelho">
+              <MappingFragment StoreEntitySet="ItensConfEspelho">
+                <ScalarProperty Name="CodigoCfg_itc" ColumnName="CodigoCfg_itc" />
+                <ScalarProperty Name="Codigo_itc" ColumnName="Codigo_itc" />
+                <ScalarProperty Name="Empresa_itc" ColumnName="Empresa_itc" />
+                <ScalarProperty Name="Obra_itc" ColumnName="Obra_itc" />
+                <ScalarProperty Name="Produto_itc" ColumnName="Produto_itc" />
+                <ScalarProperty Name="NumEmp_itc" ColumnName="NumEmp_itc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusPersonConfEspelho">
+            <EntityTypeMapping TypeName="uau1Model.StatusPersonConfEspelho">
+              <MappingFragment StoreEntitySet="StatusPersonConfEspelho">
+                <ScalarProperty Name="CodigoCfg_spce" ColumnName="CodigoCfg_spce" />
+                <ScalarProperty Name="NumEmp_spce" ColumnName="NumEmp_spce" />
+                <ScalarProperty Name="Status_spce" ColumnName="Status_spce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="uau1Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+<Alloy>
+	<Window id="janela" class="janela" > 
+		<View id="boxAuxLogin">
+			<View id="boxTitulo">
+				<ImageView id="imgIcone" /> 
+				<Label id="titulo">UAU Cliente</Label>
+			</View>
+			<Widget src="Login" name="login" id="meuLogin" />
+		</View>
+	</Window>
+</Alloy>

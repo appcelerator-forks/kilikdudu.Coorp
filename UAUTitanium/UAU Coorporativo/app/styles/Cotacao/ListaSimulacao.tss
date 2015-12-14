@@ -1,0 +1,18 @@
+"#idCotacao": {
+	width: "90%",
+	height: 30,
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	top: 0
+}
+"#mestre": {
+	width: Titanium.UI.FILL,
+	top: 50,
+	bottom: 0
+} 
+"#minhaListaSimulacoes": {
+	width: Titanium.UI.FILL,
+	top: 36,
+	bottom: 0,
+	scrollable: true
+} 

@@ -1,0 +1,75 @@
+<Alloy>
+	<View width="90%" height="90%" backgroundColor="white" borderRadius="4">
+		<ScrollView id="scrlNovidadesPopUp">
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/BI.png" numero="40" desc="BI" onClick="listar" />
+				<Label class="NovidadeDescricao">BI</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Contabilidade.png" numero="4" desc="Contabilidade" onClick="listar" />
+				<Label class="NovidadeDescricao">Contabilidade</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/CRM.png" numero="12" desc="CRM" onClick="listar" />
+				<Label class="NovidadeDescricao">CRM</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Financeiro.png" numero="3" desc="Financeiro" onClick="listar" />
+				<Label class="NovidadeDescricao">Financeiro</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/FolhadePagamento.png" numero="18" desc="Folha de pagamento" onClick="listar" />
+				<Label class="NovidadeDescricao">Folha de pagamento</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/InfoUAU.png" numero="9" desc="Info UAU" onClick="listar" />
+				<Label class="NovidadeDescricao">Info UAU</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Obras.png" numero="5" desc="Obras" onClick="listar" />
+				<Label class="NovidadeDescricao">Obras</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Orcamento.png" numero="13" desc="Orçamento" onClick="listar" />
+				<Label class="NovidadeDescricao">Orçamento</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Patrimonio.png" numero="16" desc="Patrimônio" onClick="listar" />
+				<Label class="NovidadeDescricao">Patrimônio</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/ProUAU.png" numero="8" desc="ProUAU" onClick="listar" />
+				<Label class="NovidadeDescricao">Pro UAU</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Seguranca.png" numero="6" desc="Segurança" onClick="listar" />
+				<Label class="NovidadeDescricao">Segurança</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/SGQ.png" numero="11" desc="SGQ" onClick="listar" />
+				<Label class="NovidadeDescricao">SGQ</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Suprimentos.png" numero="2" desc="Suprimentos" onClick="listar" />
+				<Label class="NovidadeDescricao">Suprimentos</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/UAUMobile.png" numero="28" desc="UAU Mobile" onClick="listar" />
+				<Label class="NovidadeDescricao">UAU Mobile</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/UAUWeb.png" numero="45" desc="UAU Web" onClick="listar" />
+				<Label class="NovidadeDescricao">UAU Web</Label>
+			</View>
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Vendas.png" numero="23" desc="Vendas" onClick="listar" />
+				<Label class="NovidadeDescricao">Vendas</Label>
+			</View>	
+			<View class="NovidadePopUp">
+				<ImageView class="imageNovidade" image="/modulos/Viabilidade.png" numero="21" desc="Viabilidade" onClick="listar" />
+				<Label class="NovidadeDescricao">Viabilidade</Label>
+			</View>	
+		</ScrollView> 
+		<Button id="btnFechar" onClick="fechar">Fechar</Button>
+	</View>
+</Alloy>

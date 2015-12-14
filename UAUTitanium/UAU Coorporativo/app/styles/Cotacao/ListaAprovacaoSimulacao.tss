@@ -1,0 +1,9 @@
+"#mestre": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL
+}
+"#minhaListaAprovacao": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	scrollable: true
+} 

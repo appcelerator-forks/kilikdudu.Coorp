@@ -1,0 +1,19 @@
+<Alloy>
+	<ScrollView id="conteudo">
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="token" />
+			</View>	
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="usrname" />
+			</View>
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="senha" />
+			</View>
+			<View id="boxButton"> 
+				<View layout="horizontal" right=0 width="Ti.UI.SIZE">
+					<Button id="btnGravar" onClick="gravarTrigger" class="CustomButton">Gravar</Button>
+					<Button id="btnCancelar" onClick="cancelar" class="CustomButton">Cancelar</Button>
+				</View>
+			</View>
+	</ScrollView>
+</Alloy>

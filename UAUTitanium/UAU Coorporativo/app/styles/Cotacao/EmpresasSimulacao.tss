@@ -1,0 +1,11 @@
+"#mestre": {
+	width: Titanium.UI.FILL,
+	top: 0,
+	bottom: 0
+} 
+"#minhaListaEmpresas": {
+	width: Titanium.UI.FILL,
+	top: 0, 
+	bottom: 0,
+	scrollable: true
+} 

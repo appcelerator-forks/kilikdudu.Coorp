@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/UAUMobileWebAPI/wsBoleto" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/UAUMobileWebAPI/wsBoleto" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/UAUMobileWebAPI/wsBoleto">
+      <s:element name="EnviaNotificacaoBoleto">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnviaNotificacaoBoletoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EnviaNotificacaoBoletoSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviaNotificacaoBoleto" />
+  </wsdl:message>
+  <wsdl:message name="EnviaNotificacaoBoletoSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviaNotificacaoBoletoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsBoletoSoap">
+    <wsdl:operation name="EnviaNotificacaoBoleto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Envia a notificação de boletos pendentes para o cliente.</wsdl:documentation>
+      <wsdl:input message="tns:EnviaNotificacaoBoletoSoapIn" />
+      <wsdl:output message="tns:EnviaNotificacaoBoletoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsBoletoSoap" type="tns:wsBoletoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviaNotificacaoBoleto">
+      <soap:operation soapAction="http://tempuri.org/UAUMobileWebAPI/wsBoleto/EnviaNotificacaoBoleto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsBoletoSoap12" type="tns:wsBoletoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviaNotificacaoBoleto">
+      <soap12:operation soapAction="http://tempuri.org/UAUMobileWebAPI/wsBoleto/EnviaNotificacaoBoleto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsBoleto">
+    <wsdl:port name="wsBoletoSoap" binding="tns:wsBoletoSoap">
+      <soap:address location="http://localhost:8686/UAUMobileWebAPI/webservices/wsboleto.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsBoletoSoap12" binding="tns:wsBoletoSoap12">
+      <soap12:address location="http://localhost:8686/UAUMobileWebAPI/webservices/wsboleto.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

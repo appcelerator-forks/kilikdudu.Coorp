@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/PortalUAU_WS/wsUsuarios" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/PortalUAU_WS/wsUsuarios" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/PortalUAU_WS/wsUsuarios">
+      <s:element name="StatusUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StatusUsuarioResult" type="tns:EnumStatusUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumStatusUsuario">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ativo" />
+          <s:enumeration value="Inativo" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConsultarEmailRoot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarEmailRootResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarEmailRootResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipoAcao" type="tns:AcaoRegistro" />
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AcaoRegistro">
+        <s:restriction base="s:string">
+          <s:enumeration value="Inserir" />
+          <s:enumeration value="Alterar" />
+          <s:enumeration value="Excluir" />
+          <s:enumeration value="Cancelar" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UsrInfo" type="tns:UsuariosInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginUsrOrigem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CopiaLotacaoDepartamento" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CopiaPermissaoUsuario" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaConfiguracaoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaPermissaoPorObra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaValoresAlcada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaPermissaoBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaEstruturaCons" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaECommerce" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiaPerfil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarcouInativarUsuario" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailOriginal" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsuariosInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Login_usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nome_usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Senha_usr" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status_usr" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Grupo_usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodCompradorNet_usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodTelefoneNet_usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodLoginExpNet_usr" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Anexos_usr" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email_usr" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodPes_usr" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RepresentaGrupo_usr" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoginSiteuau_usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SenhaSiteuau_usr" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataCad_usr" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataAlt_usr" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsrCad_Usr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsrAlt_Usr" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="UsarSeguranca_Usr" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="RepresentaDepartamento_usr" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataLoginUau_usr" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Info" />
+      <s:element name="GravarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarUsuarioResult" type="tns:ResultadoExecucaoUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoExecucaoUsuario">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultadoExecucao">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MarcouRepresentaDepartamento" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MarcouRepresentaGrupo" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmailOriginal" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResultadoExecucao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoMensagemResultadoExecucao" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sucesso" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Continua" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoMensagemResultadoExecucao">
+        <s:restriction base="s:string">
+          <s:enumeration value="Informativa" />
+          <s:enumeration value="Confirmacao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CopiarPerfilDeOutroUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CopiarPerfilDeOutroUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CopiarPerfilDeOutroUsuarioResult" type="tns:ResultadoExecucaoUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperarUsuarioSenhaPorLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperarUsuarioSenhaPorLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperarUsuarioSenhaPorLoginResult" type="tns:RetornoMetodo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RetornoMetodo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Operacao" type="tns:RecuperaDados" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusRetorno" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUsuario" type="tns:UsuariosInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RecuperaDados">
+        <s:restriction base="s:string">
+          <s:enumeration value="Uau" />
+          <s:enumeration value="Portal" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="StatusRetorno">
+        <s:restriction base="s:string">
+          <s:enumeration value="Falha" />
+          <s:enumeration value="Sucesso" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConsultarGruposDeUsuario">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarGruposDeUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarGruposDeUsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperarUsuarioSenhaPorEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperarUsuarioSenhaPorEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperarUsuarioSenhaPorEmailResult" type="tns:ArrayOfRetornoMetodo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRetornoMetodo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RetornoMetodo" nillable="true" type="tns:RetornoMetodo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarUsuariosAtivos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarUsuariosAtivosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarUsuariosAtivosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarUsuariosComFiltro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarUsuariosComFiltroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarUsuariosComFiltroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarUsuariosPermissaoCopiaDePerfil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarUsuariosPermissaoCopiaDePerfilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarUsuariosPermissaoCopiaDePerfilResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaPermissaoModuloSeguranca">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaPermissaoModuloSegurancaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificaPermissaoModuloSegurancaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarDtHrLoginUsr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarDtHrLoginUsrResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultaUsuarioPeloLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaUsuarioPeloLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaUsuarioPeloLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StatusUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusUsuario" />
+  </wsdl:message>
+  <wsdl:message name="StatusUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarEmailRootSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarEmailRoot" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarEmailRootSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarEmailRootResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="GravarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="CopiarPerfilDeOutroUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:CopiarPerfilDeOutroUsuario" />
+  </wsdl:message>
+  <wsdl:message name="CopiarPerfilDeOutroUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:CopiarPerfilDeOutroUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarUsuarioSenhaPorLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperarUsuarioSenhaPorLogin" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarUsuarioSenhaPorLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperarUsuarioSenhaPorLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarGruposDeUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarGruposDeUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarGruposDeUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarGruposDeUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarUsuarioSenhaPorEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperarUsuarioSenhaPorEmail" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarUsuarioSenhaPorEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperarUsuarioSenhaPorEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuariosAtivosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuariosAtivos" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuariosAtivosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuariosAtivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuariosComFiltroSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuariosComFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuariosComFiltroSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuariosComFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuariosPermissaoCopiaDePerfilSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuariosPermissaoCopiaDePerfil" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuariosPermissaoCopiaDePerfilSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuariosPermissaoCopiaDePerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaPermissaoModuloSegurancaSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaPermissaoModuloSeguranca" />
+  </wsdl:message>
+  <wsdl:message name="VerificaPermissaoModuloSegurancaSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaPermissaoModuloSegurancaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarDtHrLoginUsrSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarDtHrLoginUsr" />
+  </wsdl:message>
+  <wsdl:message name="AlterarDtHrLoginUsrSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarDtHrLoginUsrResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaUsuarioPeloLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaUsuarioPeloLogin" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaUsuarioPeloLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaUsuarioPeloLoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsUsuariosSoap">
+    <wsdl:operation name="StatusUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Status do usuário</wsdl:documentation>
+      <wsdl:input message="tns:StatusUsuarioSoapIn" />
+      <wsdl:output message="tns:StatusUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEmailRoot">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Enviar email externo para usuário root.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarEmailRootSoapIn" />
+      <wsdl:output message="tns:ConsultarEmailRootSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava informações do usuário.</wsdl:documentation>
+      <wsdl:input message="tns:GravarUsuarioSoapIn" />
+      <wsdl:output message="tns:GravarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CopiarPerfilDeOutroUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Copiar perfil de outro usuário.</wsdl:documentation>
+      <wsdl:input message="tns:CopiarPerfilDeOutroUsuarioSoapIn" />
+      <wsdl:output message="tns:CopiarPerfilDeOutroUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarUsuarioSenhaPorLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">login do usuário</wsdl:documentation>
+      <wsdl:input message="tns:RecuperarUsuarioSenhaPorLoginSoapIn" />
+      <wsdl:output message="tns:RecuperarUsuarioSenhaPorLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarGruposDeUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza consulta de grupos de usuário.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarGruposDeUsuarioSoapIn" />
+      <wsdl:output message="tns:ConsultarGruposDeUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarUsuarioSenhaPorEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Email do usuário</wsdl:documentation>
+      <wsdl:input message="tns:RecuperarUsuarioSenhaPorEmailSoapIn" />
+      <wsdl:output message="tns:RecuperarUsuarioSenhaPorEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosAtivos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Status do usuário</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarUsuariosAtivosSoapIn" />
+      <wsdl:output message="tns:ConsultarUsuariosAtivosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosComFiltro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">consulta usuários com filtros</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarUsuariosComFiltroSoapIn" />
+      <wsdl:output message="tns:ConsultarUsuariosComFiltroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosPermissaoCopiaDePerfil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">consulta usuários com permissão de copia de perfil </wsdl:documentation>
+      <wsdl:input message="tns:ConsultarUsuariosPermissaoCopiaDePerfilSoapIn" />
+      <wsdl:output message="tns:ConsultarUsuariosPermissaoCopiaDePerfilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaPermissaoModuloSeguranca">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica se o usuário tem permissão para acessar o módulo segurnça.</wsdl:documentation>
+      <wsdl:input message="tns:VerificaPermissaoModuloSegurancaSoapIn" />
+      <wsdl:output message="tns:VerificaPermissaoModuloSegurancaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarDtHrLoginUsr">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gravar data e hora de login do usuário</wsdl:documentation>
+      <wsdl:input message="tns:AlterarDtHrLoginUsrSoapIn" />
+      <wsdl:output message="tns:AlterarDtHrLoginUsrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaUsuarioPeloLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">login do usuário</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaUsuarioPeloLoginSoapIn" />
+      <wsdl:output message="tns:ConsultaUsuarioPeloLoginSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsUsuariosSoap" type="tns:wsUsuariosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StatusUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/StatusUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEmailRoot">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarEmailRoot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/GravarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopiarPerfilDeOutroUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/CopiarPerfilDeOutroUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarUsuarioSenhaPorLogin">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/RecuperarUsuarioSenhaPorLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarGruposDeUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarGruposDeUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarUsuarioSenhaPorEmail">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/RecuperarUsuarioSenhaPorEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosAtivos">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarUsuariosAtivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosComFiltro">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarUsuariosComFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosPermissaoCopiaDePerfil">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarUsuariosPermissaoCopiaDePerfil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaPermissaoModuloSeguranca">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/VerificaPermissaoModuloSeguranca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarDtHrLoginUsr">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/AlterarDtHrLoginUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaUsuarioPeloLogin">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultaUsuarioPeloLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsUsuariosSoap12" type="tns:wsUsuariosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StatusUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/StatusUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEmailRoot">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarEmailRoot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/GravarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopiarPerfilDeOutroUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/CopiarPerfilDeOutroUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarUsuarioSenhaPorLogin">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/RecuperarUsuarioSenhaPorLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarGruposDeUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarGruposDeUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarUsuarioSenhaPorEmail">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/RecuperarUsuarioSenhaPorEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosAtivos">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarUsuariosAtivos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosComFiltro">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarUsuariosComFiltro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuariosPermissaoCopiaDePerfil">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultarUsuariosPermissaoCopiaDePerfil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaPermissaoModuloSeguranca">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/VerificaPermissaoModuloSeguranca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarDtHrLoginUsr">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/AlterarDtHrLoginUsr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaUsuarioPeloLogin">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/wsUsuarios/ConsultaUsuarioPeloLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsUsuarios">
+    <wsdl:port name="wsUsuariosSoap" binding="tns:wsUsuariosSoap">
+      <soap:address location="http://localhost:3016/webservices/wsUsuarios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsUsuariosSoap12" binding="tns:wsUsuariosSoap12">
+      <soap12:address location="http://localhost:3016/webservices/wsUsuarios.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+"#boxTabsView": {
+	showPagingControl: false,
+	backgroundColor: "white"
+}
+"#pagingControl": {
+	backgroundColor: "white",
+	layout: "horizontal",
+	horizontalWrap: false
+}

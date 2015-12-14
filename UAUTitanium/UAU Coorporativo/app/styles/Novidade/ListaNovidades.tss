@@ -1,0 +1,24 @@
+
+"#subtitulo": {
+	width: "90%",
+	height: 60,
+	top: 50,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "black"
+}
+"#minhaListaNovidades": {
+	width: Titanium.UI.FILL,
+	top: 115,
+	bottom: 0,
+	scrollable: true
+}
+"#btnVirtual": {
+	top: 5,
+	bottom: 5,
+	borderRadius: 4,
+	backgroundColor: Alloy.Globals.MainColor,
+	backgroundSelectedColor: Alloy.Globals.MainColorLight,
+	right: "5%",
+	color: "white",
+	backgroundDisabledColor: "#B6B6B6"
+}

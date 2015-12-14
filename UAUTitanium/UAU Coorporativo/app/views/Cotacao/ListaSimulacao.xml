@@ -1,0 +1,25 @@
+<Alloy>
+	<Collection id="simulacoes" src="Simulacao" instance="true" />
+	<Window id="winListaSimulacoes" class="janela" backgroundColor="#f1f1f1" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<View id="mestre" backgroundColor="transparent">
+			<View height="Titanium.UI.SIZE" width="95%" class="shadowView" top="5" >
+				<Label id="idCotacao" class="descricaoTitulo" />
+			</View>
+			<TableView id="minhaListaSimulacoes" dataCollection="$.simulacoes" dataTransform="formatar" onClick="detalhar" backgroundColor="transparent" >
+				<TableViewRow class="RowDetail" className="RowListaSimulacoes" codSimulacao="{NumeroSimulacao}" color="white" >
+					<View class="shadowView" top="5" layout="vertical" width="95%" height="Ti.UI.SIZE" >
+						<Label text="{lblNumeroSimulacao}" class="tituloRowLista descricaoTitulo" /> 
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" descricao="Origem: " valor="{lblOrigem}" /> 
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="total" descricao="Sub-Total: " valor="{SubTotal}" />
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="bonus" descricao="Desconto: " valor="{Desconto}" />
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="onus" descricao="Vl. Transp.: " valor="{ValTransporte}" />
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="total" descricao="Total: " valor="{Total}" />
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="onus" descricao="Dif. Aliq. ICMS: " valor="{DifAliqICMS}" />
+						<Widget class="descricaoRowLista" src="GUI" name="DetalheValorRow" tipo="total" descricao="Tot. Com Dif. ICMS: " valor="{TotalDifICMS}" />
+					</View>
+				</TableViewRow>
+			</TableView>
+		</View>
+	</Window>
+</Alloy>

@@ -1,0 +1,12 @@
+<Alloy>
+	<View id="boxPrecoMeta">
+		<Label class="fontDescricao" id="tituloPrecoMeta" />
+		<View id="boxRelacaoMeta"> 
+			<View class="proporcao" width="Titanium.UI.FILL"  id="proporcaoPreco" />
+			<View class="proporcao" backgroundColor="#009a3d" id="proporcaoMeta" />
+		</View>
+		<Widget src="GUI" name="DetalheValorRow" id="PrecoMeta" descricao="Preço meta:" tipo="total" top="5" width="Titanium.UI.FILL" height="Titanium.UI.SIZE" />
+		<Widget src="GUI" name="DetalheValorRow" id="TotalMeta" descricao="Total meta:" tipo="total" width="Titanium.UI.FILL" height="Titanium.UI.SIZE" />
+		<Widget src="GUI" name="DetalheValorRow" id="RelacaoMeta" width="Titanium.UI.FILL" height="Titanium.UI.SIZE" />
+	</View>
+</Alloy>

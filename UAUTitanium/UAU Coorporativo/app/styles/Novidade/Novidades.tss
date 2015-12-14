@@ -1,0 +1,33 @@
+"#scrlNovidadesPopUp": {
+	horizontalWrap: true,
+	contentWidth: "100%",
+	showHorizontalScrollIndicator: false,
+	showVerticalScrollIndicator: true,
+	scrollingEnabled: true,
+	scrollType: 'vertical',
+	width: Titanium.UI.FILL,
+	height: "100%",
+	top: 0,
+	layout: "horizontal"
+}
+".NovidadeBox[formFactor=handheld]": {  
+	width: "33%",
+	height: 120,
+	layout: 'vertical'
+}
+".NovidadeBox[formFactor=tablet]": {  
+	width: "19%",
+	height: 120,
+	layout: 'vertical'
+}
+".imageNovidade": {
+	width: 80,
+	height: 80
+}
+".NovidadeDescricao": {
+	height: 30,
+	font: {fontSize: 12},
+	color: 'black',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	width: Titanium.UI.FILL
+}

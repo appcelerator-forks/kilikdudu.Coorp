@@ -1,0 +1,15 @@
+<Alloy>
+	<View id="conteudoPopUp"> 
+		<View id="boxTitulo">
+			<Label id="tituloPopUp" />
+		</View>
+		<View width="90%" height="1" backgroundColor="black" platform='!ios' />
+		<TableView id="listaPopUp" onClick="listaClick"> 
+			<SearchBar id="barraDeBusca" />  
+		</TableView>
+		<View id="boxButton">
+			<Button id="btnOk" onClick="clickOk">Ok</Button> 	  
+			<Button id="btnCancelar" onClick="clickCancelar">Cancelar</Button>
+		</View>	
+	</View> 
+</Alloy>

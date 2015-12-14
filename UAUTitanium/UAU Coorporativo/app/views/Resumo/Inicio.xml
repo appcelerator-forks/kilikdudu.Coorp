@@ -1,0 +1,9 @@
+<Alloy>
+	<Window id="win" class="janela" backgroundColor="#f1f1f1">
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<ScrollView id="conteudo">
+			<Label id="nome" class="descricao" />
+			<Label id="descEmpresa" class="descricao" />
+		</ScrollView>
+	</Window>
+</Alloy>

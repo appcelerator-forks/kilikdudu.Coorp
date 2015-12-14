@@ -1,0 +1,8 @@
+<Alloy>
+	<View id="boxCamada">
+		<View class="Camada" />  
+		<View id="boxEngrenagem">
+			<ImageView id="engrenagem" />
+		</View>
+	</View>
+</Alloy>

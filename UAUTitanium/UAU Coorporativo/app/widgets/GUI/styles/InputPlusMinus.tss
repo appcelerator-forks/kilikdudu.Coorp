@@ -1,0 +1,43 @@
+"#boxControles": {
+	width: Titanium.UI.FILL,
+	height: Alloy.Globals.CustomComponentHeight
+}
+
+"#lblDesc": {
+	height: Titanium.UI.SIZE,
+	wordWrap: false
+}
+
+"#linhaDesc": {
+	backgroundColor: "black", 
+	bottom: "0",
+	left: 0,
+	right: 90
+}
+
+"#Valor": {
+	left: 0,
+	right: 90,
+	color: "#292929",
+	font:{fontSize: Alloy.Globals.CustomTextSize},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER, 
+	wordWrap: false,
+	ellipsize: true
+}
+
+"#btPlus": {
+	width: Alloy.Globals.CustomComponentHeight,
+	height: Alloy.Globals.CustomComponentHeight,
+	right: 45,
+	backgroundImage: "/images/componentes/Plus.png",
+	backgroundSelectedColor: "#E6E6E6",
+	borderRadius: 4
+}
+"#btMinus": {
+	width: Alloy.Globals.CustomComponentHeight,
+	height: Alloy.Globals.CustomComponentHeight,
+	right: 0,
+	backgroundImage: "/images/componentes/Minus.png",
+	backgroundSelectedColor: "#E6E6E6",
+	borderRadius: 4
+}

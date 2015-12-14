@@ -1,0 +1,26 @@
+<Alloy>
+	<View id="conteudo" >
+		<ScrollView id="boxConfigGrafico">
+			<View height="Ti.UI.SIZE" top="10" >
+				<Widget src="GUI" name="InputPlusMinus" descricao="Meses (Quantidade de meses do histórico)" id="meses" />
+			</View>
+			<View width="90%" height="Ti.UI.SIZE" top="10" >
+				<Label class="descricaoTitulo" left="0" right="50" >Ver apenas compras do fornecedor desse insumo.</Label> 
+				<Switch id="switcherFornecedor" class="meuSwitch" width="Ti.UI.SIZE" value="false" right="0" /> 
+			</View>
+			<View width="90%" height="Ti.UI.SIZE" top="10" >
+				<Label class="descricaoTitulo" left="0" right="50" >Ver apenas as obras da cotação.</Label> 
+				<Switch id="switcherEmpObr" class="meuSwitch" width="Ti.UI.SIZE" value="true" right="0" onChange="habilitaEmpObr" /> 
+			</View>
+			<View id="boxInfoEmpObr">
+				<Widget src="GUI" name="ComboBox" id="empobr" />
+			</View>	 
+		</ScrollView>
+		<View id="boxButton"> 
+			<View layout="horizontal" right=0 width="Ti.UI.SIZE">
+				<Button id="btnAplicar" onClick="aplicarConfig" class="CustomButton">Aplicar</Button>
+				<Button id="btnCancelar" onClick="cancelar" class="CustomButton">Cancelar</Button>
+			</View>
+		</View> 
+	</View>
+</Alloy>

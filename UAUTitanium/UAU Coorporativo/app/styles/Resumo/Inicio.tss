@@ -1,0 +1,21 @@
+"#conteudo": {
+	width: Titanium.UI.FILL,
+	top: 50,
+	bottom: 0,
+	layout: 'vertical',
+	scrollingEnabled: true
+}
+"#nome": {
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	top: 15,
+	height: Titanium.UI.SIZE,
+	width: "90%"
+}
+"#descEmpresa": {
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	top: 5,
+	height: Titanium.UI.SIZE,
+	width: "90%"
+}

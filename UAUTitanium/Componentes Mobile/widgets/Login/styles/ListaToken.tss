@@ -1,0 +1,39 @@
+"#winToken": {
+  backgroundColor: "white",
+  orientationModes: [Titanium.UI.PORTRAIT]
+}
+"#boxListaToken": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	layout: "vertical"
+}
+"#listaTokens": {
+	width: Titanium.UI.FILL,
+	height: "90%",
+	scrollable: true
+}
+"#descEmpresa": {
+	width: Titanium.UI.FILL,
+	font: {fontSize: 16},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "black",
+	wordWrap: false,
+	ellipsize: true
+}
+"#numToken": {
+	width: Titanium.UI.FILL,
+	top: 5,
+	font: {fontSize: 12},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "#505050",
+	wordWrap: false,
+	ellipsize: true
+}
+"#btnDelete": {
+	right: 5,
+	top: 10,
+	width: Alloy.Globals.CustomImageSize.width,
+	height: Alloy.Globals.CustomImageSize.height,
+	backgroundImage: "/images/delete.png",
+	backgroundSelectedColor: "#B6B6B6"
+}

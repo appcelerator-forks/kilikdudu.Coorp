@@ -1,0 +1,16 @@
+"#boxCabecalho": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
+	backgroundColor: "transparent"
+}
+"#imagem": {
+	height: 36,
+	width: 36,
+	left: 0,
+}
+"#boxTitulos": {
+	left: 41,
+	right: 0,
+	height: Titanium.UI.SIZE,
+	layout: "vertical"
+}

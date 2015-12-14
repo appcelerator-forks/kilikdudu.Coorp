@@ -1,0 +1,6 @@
+"#boxCotacoes" : {
+	left: "9%",
+	width: "90%",
+	layout: "vertical",
+	height: Titanium.UI.SIZE  
+}

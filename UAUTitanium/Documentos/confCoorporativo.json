@@ -1,0 +1,11 @@
+{
+    "--": "..\\UAU Coorporativo\\app",
+    "--external": [
+        "JSONObject",
+        "Ti.*",
+		"Controller",
+        "Alloy",
+		"BackBone.*"
+    ],
+   "--tags": "UAUAlteracao.rb"
+}

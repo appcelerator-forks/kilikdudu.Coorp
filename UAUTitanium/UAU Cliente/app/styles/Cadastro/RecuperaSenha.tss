@@ -1,0 +1,13 @@
+"#scrlRecuperaSenha": {
+	scrollingEnabled: true, 
+	showVerticalScrollIndicator: true, 
+	showHorizontalScrollIndicator: false, 
+	width: Ti.UI.FILL, 
+	top: 55,
+	bottom: 0,
+	layout: 'vertical'
+}
+"#tipo": {
+	width: "90%", 
+	height: Ti.UI.SIZE
+}

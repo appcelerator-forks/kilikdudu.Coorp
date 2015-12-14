@@ -1,0 +1,10 @@
+<Alloy>
+	<View class="boxResumo" > 
+		<View class="cabecalhoResumo" id="cabecalho" > 
+			<ImageView class="resumoIcon" image="/images/servicos/cotacao.png" />
+			<Label class="lblResumo titulo">Aprovação de cotação</Label>
+		</View>
+		<View class="divisoria" backgroundColor="black" left="10" right="10" top="5" />
+		<View id="info"/>
+	</View>
+</Alloy>

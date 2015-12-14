@@ -1,0 +1,18 @@
+"#lblEmpty": {
+	wordWrap: true,
+	font: {fontSize: 16},
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	opacity: 0
+}
+"#mestre": {
+	width: Titanium.UI.FILL,
+	top: 100,
+	bottom: 0
+} 
+"#minhaListaMedicoes": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	scrollable: true
+} 

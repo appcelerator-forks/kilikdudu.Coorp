@@ -1,0 +1,6 @@
+<Alloy>
+	<Window id="winHistoricoInsumo" class="janela" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<WebView id='chartWebView' url='/html/index.html' />
+	</Window>
+</Alloy>

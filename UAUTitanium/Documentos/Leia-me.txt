@@ -1,0 +1,5 @@
+linha para gerar documentacao:
+-> UAU Cliente
+jsduck --config confCliente.json --guides guias\guias.json --output UAUCliente
+-> UAU Corporativo
+jsduck --config confCoorporativo.json --guides guias\guias.json --output UAUCorporativo

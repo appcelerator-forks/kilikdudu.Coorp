@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/SuporteNet_site/wsRegistroUau" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://tempuri.org/SuporteNET_WS/WsChavesRegistro" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s2="http://microsoft.com/wsdl/types/" xmlns:s3="http://tempuri.org/SuporteNET_WS/WsEmpresa" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/SuporteNet_site/wsRegistroUau" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/SuporteNet_site/wsRegistroUau">
+      <s:import namespace="http://tempuri.org/SuporteNET_WS/WsChavesRegistro" />
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:import namespace="http://tempuri.org/SuporteNET_WS/WsEmpresa" />
+      <s:element name="ConsultarPelaChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_reg" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPelaChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPelaChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consultar">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Inserir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objInfo" type="s1:_ChavesRegistroInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Alterar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjInfo" type="s1:_ChavesRegistroInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Deletar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Num_reg" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletarResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarChaveRegistroPorEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarChaveRegistroPorEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarChaveRegistroPorEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InativarRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumRegistro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UsrInat" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InativarRegistroResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GravarChaveRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InfoChaveRegistro" type="s1:_ChavesRegistroInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarChaveRegistroResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarChavePorEmpresaTipoBanco">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NumEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TipoBanco" type="s2:char" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarChavePorEmpresaTipoBancoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarChavePorEmpresaTipoBancoResult" type="s1:_ChavesRegistroInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarChavePorChaveInicial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChaveInicial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarChavePorChaveInicialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarChavePorChaveInicialResult" type="s1:_ChavesRegistroInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarAutomaticamente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InfoChaveReg" type="s1:_ChavesRegInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarAutomaticamenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarAutomaticamenteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Criptografar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InfoChaveReg" type="s1:_ChavesRegInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CriptografarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CriptografarResult" type="s1:_ChavesRegInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Descriptografar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InfoChaveReg" type="s1:_ChavesRegInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DescriptografarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DescriptografarResult" type="s1:_ChavesRegInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delimitador">
+        <s:complexType />
+      </s:element>
+      <s:element name="DelimitadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelimitadorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenovarRegistroAutomaticamente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InfoChaveReg" type="s1:_ChavesRegInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChaveCriptografada" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenovarRegistroAutomaticamenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RenovarRegistroAutomaticamenteResult" type="s1:_ChavesRegInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaNomeEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Numemp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaNomeEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaNomeEmpresaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosConfPortalUauPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosConfPortalUauPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosConfPortalUauPorCodigoResult" type="s3:_ConfPortalUAUInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosConfPortalUauPorToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosConfPortalUauPorTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosConfPortalUauPorTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeraTokenEmpresaPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeraTokenEmpresaPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GeraTokenEmpresaPorCodigoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="_ChavesRegistroInfo" nillable="true" type="s1:_ChavesRegistroInfo" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="_ConfPortalUAUInfo" nillable="true" type="s3:_ConfPortalUAUInfo" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/SuporteNET_WS/WsChavesRegistro">
+      <s:complexType name="_ChavesRegistroInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Num_reg" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_reg" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chave_reg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoBanco_reg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataExpiracao_reg" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_reg" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_reg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtInat_reg" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataInat_reg" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrInat_reg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="_ChavesRegInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NumEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeServidor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeBancoDados" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataExpiracao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataCriacaoBD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/SuporteNET_WS/WsEmpresa">
+      <s:complexType name="_ConfPortalUAUInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumEmp_PWeb" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLWS_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailContato_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EmpresaUAU_PWeb" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObraUAU_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrCad_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCad_Pweb" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataAlt_Pweb" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsrAlt_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AtInat_PWeb" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescrPortalUAU_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HTML_PWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLPaginaCentro_PWeb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumHospUauWeb_PWeb" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarPelaChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPelaChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPelaChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarSoapIn">
+    <wsdl:part name="parameters" element="tns:Consultar" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirSoapIn">
+    <wsdl:part name="parameters" element="tns:Inserir" />
+  </wsdl:message>
+  <wsdl:message name="InserirSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSoapIn">
+    <wsdl:part name="parameters" element="tns:Alterar" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarSoapIn">
+    <wsdl:part name="parameters" element="tns:Deletar" />
+  </wsdl:message>
+  <wsdl:message name="DeletarSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChaveRegistroPorEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarChaveRegistroPorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChaveRegistroPorEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarChaveRegistroPorEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InativarRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:InativarRegistro" />
+  </wsdl:message>
+  <wsdl:message name="InativarRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:InativarRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarChaveRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarChaveRegistro" />
+  </wsdl:message>
+  <wsdl:message name="GravarChaveRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarChaveRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorEmpresaTipoBancoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarChavePorEmpresaTipoBanco" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorEmpresaTipoBancoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarChavePorEmpresaTipoBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorChaveInicialSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarChavePorChaveInicial" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorChaveInicialSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarChavePorChaveInicialResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarAutomaticamenteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarAutomaticamente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarAutomaticamenteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarAutomaticamenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CriptografarSoapIn">
+    <wsdl:part name="parameters" element="tns:Criptografar" />
+  </wsdl:message>
+  <wsdl:message name="CriptografarSoapOut">
+    <wsdl:part name="parameters" element="tns:CriptografarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DescriptografarSoapIn">
+    <wsdl:part name="parameters" element="tns:Descriptografar" />
+  </wsdl:message>
+  <wsdl:message name="DescriptografarSoapOut">
+    <wsdl:part name="parameters" element="tns:DescriptografarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelimitadorSoapIn">
+    <wsdl:part name="parameters" element="tns:Delimitador" />
+  </wsdl:message>
+  <wsdl:message name="DelimitadorSoapOut">
+    <wsdl:part name="parameters" element="tns:DelimitadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="RenovarRegistroAutomaticamenteSoapIn">
+    <wsdl:part name="parameters" element="tns:RenovarRegistroAutomaticamente" />
+  </wsdl:message>
+  <wsdl:message name="RenovarRegistroAutomaticamenteSoapOut">
+    <wsdl:part name="parameters" element="tns:RenovarRegistroAutomaticamenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaNomeEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaNomeEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="BuscaNomeEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaNomeEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosConfPortalUauPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosConfPortalUauPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosConfPortalUauPorToken" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosConfPortalUauPorTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:GeraTokenEmpresaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:GeraTokenEmpresaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpGetIn">
+    <wsdl:part name="Num_reg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHttpGetIn" />
+  <wsdl:message name="ConsultarHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpGetIn">
+    <wsdl:part name="Num_reg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChaveRegistroPorEmpresaHttpGetIn">
+    <wsdl:part name="NumEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChaveRegistroPorEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="InativarRegistroHttpGetIn">
+    <wsdl:part name="NumRegistro" type="s:string" />
+    <wsdl:part name="UsrInat" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InativarRegistroHttpGetOut" />
+  <wsdl:message name="ConsultarChavePorEmpresaTipoBancoHttpGetIn">
+    <wsdl:part name="NumEmpresa" type="s:string" />
+    <wsdl:part name="TipoBanco" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorEmpresaTipoBancoHttpGetOut">
+    <wsdl:part name="Body" element="tns:_ChavesRegistroInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorChaveInicialHttpGetIn">
+    <wsdl:part name="ChaveInicial" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorChaveInicialHttpGetOut">
+    <wsdl:part name="Body" element="tns:_ChavesRegistroInfo" />
+  </wsdl:message>
+  <wsdl:message name="DelimitadorHttpGetIn" />
+  <wsdl:message name="DelimitadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BuscaNomeEmpresaHttpGetIn">
+    <wsdl:part name="Numemp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BuscaNomeEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorCodigoHttpGetIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:_ConfPortalUAUInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpGetIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpPostIn">
+    <wsdl:part name="Num_reg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPelaChaveHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHttpPostIn" />
+  <wsdl:message name="ConsultarHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpPostIn">
+    <wsdl:part name="Num_reg" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletarHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChaveRegistroPorEmpresaHttpPostIn">
+    <wsdl:part name="NumEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChaveRegistroPorEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="InativarRegistroHttpPostIn">
+    <wsdl:part name="NumRegistro" type="s:string" />
+    <wsdl:part name="UsrInat" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InativarRegistroHttpPostOut" />
+  <wsdl:message name="ConsultarChavePorEmpresaTipoBancoHttpPostIn">
+    <wsdl:part name="NumEmpresa" type="s:string" />
+    <wsdl:part name="TipoBanco" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorEmpresaTipoBancoHttpPostOut">
+    <wsdl:part name="Body" element="tns:_ChavesRegistroInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorChaveInicialHttpPostIn">
+    <wsdl:part name="ChaveInicial" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarChavePorChaveInicialHttpPostOut">
+    <wsdl:part name="Body" element="tns:_ChavesRegistroInfo" />
+  </wsdl:message>
+  <wsdl:message name="DelimitadorHttpPostIn" />
+  <wsdl:message name="DelimitadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="BuscaNomeEmpresaHttpPostIn">
+    <wsdl:part name="Numemp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BuscaNomeEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorCodigoHttpPostIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:_ConfPortalUAUInfo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosConfPortalUauPorTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpPostIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GeraTokenEmpresaPorCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="wsRegistroUauSoap">
+    <wsdl:operation name="ConsultarPelaChave">
+      <wsdl:input message="tns:ConsultarPelaChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarPelaChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input message="tns:ConsultarSoapIn" />
+      <wsdl:output message="tns:ConsultarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Inserir">
+      <wsdl:input message="tns:InserirSoapIn" />
+      <wsdl:output message="tns:InserirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <wsdl:input message="tns:AlterarSoapIn" />
+      <wsdl:output message="tns:AlterarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <wsdl:input message="tns:DeletarSoapIn" />
+      <wsdl:output message="tns:DeletarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <wsdl:input message="tns:ConsultarChaveRegistroPorEmpresaSoapIn" />
+      <wsdl:output message="tns:ConsultarChaveRegistroPorEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <wsdl:input message="tns:InativarRegistroSoapIn" />
+      <wsdl:output message="tns:InativarRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarChaveRegistro">
+      <wsdl:input message="tns:GravarChaveRegistroSoapIn" />
+      <wsdl:output message="tns:GravarChaveRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <wsdl:input message="tns:ConsultarChavePorEmpresaTipoBancoSoapIn" />
+      <wsdl:output message="tns:ConsultarChavePorEmpresaTipoBancoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <wsdl:input message="tns:ConsultarChavePorChaveInicialSoapIn" />
+      <wsdl:output message="tns:ConsultarChavePorChaveInicialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAutomaticamente">
+      <wsdl:input message="tns:RegistrarAutomaticamenteSoapIn" />
+      <wsdl:output message="tns:RegistrarAutomaticamenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Criptografar">
+      <wsdl:input message="tns:CriptografarSoapIn" />
+      <wsdl:output message="tns:CriptografarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Descriptografar">
+      <wsdl:input message="tns:DescriptografarSoapIn" />
+      <wsdl:output message="tns:DescriptografarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <wsdl:input message="tns:DelimitadorSoapIn" />
+      <wsdl:output message="tns:DelimitadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RenovarRegistroAutomaticamente">
+      <wsdl:input message="tns:RenovarRegistroAutomaticamenteSoapIn" />
+      <wsdl:output message="tns:RenovarRegistroAutomaticamenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <wsdl:input message="tns:BuscaNomeEmpresaSoapIn" />
+      <wsdl:output message="tns:BuscaNomeEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorCodigoSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorTokenSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <wsdl:input message="tns:GeraTokenEmpresaPorCodigoSoapIn" />
+      <wsdl:output message="tns:GeraTokenEmpresaPorCodigoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsRegistroUauHttpGet">
+    <wsdl:operation name="ConsultarPelaChave">
+      <wsdl:input message="tns:ConsultarPelaChaveHttpGetIn" />
+      <wsdl:output message="tns:ConsultarPelaChaveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input message="tns:ConsultarHttpGetIn" />
+      <wsdl:output message="tns:ConsultarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <wsdl:input message="tns:DeletarHttpGetIn" />
+      <wsdl:output message="tns:DeletarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <wsdl:input message="tns:ConsultarChaveRegistroPorEmpresaHttpGetIn" />
+      <wsdl:output message="tns:ConsultarChaveRegistroPorEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <wsdl:input message="tns:InativarRegistroHttpGetIn" />
+      <wsdl:output message="tns:InativarRegistroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <wsdl:input message="tns:ConsultarChavePorEmpresaTipoBancoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarChavePorEmpresaTipoBancoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <wsdl:input message="tns:ConsultarChavePorChaveInicialHttpGetIn" />
+      <wsdl:output message="tns:ConsultarChavePorChaveInicialHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <wsdl:input message="tns:DelimitadorHttpGetIn" />
+      <wsdl:output message="tns:DelimitadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <wsdl:input message="tns:BuscaNomeEmpresaHttpGetIn" />
+      <wsdl:output message="tns:BuscaNomeEmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorCodigoHttpGetIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorTokenHttpGetIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <wsdl:input message="tns:GeraTokenEmpresaPorCodigoHttpGetIn" />
+      <wsdl:output message="tns:GeraTokenEmpresaPorCodigoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsRegistroUauHttpPost">
+    <wsdl:operation name="ConsultarPelaChave">
+      <wsdl:input message="tns:ConsultarPelaChaveHttpPostIn" />
+      <wsdl:output message="tns:ConsultarPelaChaveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input message="tns:ConsultarHttpPostIn" />
+      <wsdl:output message="tns:ConsultarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <wsdl:input message="tns:DeletarHttpPostIn" />
+      <wsdl:output message="tns:DeletarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <wsdl:input message="tns:ConsultarChaveRegistroPorEmpresaHttpPostIn" />
+      <wsdl:output message="tns:ConsultarChaveRegistroPorEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <wsdl:input message="tns:InativarRegistroHttpPostIn" />
+      <wsdl:output message="tns:InativarRegistroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <wsdl:input message="tns:ConsultarChavePorEmpresaTipoBancoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarChavePorEmpresaTipoBancoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <wsdl:input message="tns:ConsultarChavePorChaveInicialHttpPostIn" />
+      <wsdl:output message="tns:ConsultarChavePorChaveInicialHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <wsdl:input message="tns:DelimitadorHttpPostIn" />
+      <wsdl:output message="tns:DelimitadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <wsdl:input message="tns:BuscaNomeEmpresaHttpPostIn" />
+      <wsdl:output message="tns:BuscaNomeEmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorCodigoHttpPostIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <wsdl:input message="tns:ConsultarDadosConfPortalUauPorTokenHttpPostIn" />
+      <wsdl:output message="tns:ConsultarDadosConfPortalUauPorTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <wsdl:input message="tns:GeraTokenEmpresaPorCodigoHttpPostIn" />
+      <wsdl:output message="tns:GeraTokenEmpresaPorCodigoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsRegistroUauSoap" type="tns:wsRegistroUauSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarPelaChave">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarPelaChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Consultar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inserir">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Inserir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Alterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Deletar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarChaveRegistroPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/InativarRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarChaveRegistro">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/GravarChaveRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarChavePorEmpresaTipoBanco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarChavePorChaveInicial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAutomaticamente">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/RegistrarAutomaticamente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Criptografar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Criptografar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Descriptografar">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Descriptografar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Delimitador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenovarRegistroAutomaticamente">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/RenovarRegistroAutomaticamente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/BuscaNomeEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarDadosConfPortalUauPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarDadosConfPortalUauPorToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <soap:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/GeraTokenEmpresaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsRegistroUauSoap12" type="tns:wsRegistroUauSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarPelaChave">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarPelaChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Consultar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inserir">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Inserir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Alterar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Deletar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarChaveRegistroPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/InativarRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarChaveRegistro">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/GravarChaveRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarChavePorEmpresaTipoBanco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarChavePorChaveInicial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAutomaticamente">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/RegistrarAutomaticamente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Criptografar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Criptografar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Descriptografar">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Descriptografar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/Delimitador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenovarRegistroAutomaticamente">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/RenovarRegistroAutomaticamente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/BuscaNomeEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarDadosConfPortalUauPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/ConsultarDadosConfPortalUauPorToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/SuporteNet_site/wsRegistroUau/GeraTokenEmpresaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsRegistroUauHttpGet" type="tns:wsRegistroUauHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ConsultarPelaChave">
+      <http:operation location="/ConsultarPelaChave" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <http:operation location="/Consultar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <http:operation location="/Deletar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <http:operation location="/ConsultarChaveRegistroPorEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <http:operation location="/InativarRegistro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <http:operation location="/ConsultarChavePorEmpresaTipoBanco" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <http:operation location="/ConsultarChavePorChaveInicial" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <http:operation location="/Delimitador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <http:operation location="/BuscaNomeEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <http:operation location="/ConsultarDadosConfPortalUauPorCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <http:operation location="/ConsultarDadosConfPortalUauPorToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <http:operation location="/GeraTokenEmpresaPorCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsRegistroUauHttpPost" type="tns:wsRegistroUauHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ConsultarPelaChave">
+      <http:operation location="/ConsultarPelaChave" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <http:operation location="/Consultar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deletar">
+      <http:operation location="/Deletar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChaveRegistroPorEmpresa">
+      <http:operation location="/ConsultarChaveRegistroPorEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InativarRegistro">
+      <http:operation location="/InativarRegistro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorEmpresaTipoBanco">
+      <http:operation location="/ConsultarChavePorEmpresaTipoBanco" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarChavePorChaveInicial">
+      <http:operation location="/ConsultarChavePorChaveInicial" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delimitador">
+      <http:operation location="/Delimitador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaNomeEmpresa">
+      <http:operation location="/BuscaNomeEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorCodigo">
+      <http:operation location="/ConsultarDadosConfPortalUauPorCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosConfPortalUauPorToken">
+      <http:operation location="/ConsultarDadosConfPortalUauPorToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeraTokenEmpresaPorCodigo">
+      <http:operation location="/GeraTokenEmpresaPorCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsRegistroUau">
+    <wsdl:port name="wsRegistroUauSoap" binding="tns:wsRegistroUauSoap">
+      <soap:address location="http://www.uau.com.br/webservices/wsregistrouau.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsRegistroUauSoap12" binding="tns:wsRegistroUauSoap12">
+      <soap12:address location="http://www.uau.com.br/webservices/wsregistrouau.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsRegistroUauHttpGet" binding="tns:wsRegistroUauHttpGet">
+      <http:address location="http://www.uau.com.br/webservices/wsregistrouau.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsRegistroUauHttpPost" binding="tns:wsRegistroUauHttpPost">
+      <http:address location="http://www.uau.com.br/webservices/wsregistrouau.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

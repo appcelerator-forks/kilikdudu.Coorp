@@ -1,0 +1,59 @@
+"#conteudoPopUp": {
+	width: "80%",
+	height: "80%",
+	top: "15%",
+	left: "10%",
+	right: "10%",
+	borderRadius: 4,
+	backgroundColor: "white",
+	layout: "vertical"
+}
+
+"#boxTitulo": {
+	width: Titanium.UI.FILL,
+	height: "10%",
+	top: 0,
+	backgroundColor: 'transparent'
+}
+"#tituloPopUp": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	//color: "#292929",
+	color: Alloy.Globals.MainColor,
+	left: 15,
+	font: {fontSize: Alloy.Globals.CustomTitleFont},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+} 
+"#barraDeBusca": {
+	backgroundColor: "white",
+	font: {fontSize: Alloy.Globals.CustomTextSize},
+	color: "black",
+	hintText: "Procurar...",
+}
+"#listaPopUp": {
+	width: Titanium.UI.FILL,
+	height: "78%",
+	scrollable: true
+}
+"#boxButton": {
+	width: "100%",
+	height: "10%",
+	backgroundColor: 'transparent',
+	layout: 'horizontal'
+}
+"#btnOk": {
+	width: "48%",
+	left: 0,
+	height: Titanium.UI.FILL,
+	color: Alloy.Globals.MainColor,
+	enabled: false,
+	opacity: 0.6,
+	backgroundSelectedColor: "#E6E6E6"
+}
+"#btnCancelar": {
+	width: "48%",
+	left: "4%",
+	height: Titanium.UI.FILL,
+	color: Alloy.Globals.MainColor,
+	backgroundSelectedColor: "#E6E6E6"
+}

@@ -1,0 +1,1751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/UAUWeb_WS//Pessoas" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/UAUWeb_WS//Pessoas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/UAUWeb_WS//Pessoas">
+      <s:element name="ConsultarPessoasPorTipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipoPessoa" type="tns:EnumTipoPessoa" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:EnumStatusAtivoInativoFiltro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumTipoPessoa">
+        <s:restriction base="s:string">
+          <s:enumeration value="Fisica" />
+          <s:enumeration value="Juridica" />
+          <s:enumeration value="Todas" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EnumStatusAtivoInativoFiltro">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ativo" />
+          <s:enumeration value="Inativo" />
+          <s:enumeration value="Ambos" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConsultarPessoasPorTipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasPorTipoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProfissoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:EnumStatusAtivoInativoFiltro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProfissoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProfissoesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProfissaoPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoProfissao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarProfissaoPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarProfissaoPorChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorCPFCNPJ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CPF_CNPJ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:EnumStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ativos" />
+          <s:enumeration value="Inativos" />
+          <s:enumeration value="Ambos" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConsultarPessoasPorCPFCNPJResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasPorCPFCNPJResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarTelefonePessoa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPessoa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DDD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroTel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsPesTel">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarTelefonePessoaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidarTelefonePessoaResult" type="tns:EnumTelefonePessoa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumTelefonePessoa">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="OutraPessoa" />
+          <s:enumeration value="PessoaAtual" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GravarPessoa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="infoPes" type="tns:PessoasInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="infoPesfis" type="tns:PesFisInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="infoPesJur" type="tns:PesJurInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsPesTel">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PessoasInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Cod_pes" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nome_pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Tipo_pes" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cpf_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ender_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Setor_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cidade_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Uf_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cep_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferEnd_pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Proprio_pes" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtcad_pes" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtnasc_pes" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntExt_pes" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsrCad_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UsrAlt_pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status_pes" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tratamento_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SiglaObr_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndWWW_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Matricula_Pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AtInat_pes" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataAlt_pes" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeFant_Pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Anexos_pes" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="InscrMunic_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Inscrest_pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SiglaEmp_pes" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Login_pes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Senha_pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCid_pes" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumEnd_Pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumBrr_Pes" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumLogr_Pes" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CNAE_pes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataCadPortal_pes" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CadastradoPrefeituraGyn_pes" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Info" />
+      <s:complexType name="PesJurInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Cod_pj" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contato_pj" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contato2_pj" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Inscrest_pj" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fant_pj" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InscrMunic_pj" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="InsSuframa_pj" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Natureza_pj" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="OptanteSimples_pj" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PesFisInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Cod_pf" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Lotacao_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cargo_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtadm_pf" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodEmp_pf" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Corresp_pf" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="Estciv_pf" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Doc_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tdoc_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtdoc_pf" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Sexo_pf" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nacion_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Numdep_pf" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pai_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtpai_pf" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mae_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Dtmae_pf" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Naturalid_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoEndEmp_pf" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="NomeEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EnderEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SetorEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CidadeEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UfEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CepEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReferEndEmp_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ci_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrgExp_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataEmisCi_pf" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumCid_pf" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodNacao_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodGrau_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodRaca_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodSMil_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UfNasc_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UfCi_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cnh_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataCnh_pf" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="TitEleitor_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ZonaTit_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegEstrangeiro_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AnoEstrangeiro_pf" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CidadeNat_pf" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FatorRH_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RegCasamento_pf" type="s:unsignedByte" />
+              <s:element minOccurs="0" maxOccurs="1" name="Cdi_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoDeficiencia_pf" type="s:unsignedByte" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoEntClasse_pf" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumRegConselho_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UfConselho_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodNacaoConselho_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodNacaoCI_pf" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SecaoTit_pf" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumPro_pf" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="UniaoEstavel_pf" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GravarPessoaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GravarPessoaResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoExecucao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoMensagemResultadoExecucao" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sucesso" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Continua" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoMensagemResultadoExecucao">
+        <s:restriction base="s:string">
+          <s:enumeration value="Informativa" />
+          <s:enumeration value="Confirmacao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConsultarDadosPessoaFisicaPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPessoaFis" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosPessoaFisicaPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosPessoaFisicaPorCodigoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosPessoaJuridicaPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPessoaJur" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosPessoaJuridicaPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosPessoaJuridicaPorCodigoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosPessoaPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPessoa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosPessoaPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosPessoaPorCodigoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaRapidaPes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strValor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaRapidaPesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaRapidaPesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketAutorizacao" type="tns:TicketAutorizacao" />
+      <s:complexType name="TicketAutorizacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ticket" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="BuscaAvancadaPes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strNome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCpf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEndereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCriterio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaAvancadaPesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaAvancadaPesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strCriterio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPessoaPorLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Loinportal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPessoaPorLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaPessoaPorLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPessoaPorLoginUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strLoginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPessoaPorLoginUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaPessoaPorLoginUsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasAtivas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarPessoasAtivasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasAtivasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaCodigoPessoaPorLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Loginportal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaCodigoPessoaPorLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BuscaCodigoPessoaPorLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorCPFCNPJDataNascimento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCPF_CNPJ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtDataNasc" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorCPFCNPJDataNascimentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasPorCPFCNPJDataNascimentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarPessoaAcessoPortal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intCodPes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLogin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSenha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarPessoaAcessoPortalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarPessoasComVenda">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarPessoasComVendaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasComVendaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasComProspect">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarPessoasComProspectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasComProspectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasComVendaAtiva">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarPessoasComVendaAtivaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasComVendaAtivaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarEndereco">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strEnd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strNumEnd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBairro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCidade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarEnderecoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidarEnderecoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportarDadosPessoasParaUau">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportarDadosPessoasParaUauResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportarDadosPessoasParaUauResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorNome">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NomePes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="EnumTipoPes" type="tns:EnumTipoPessoa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorNomeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasPorNomeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarTelefonePesPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodPes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarTelefonePesPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarTelefonePesPorChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodPes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoaPorChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosAdicionaisPessoaPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodPes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosAdicionaisPessoaPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosAdicionaisPessoaPorChaveResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod_pes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarPessoasPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarPessoasPorChaveResult" type="tns:PessoasInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarSenhaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoCliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarSenhaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarSenhaClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaLoginAcessoUauWeb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codPessoa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaLoginAcessoUauWebResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidaLoginAcessoUauWebResult" type="tns:ResultadoExecucao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GravarUsuarioPendenteUauWeb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:UsuarioPendenteUauWebInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioPendenteUauWebInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Info">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CodPes_upweb" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Login_upweb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Senha_upweb" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataSolicCad_upweb" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GravarUsuarioPendenteUauWebResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirUsuarioPendenteUauWebPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codPessoa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirUsuarioPendenteUauWebPorChaveResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultarUsuarioPendenteUauWebPorChave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarUsuarioPendenteUauWebPorChaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarUsuarioPendenteUauWebPorChaveResult" type="tns:UsuarioPendenteUauWebInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarPessoasPorTipoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorTipo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorTipoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorTipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProfissoesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProfissoes" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProfissoesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProfissoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProfissaoPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarProfissaoPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarProfissaoPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarProfissaoPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorCPFCNPJSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorCPFCNPJ" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorCPFCNPJSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorCPFCNPJResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarTelefonePessoaSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarTelefonePessoa" />
+  </wsdl:message>
+  <wsdl:message name="ValidarTelefonePessoaSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarTelefonePessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarPessoaSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarPessoa" />
+  </wsdl:message>
+  <wsdl:message name="GravarPessoaSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosPessoaFisicaPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosPessoaFisicaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosPessoaFisicaPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosPessoaFisicaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosPessoaJuridicaPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosPessoaJuridicaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosPessoaJuridicaPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosPessoaJuridicaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosPessoaPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosPessoaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosPessoaPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosPessoaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaRapidaPesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaRapidaPes" />
+  </wsdl:message>
+  <wsdl:message name="BuscaRapidaPesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaRapidaPesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaRapidaPesTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscaAvancadaPesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaAvancadaPes" />
+  </wsdl:message>
+  <wsdl:message name="BuscaAvancadaPesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaAvancadaPesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaAvancadaPesTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPessoaPorLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaPessoaPorLogin" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPessoaPorLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaPessoaPorLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPessoaPorLoginUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaPessoaPorLoginUsuario" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPessoaPorLoginUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaPessoaPorLoginUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasAtivasSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasAtivas" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasAtivasSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasAtivasResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaCodigoPessoaPorLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaCodigoPessoaPorLogin" />
+  </wsdl:message>
+  <wsdl:message name="BuscaCodigoPessoaPorLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaCodigoPessoaPorLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorCPFCNPJDataNascimentoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorCPFCNPJDataNascimento" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorCPFCNPJDataNascimentoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorCPFCNPJDataNascimentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarPessoaAcessoPortalSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarPessoaAcessoPortal" />
+  </wsdl:message>
+  <wsdl:message name="AlterarPessoaAcessoPortalSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarPessoaAcessoPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasComVendaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasComVenda" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasComVendaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasComVendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasComProspectSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasComProspect" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasComProspectSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasComProspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasComVendaAtivaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasComVendaAtiva" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasComVendaAtivaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasComVendaAtivaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarEnderecoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarEndereco" />
+  </wsdl:message>
+  <wsdl:message name="ValidarEnderecoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarEnderecoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportarDadosPessoasParaUauSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportarDadosPessoasParaUau" />
+  </wsdl:message>
+  <wsdl:message name="ImportarDadosPessoasParaUauSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportarDadosPessoasParaUauResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorNomeSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorNome" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorNomeSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarTelefonePesPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarTelefonePesPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarTelefonePesPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarTelefonePesPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosAdicionaisPessoaPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosAdicionaisPessoaPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosAdicionaisPessoaPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosAdicionaisPessoaPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarPessoasPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarPessoasPorChaveTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSenhaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarSenhaCliente" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSenhaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarSenhaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaLoginAcessoUauWebSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaLoginAcessoUauWeb" />
+  </wsdl:message>
+  <wsdl:message name="ValidaLoginAcessoUauWebSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaLoginAcessoUauWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="GravarUsuarioPendenteUauWebSoapIn">
+    <wsdl:part name="parameters" element="tns:GravarUsuarioPendenteUauWeb" />
+  </wsdl:message>
+  <wsdl:message name="GravarUsuarioPendenteUauWebSoapOut">
+    <wsdl:part name="parameters" element="tns:GravarUsuarioPendenteUauWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirUsuarioPendenteUauWebPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuarioPendenteUauWebPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirUsuarioPendenteUauWebPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuarioPendenteUauWebPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuarioPendenteUauWebPorChaveSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuarioPendenteUauWebPorChave" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarUsuarioPendenteUauWebPorChaveSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuarioPendenteUauWebPorChaveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PessoasSoap">
+    <wsdl:operation name="ConsultarPessoasPorTipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seleciona os dados da pessoa por cpf/cnpj e com opção de validar por status da pessoa(0 - Ativo / 1 - Inativo / 2 - Ambos).</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasPorTipoSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasPorTipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProfissoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seleciona todas as profissões(ativas,inativas ou ambos) disponíveis na base de dados.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarProfissoesSoapIn" />
+      <wsdl:output message="tns:ConsultarProfissoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProfissaoPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seleciona um determinada profissão a partir de seu código na base de dados.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarProfissaoPorChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarProfissaoPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorCPFCNPJ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seleciona os dados da pessoa por cpf/cnpj e com opção de validar por status da pessoa(0 - Ativo / 1 - Inativo / 2 - Ambos).</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasPorCPFCNPJSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasPorCPFCNPJSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarTelefonePessoa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica se o número de telefone está cadastrado para outra pessoa ou se existe na própria lista.</wsdl:documentation>
+      <wsdl:input message="tns:ValidarTelefonePessoaSoapIn" />
+      <wsdl:output message="tns:ValidarTelefonePessoaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarPessoa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Grava dados da pessoa</wsdl:documentation>
+      <wsdl:input message="tns:GravarPessoaSoapIn" />
+      <wsdl:output message="tns:GravarPessoaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaFisicaPorCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Carrega informações da pessoa física através do seu código</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDadosPessoaFisicaPorCodigoSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosPessoaFisicaPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaJuridicaPorCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Carrega informações da pessoa jurídica através do seu código</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDadosPessoaJuridicaPorCodigoSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosPessoaJuridicaPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaPorCodigo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Carrega informações da pessoa através do seu código</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDadosPessoaPorCodigoSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosPessoaPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaRapidaPes">
+      <wsdl:input message="tns:BuscaRapidaPesSoapIn" />
+      <wsdl:output message="tns:BuscaRapidaPesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaAvancadaPes">
+      <wsdl:input message="tns:BuscaAvancadaPesSoapIn" />
+      <wsdl:output message="tns:BuscaAvancadaPesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPessoaPorLogin">
+      <wsdl:input message="tns:BuscaPessoaPorLoginSoapIn" />
+      <wsdl:output message="tns:BuscaPessoaPorLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPessoaPorLoginUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seleciona os dados da pessoa por login de usuário sendo que o mesmo deverá estar associado a pessoa.</wsdl:documentation>
+      <wsdl:input message="tns:BuscaPessoaPorLoginUsuarioSoapIn" />
+      <wsdl:output message="tns:BuscaPessoaPorLoginUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasAtivas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta pessoas ativas.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasAtivasSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasAtivasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaCodigoPessoaPorLogin">
+      <wsdl:input message="tns:BuscaCodigoPessoaPorLoginSoapIn" />
+      <wsdl:output message="tns:BuscaCodigoPessoaPorLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorCPFCNPJDataNascimento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Seleciona os dados da pessoa por cpf/cnpj e/ou data de nascimento.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasPorCPFCNPJDataNascimentoSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasPorCPFCNPJDataNascimentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarPessoaAcessoPortal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Atualiza os dados de acesso ao UAU Web de uma determinada pessoa.</wsdl:documentation>
+      <wsdl:input message="tns:AlterarPessoaAcessoPortalSoapIn" />
+      <wsdl:output message="tns:AlterarPessoaAcessoPortalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComVenda">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todas as pessoas que possuem são titulares de vendas quitadas ou não. Retorna apenas código e nome da pessoa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasComVendaSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasComVendaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComProspect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todas as pessoas que são responsáveis por prospects. Retorna apenas código e nome da pessoa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasComProspectSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasComProspectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComVendaAtiva">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todas as pessoas que possuem vendas não quitadas(Ativas). Retorna apenas código e nome da pessoa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasComVendaAtivaSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasComVendaAtivaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarEndereco">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida o endereço da pessoa, caso esteja configurado para limitar o endereço.</wsdl:documentation>
+      <wsdl:input message="tns:ValidarEnderecoSoapIn" />
+      <wsdl:output message="tns:ValidarEnderecoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportarDadosPessoasParaUau">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;font size=2&gt;Realiza importação de dados de pessoas e telefones para o Uau através de Xml.&lt;/br&gt;Será verificado se o usuário está logado, conteúdo Xml válido respeitando as regras do XSD de Pessoas evalidações pertinentes os dados a serem importados.&lt;/br&gt;Retorna o conteúdo String "OK" indicando que os dados foram importados com sucesso.&lt;/br&gt;Retorna o conteúdo String contendo uma lista de erros caso os dados estejam inconsistentes.&lt;/br&gt;&lt;/font&gt;&lt;font size=3&gt;&lt;strong&gt;ATENÇÃO!! Método homologado para integração com o UAU Web&lt;/strong&gt;&lt;/font&gt;&lt;/br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ImportarDadosPessoasParaUauSoapIn" />
+      <wsdl:output message="tns:ImportarDadosPessoasParaUauSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorNome">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta pessoas pelo nome.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasPorNomeSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasPorNomeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTelefonePesPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta telefones da pessoa.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarTelefonePesPorChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarTelefonePesPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta dados primários de uma pessoa por chave.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoaPorChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosAdicionaisPessoaPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta dados adicionais de uma pessoa por chave.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDadosAdicionaisPessoaPorChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosAdicionaisPessoaPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consultar Pessoas por chave (código de pessoas)</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarPessoasPorChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarPessoasPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenhaCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;font size=2&gt;Método responsável pela alteração de senha do cliente.&lt;/br&gt;CodigoCliente: Código do cliente&lt;/br&gt;Senha: Senha do Cliente&lt;/br&gt;Retorna o conteúdo String, informando se a operação foi realizado com sucesso ou qual o erro ocorrido&lt;/font&gt;&lt;/br&gt;&lt;font size=3&gt;&lt;strong&gt;ATENÇÃO!! Método homologado para integração com o UAU Web&lt;/strong&gt;&lt;/font&gt;&lt;/br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:AlterarSenhaClienteSoapIn" />
+      <wsdl:output message="tns:AlterarSenhaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaLoginAcessoUauWeb">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para validar o login de acesso ao Uau Web que está sendo cadastrado.</wsdl:documentation>
+      <wsdl:input message="tns:ValidaLoginAcessoUauWebSoapIn" />
+      <wsdl:output message="tns:ValidaLoginAcessoUauWebSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GravarUsuarioPendenteUauWeb">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para gravar o usuário Pendente de Confirmação de Cadastro no Uau Web.</wsdl:documentation>
+      <wsdl:input message="tns:GravarUsuarioPendenteUauWebSoapIn" />
+      <wsdl:output message="tns:GravarUsuarioPendenteUauWebSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuarioPendenteUauWebPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para Excluir o Usuário Pendente de Confirmação de Cadastro no Uau Web.</wsdl:documentation>
+      <wsdl:input message="tns:ExcluirUsuarioPendenteUauWebPorChaveSoapIn" />
+      <wsdl:output message="tns:ExcluirUsuarioPendenteUauWebPorChaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuarioPendenteUauWebPorChave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para Consultar Usuário Pendente de Confirmação de Cadastro no Uau Web.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarUsuarioPendenteUauWebPorChaveSoapIn" />
+      <wsdl:output message="tns:ConsultarUsuarioPendenteUauWebPorChaveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PessoasSoap" type="tns:PessoasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarPessoasPorTipo">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorTipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProfissoes">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarProfissoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProfissaoPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarProfissaoPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorCPFCNPJ">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorCPFCNPJ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarTelefonePessoa">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ValidarTelefonePessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarPessoa">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/GravarPessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaFisicaPorCodigo">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosPessoaFisicaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaJuridicaPorCodigo">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosPessoaJuridicaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaPorCodigo">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosPessoaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaRapidaPes">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaRapidaPes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscaRapidaPesTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaAvancadaPes">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaAvancadaPes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscaAvancadaPesTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPessoaPorLogin">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaPessoaPorLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPessoaPorLoginUsuario">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaPessoaPorLoginUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasAtivas">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasAtivas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaCodigoPessoaPorLogin">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaCodigoPessoaPorLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorCPFCNPJDataNascimento">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorCPFCNPJDataNascimento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarPessoaAcessoPortal">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/AlterarPessoaAcessoPortal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComVenda">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasComVenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComProspect">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasComProspect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComVendaAtiva">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasComVendaAtiva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarEndereco">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ValidarEndereco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportarDadosPessoasParaUau">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ImportarDadosPessoasParaUau" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorNome">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTelefonePesPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarTelefonePesPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoaPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosAdicionaisPessoaPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosAdicionaisPessoaPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConsultarPessoasPorChaveTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenhaCliente">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/AlterarSenhaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaLoginAcessoUauWeb">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ValidaLoginAcessoUauWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarUsuarioPendenteUauWeb">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/GravarUsuarioPendenteUauWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuarioPendenteUauWebPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ExcluirUsuarioPendenteUauWebPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuarioPendenteUauWebPorChave">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarUsuarioPendenteUauWebPorChave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PessoasSoap12" type="tns:PessoasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarPessoasPorTipo">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorTipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProfissoes">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarProfissoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarProfissaoPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarProfissaoPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorCPFCNPJ">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorCPFCNPJ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarTelefonePessoa">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ValidarTelefonePessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarPessoa">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/GravarPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaFisicaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosPessoaFisicaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaJuridicaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosPessoaJuridicaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosPessoaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosPessoaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaRapidaPes">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaRapidaPes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscaRapidaPesTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaAvancadaPes">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaAvancadaPes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscaAvancadaPesTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPessoaPorLogin">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaPessoaPorLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPessoaPorLoginUsuario">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaPessoaPorLoginUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasAtivas">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasAtivas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaCodigoPessoaPorLogin">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/BuscaCodigoPessoaPorLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorCPFCNPJDataNascimento">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorCPFCNPJDataNascimento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarPessoaAcessoPortal">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/AlterarPessoaAcessoPortal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComVenda">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasComVenda" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComProspect">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasComProspect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasComVendaAtiva">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasComVendaAtiva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarEndereco">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ValidarEndereco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportarDadosPessoasParaUau">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ImportarDadosPessoasParaUau" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorNome">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorNome" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTelefonePesPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarTelefonePesPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoaPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosAdicionaisPessoaPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarDadosAdicionaisPessoaPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPessoasPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarPessoasPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConsultarPessoasPorChaveTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenhaCliente">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/AlterarSenhaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaLoginAcessoUauWeb">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ValidaLoginAcessoUauWeb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravarUsuarioPendenteUauWeb">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/GravarUsuarioPendenteUauWeb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuarioPendenteUauWebPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ExcluirUsuarioPendenteUauWebPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuarioPendenteUauWebPorChave">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS//Pessoas/ConsultarUsuarioPendenteUauWebPorChave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Pessoas">
+    <wsdl:port name="PessoasSoap" binding="tns:PessoasSoap">
+      <soap:address location="http://localhost:3016/Webservices/pessoas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PessoasSoap12" binding="tns:PessoasSoap12">
+      <soap12:address location="http://localhost:3016/Webservices/pessoas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

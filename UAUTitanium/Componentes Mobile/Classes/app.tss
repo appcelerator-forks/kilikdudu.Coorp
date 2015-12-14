@@ -1,0 +1,58 @@
+/*Classes gerais*/
+".CustomButton": {
+	height: Alloy.Globals.CustomComponentHeight,
+	backgroundColor: "#E6E6E6",
+	backgroundSelectedColor: "#B6B6B6",
+	borderRadius: 4,
+	color: Alloy.Globals.MainColor
+}
+".Camada": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.Fill,
+	top: 0,
+	left: 0,
+	backgroundColor: "black",
+	opacity: 0.6
+}
+".TextFieldBox": {
+	layout: "vertical",
+	height: 70,
+	width: "90%",
+	left: "5%",
+	backgroundColor: "white"
+}
+".TextFieldTitle": {
+	width: Titanium.UI.FILL,
+	height: 30,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "#595959"
+}
+".RowDetail": {
+	width: Titanium.UI.FILL,
+	backgroundColor: "white",
+	height: Titanium.UI.SIZE,
+	backgroundSelectedColor: "#E6E6E6"
+}
+/*Fim classes gerais*/
+/*Classes Login*/
+".BoxLogin": {
+	width: "95%",
+	height: "80%",
+	top: 50,
+    scrollType : 'vertical',
+    scrollingEnabled: true,
+    showHorizontalScrollIndicator: false,
+    showVerticalScrollIndicator: true
+}
+/*fim Classes Login*/
+/*Config componentes gerais*/
+"ListView": {
+	separatorColor: 'transparent'
+}
+"TableView": {
+	separatorColor: 'transparent'
+}
+"TableViewRow": {
+	selectedBackgroundColor: 'transparent'
+}
+/*Fim config componentes gerais*/

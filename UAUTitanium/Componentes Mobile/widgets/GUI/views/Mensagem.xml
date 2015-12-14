@@ -1,0 +1,13 @@
+<Alloy>
+	<View id="conteudo">
+		<View id="boxTitulo">
+			<Label id="titulo" />
+		</View>
+		<Label id="texto" />
+		<View id="boxBtn">
+			<Button id="btnOk" onClick="clickOk">Ok</Button>
+			<Button id="btnCancel" onClick="clickCancel">Cancelar</Button>
+		</View>
+		<View height="10" />
+	</View>
+</Alloy>

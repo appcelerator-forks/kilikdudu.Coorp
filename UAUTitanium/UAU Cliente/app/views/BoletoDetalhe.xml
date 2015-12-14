@@ -1,0 +1,47 @@
+<Alloy>
+	<Window id="winDetalhes" class="janela" >
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<ScrollView id="scrlDetalheBoleto" > 
+			<View layout="vertical" height="Ti.UI.SIZE" width="Ti.UI.FILL" top="0" >
+				<View width="90%" height="Ti.UI.SIZE" layout="horizontal" top=5 >
+					<Label class="titulo" color="orange" left="0" right="15" width="Ti.UI.SIZE" >Linha Digitável</Label>
+					<View id="vwCopiar" onClick="copiar"> 
+						<View id="vwAlinharCentro"> 
+							<ImageView id="imgCopiar" />
+							<Label id="lblCopiar" class="titulo">Copiar</Label>
+						</View>
+					</View>
+				</View>
+				
+				<View layout="horizontal" width="95%" left="5%" horizontalWrap="true" height="Ti.UI.SIZE" >
+					<Label id="bloco1" class="descricaoTitulo blocoLinhaDigitavel cincoDigitos"  >99999</Label>
+					<Label >.</Label>
+					<Label  id="bloco2" class="descricaoTitulo blocoLinhaDigitavel cincoDigitos">99999</Label>
+					<View width="5" height="0" />
+					<Label  id="bloco3" class="descricaoTitulo blocoLinhaDigitavel cincoDigitos" >99999</Label>
+					<Label >.</Label>
+					<Label  id="bloco4" class="descricaoTitulo blocoLinhaDigitavel seisDigitos" >999999</Label>
+					<View width="5" height="0" />
+					<Label  id="bloco5" class="descricaoTitulo blocoLinhaDigitavel cincoDigitos" >99999</Label> 
+					<Label >.</Label>
+					<Label  id="bloco6" class="descricaoTitulo blocoLinhaDigitavel seisDigitos" >999999</Label>
+					<View width="5" height="0" />
+					<Label  id="bloco7" class="descricaoTitulo blocoLinhaDigitavel umDigitos" >9</Label> 
+					<View width="5" height="0" />
+					<Label  id="bloco8" class="descricaoTitulo blocoLinhaDigitavel blocoFinal" >99999999999999</Label>
+				</View>
+				<View backgroundColor="black" width="Ti.UI.FILL" class="divisoria" top="5" />
+				<Widget id="LocalPagamento" src="GUI" name="LblHtml" descText="Local de Pagamento: " width="95%" left="5%" top="5" />
+				<Widget id="Banco" src="GUI" name="LblHtml" descText="Banco: "  width="95%" left="5%" top="5" />
+				<Widget id="Beneficiario" src="GUI" name="LblHtml" descText="Beneficiário: "  width="95%" left="5%" top="5" />
+				<Widget id="DataDocumento" src="GUI" name="LblHtml" descText="Data do Documento: "  width="95%" left="5%" top="5" />
+				<Widget id="DataVencimento" src="GUI" name="LblHtml" descText="Data de Vencimento: "  width="95%" left="5%" top="5" />
+				<Widget id="AgenciaCod" src="GUI" name="LblHtml" descText="Agência/Código do Beneficiário: "  width="95%" left="5%" top="5" />
+				<Widget id="NossoNumero" src="GUI" name="LblHtml" descText="Nosso Número: "  width="95%" left="5%" top="5" />
+				<Widget id="ValorDocumento" src="GUI" name="LblHtml" descText="Valor do Documento: "  width="95%" left="5%" top="5" />
+				<Widget id="Instrucoes" src="GUI" name="LblHtml" descText="Instruções: "  width="95%" left="5%" top="5" />
+				
+			</View>
+		</ScrollView>
+	</Window>
+</Alloy>

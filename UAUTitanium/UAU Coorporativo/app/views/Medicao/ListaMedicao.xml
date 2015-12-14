@@ -1,0 +1,28 @@
+<Alloy>
+	<Collection id="medicoes" src="Medicao" instance="true" />
+	<Window id="winListaProcessoDePagamento" class="janela"> 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<View height="50" width="100%" top="50" >
+			<Widget src="GUI" name="SearchBar" onBusca="buscar" id="schBusca" />
+		</View>
+		<View id="mestre">
+			<Label id="lblEmpty" >Nenhum contrato de medição a ser aprovado.</Label>			
+			<Widget id="ptr" src="nl.fokkezb.pullToRefresh" onRelease="myRefresher" >
+				<TableView id="minhaListaMedicoes" dataCollection="$.medicoes" dataTransform="formatar" >
+					<TableViewRow class="RowDetail" className="ListaMedicaoRow" modelo="{Identificador}" color="white" >
+						<View layout="vertical" width="100%" height="Ti.UI.SIZE" backgroundColor="white">
+							<Label text="{ValorLiquido}" class="tituloRowLista descricaoTitulo" /> 
+							<Label text="{EmpObra}" class="descricaoRowLista descricao" />
+							<Label text="{Contratado}" class="descricaoRowLista descricao" />
+							<Label text="{DataMedicao}" class="descricaoRowLista descricao" />
+							<Label text="{CodMedicao}" class="descricaoRowLista descricao" />
+							<Label text="{Contrato}" class="descricaoRowLista descricao" />
+							<View height="10" />
+						</View>
+						<View class="divisoria" width="96%" backgroundImage="/images/linhaBlack.png" bottom="0" />
+					</TableViewRow>
+				</TableView>
+			</Widget>
+		</View>
+	</Window>
+</Alloy>

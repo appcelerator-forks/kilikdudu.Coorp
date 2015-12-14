@@ -1,0 +1,74 @@
+
+"#cabecalho": {
+	top: 0,
+	height: 100, 
+	width: "100%", 
+	backgroundColor: Alloy.Globals.MainColor
+}
+"#tituloNovidades": {
+	width: Titanium.UI.FILL,
+	height: 30,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "#595959",
+	left: "5%",
+	font: {fontSize: 16}
+}
+"#logo[formFactor=handheld]": {
+	width: 160,
+	height: 80,
+	top: 10,
+	left: "5%",
+	image: "/images/empresa.png"
+}
+"#logo[formFactor=tablet]": {
+	width: 220,
+	height: 80,
+	top: 10,
+	left: "5%",
+	image: "/images/empresa.png"
+}
+"#btnEntrar": {
+	width: "70%",
+	height:"60",
+	bottom: 60,
+	borderRadius: 10,
+	font: {fontSize: 22}
+}
+"#boxNovidades": {
+	layout: "vertical", 
+	width: "100%",
+	top: 105,
+	bottom: 130
+}
+
+/*"#lblEntrar": { 
+	font: {fontSize: 15},
+	color: "black",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
+"#slideEntrar": {
+	 width: 250,
+	 height: 50,
+	 borderRadius: 12,
+	 borderColor: "black",
+	 borderWidth: 1,
+	 backgroundGradient: {
+		type: "linear",
+		startPoint: {x: 0.0, y: 0.0},
+		endPoint: {x:0.0, y: '100%'},
+		colors: ["#d5d4d4", "#f2f1f1", "white", "#f2f1f1", "#d5d4d4"]
+	}
+}
+"#barraDrag": {
+	height: 50,
+	width: 50,
+	top: 0, 
+	left: 0,
+	borderRadius: 12,
+	backgroundColor: Alloy.Globals.MainColor
+}
+"#seta": {
+	image: "/images/right_arrow.png",
+	height: 41,
+	width: 53
+}*/

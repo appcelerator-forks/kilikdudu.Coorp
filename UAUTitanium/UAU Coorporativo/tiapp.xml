@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <modules>
+        <module platform="commonjs">nl.fokkezb.html2as</module>
+        <module platform="android">ti.admob</module>
+        <module platform="iphone">ti.admob</module>
+        <module platform="android">com.rkam.swiperefreshlayout</module>
+        <module platform="android">ti.paint</module>
+        <module platform="iphone">ti.paint</module>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="android">ti.cloudpush</module>
+    </modules>
+    <id>br.com.Globaltec.UAUCoorporativo</id>
+    <name>UAU Corporativo</name>
+    <version>1.9.2</version>
+    <publisher>Globaltec</publisher>
+    <url>http://</url>
+    <description>undefined</description>
+    <copyright>2015 by Globaltec</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>434b2fd6-3358-4663-9777-4cece43f6ee8</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:versionCode="18" android:versionName="1.9.2"
+            package="br.com.Globaltec.UAUCoorporativo" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21"/>
+            <application android:hardwareAccelerated="true" android:theme="@style/Theme.NoActionBar"/>
+        </manifest>
+    </android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <deployment-targets>
+        <target device="iphone">true</target>
+        <target device="ipad">true</target>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+        <target device="mobileweb">true</target>
+    </deployment-targets>
+    <sdk-version>4.1.0.GA</sdk-version>
+    <plugins>
+        <plugin version="1.6">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">55a7c2e149e10fda17c68595</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">CTaq0KRPs06WtlKTe2232tkdp9O8ZN64</property>
+    <property name="acs-oauth-key-development" type="string">vWXc59IWrB9UzkaCF5PbTedu9w1wuTvx</property>
+    <property name="acs-api-key-development" type="string">TBG0OKjjdaMZjz1xdJAhi0u7laFiOqK8</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">x6hR1OVJ0STRRZQSyQ</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">hIqDfJuqgdCQdQ0AREwwiCZOAfEKYH5O</property>
+    <property name="acs-oauth-key-production" type="string">8IL3tH0u48I9X29wFm4WaHB4KINZioZz</property>
+    <property name="acs-api-key-production" type="string">TqkNXB76Qbxta3j4fT02EpUn2AL6SFdz</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">qbFrBuFuTw4bD8hqVF</property>
+    <property name="appc-org-id" type="string">100033223</property>
+    <property name="appc-creator-user-id" type="string">fc514ecf-bea1-40b5-bbf0-760ee6e7f74c</property>
+</ti:app>

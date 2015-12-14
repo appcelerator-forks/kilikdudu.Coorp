@@ -1,0 +1,17 @@
+"#boxSwitcher": {
+	width: 70,
+	height: 32,
+	borderRadius: 4,
+	borderWidth: 0.5,
+	borderColor: "black",
+	backgroundColor: "#e9e7e7"
+}
+"#carro": {
+	width: 45,
+	height: 32,
+	right: 0,
+	backgroundColor: Alloy.Globals.MainColor,
+	color: "white",
+	borderRadius: 4,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}

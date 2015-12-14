@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/PortalUAU_WS/BoletoServices" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/PortalUAU_WS/BoletoServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/PortalUAU_WS/BoletoServices">
+      <s:element name="ConsultarBoletosDoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codPessoa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="naoMostraBoletoVencido" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoUsuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarBoletosDoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarBoletosDoClienteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarBoletosDoClienteMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codPessoa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="naoMostraBoletoVencido" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="whereClausule" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarBoletosDoClienteMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarBoletosDoClienteMobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosDoBoleto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seuNumero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDadosDoBoletoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDadosDoBoletoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterCodigoDeBarras">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataVenc" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorNominal" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterCodigoDeBarrasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterCodigoDeBarrasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterLinhaDigitavel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoDeBarras" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterLinhaDigitavelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterLinhaDigitavelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterMensagemDoBoleto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="seuNumero" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="banco" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="instrucao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="carteira" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterMensagemDoBoletoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterMensagemDoBoletoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarBoletosReimpressao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strObra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNumVenda" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnNaoMostraBoletoVencido" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarBoletosReimpressaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarBoletosReimpressaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GerarBoletoDoBancoCorrespondente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="identBanco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="digBanco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoBanco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cedenteBanco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="campoLivre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GerarBoletoDoBancoCorrespondenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GerarBoletoDoBancoCorrespondenteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterQtdTitular">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seuNumero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterQtdTitularResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObterQtdTitularResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterNomeSacado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeSacado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtdTitular" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterNomeSacadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterNomeSacadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarBoletosDoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarBoletosDoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarBoletosDoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarBoletosDoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarBoletosDoClienteMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarBoletosDoClienteMob" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarBoletosDoClienteMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarBoletosDoClienteMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosDoBoletoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosDoBoleto" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDadosDoBoletoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDadosDoBoletoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterCodigoDeBarrasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterCodigoDeBarras" />
+  </wsdl:message>
+  <wsdl:message name="ObterCodigoDeBarrasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterCodigoDeBarrasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterLinhaDigitavelSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterLinhaDigitavel" />
+  </wsdl:message>
+  <wsdl:message name="ObterLinhaDigitavelSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterLinhaDigitavelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterMensagemDoBoletoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterMensagemDoBoleto" />
+  </wsdl:message>
+  <wsdl:message name="ObterMensagemDoBoletoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterMensagemDoBoletoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarBoletosReimpressaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarBoletosReimpressao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarBoletosReimpressaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarBoletosReimpressaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GerarBoletoDoBancoCorrespondenteSoapIn">
+    <wsdl:part name="parameters" element="tns:GerarBoletoDoBancoCorrespondente" />
+  </wsdl:message>
+  <wsdl:message name="GerarBoletoDoBancoCorrespondenteSoapOut">
+    <wsdl:part name="parameters" element="tns:GerarBoletoDoBancoCorrespondenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterQtdTitularSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterQtdTitular" />
+  </wsdl:message>
+  <wsdl:message name="ObterQtdTitularSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterQtdTitularResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterNomeSacadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterNomeSacado" />
+  </wsdl:message>
+  <wsdl:message name="ObterNomeSacadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterNomeSacadoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BoletoServicesSoap">
+    <wsdl:operation name="ConsultarBoletosDoCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza consulta dos boletos de um determinado cliente exibindo ou não boletos vencidos.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarBoletosDoClienteSoapIn" />
+      <wsdl:output message="tns:ConsultarBoletosDoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarBoletosDoClienteMob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza consulta dos boletos de um determinado cliente exibindo ou não boletos vencidos. Só deve ser utilizado pelo módulo mobile.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarBoletosDoClienteMobSoapIn" />
+      <wsdl:output message="tns:ConsultarBoletosDoClienteMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosDoBoleto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza consulta dos dados de um determinado boleto.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDadosDoBoletoSoapIn" />
+      <wsdl:output message="tns:ConsultarDadosDoBoletoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterCodigoDeBarras">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Monta o valor do código de barras retornando o valor do mesmo.</wsdl:documentation>
+      <wsdl:input message="tns:ObterCodigoDeBarrasSoapIn" />
+      <wsdl:output message="tns:ObterCodigoDeBarrasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterLinhaDigitavel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Monta a descrição númerica do código de barras, linha digitável, retornando o seu valor.</wsdl:documentation>
+      <wsdl:input message="tns:ObterLinhaDigitavelSoapIn" />
+      <wsdl:output message="tns:ObterLinhaDigitavelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterMensagemDoBoleto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Monta a mensagem do boleto retornando a mensagem a ser exibida.</wsdl:documentation>
+      <wsdl:input message="tns:ObterMensagemDoBoletoSoapIn" />
+      <wsdl:output message="tns:ObterMensagemDoBoletoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarBoletosReimpressao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;font size=2&gt;Realiza a consulta dos boletos disponíveis para reimpressão referente a uma compra em específico feita pelo cliente/usuário logado, retornando um dataset com as informações. &lt;p&gt;Segue as descrições dos campos retornados:&lt;/p&gt;&lt;Strong&gt;DataEmis_Bol  :&lt;/Strong&gt; Data de emissão do boleto&lt;/br&gt;&lt;Strong&gt;valDoc_bol    :&lt;/Strong&gt; Valor do documento&lt;/br&gt;&lt;Strong&gt;Banco_bol     :&lt;/Strong&gt; Código do Banco&lt;/br&gt;&lt;Strong&gt;SeuNum_Bol    :&lt;/Strong&gt; Nosso número&lt;/br&gt;&lt;Strong&gt;DataVenc_bol  :&lt;/Strong&gt; Data de vencimento do boleto&lt;/br&gt;&lt;Strong&gt;Desc_emp      :&lt;/Strong&gt; Descrição da empresa&lt;/br&gt;&lt;Strong&gt;Empresa_rea   :&lt;/Strong&gt; Código da empresa&lt;/br&gt;&lt;Strong&gt;ObraPrc_rea   :&lt;/Strong&gt; Código da obra&lt;/br&gt;&lt;Strong&gt;NumVendPrc_rea:&lt;/Strong&gt; Número da venda/compra realizada pelo cliente&lt;/font&gt;&lt;/br&gt;&lt;font size=3&gt;&lt;strong&gt;ATENÇÃO!! Método homologado para integração com o UAU Web&lt;/strong&gt;&lt;/font&gt;&lt;/br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarBoletosReimpressaoSoapIn" />
+      <wsdl:output message="tns:ConsultarBoletosReimpressaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GerarBoletoDoBancoCorrespondente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;font size=2&gt;Realiza a verificação se o boleto é impresso ou não por banco correspondente, retornando um dataset com as informações do banco correspondente. &lt;p&gt;Segue as descrições dos campos retornados:&lt;/p&gt;&lt;Strong&gt;identBanco  :&lt;/Strong&gt; identificação do banco &lt;/br&gt;&lt;Strong&gt;digBanco    :&lt;/Strong&gt; dígito do banco &lt;/br&gt;&lt;Strong&gt;logoBanco     :&lt;/Strong&gt; logo do banco &lt;/br&gt;&lt;Strong&gt;cedenteBanco    :&lt;/Strong&gt; descriçao do cedente &lt;/br&gt;&lt;Strong&gt;campoLivre  :&lt;/Strong&gt; campo livre &lt;/br&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GerarBoletoDoBancoCorrespondenteSoapIn" />
+      <wsdl:output message="tns:GerarBoletoDoBancoCorrespondenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterQtdTitular">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna a quantidade de Titulares do boleto.</wsdl:documentation>
+      <wsdl:input message="tns:ObterQtdTitularSoapIn" />
+      <wsdl:output message="tns:ObterQtdTitularSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterNomeSacado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Monta o nome do sacado retornando o nome que será impresso no boleto.</wsdl:documentation>
+      <wsdl:input message="tns:ObterNomeSacadoSoapIn" />
+      <wsdl:output message="tns:ObterNomeSacadoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BoletoServicesSoap" type="tns:BoletoServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarBoletosDoCliente">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarBoletosDoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarBoletosDoClienteMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarBoletosDoClienteMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosDoBoleto">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarDadosDoBoleto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterCodigoDeBarras">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterCodigoDeBarras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterLinhaDigitavel">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterLinhaDigitavel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterMensagemDoBoleto">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterMensagemDoBoleto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarBoletosReimpressao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarBoletosReimpressao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GerarBoletoDoBancoCorrespondente">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/GerarBoletoDoBancoCorrespondente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterQtdTitular">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterQtdTitular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterNomeSacado">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterNomeSacado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BoletoServicesSoap12" type="tns:BoletoServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarBoletosDoCliente">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarBoletosDoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarBoletosDoClienteMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarBoletosDoClienteMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDadosDoBoleto">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarDadosDoBoleto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterCodigoDeBarras">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterCodigoDeBarras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterLinhaDigitavel">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterLinhaDigitavel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterMensagemDoBoleto">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterMensagemDoBoleto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarBoletosReimpressao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ConsultarBoletosReimpressao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GerarBoletoDoBancoCorrespondente">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/GerarBoletoDoBancoCorrespondente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterQtdTitular">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterQtdTitular" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterNomeSacado">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/BoletoServices/ObterNomeSacado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BoletoServices">
+    <wsdl:port name="BoletoServicesSoap" binding="tns:BoletoServicesSoap">
+      <soap:address location="http://localhost:3016/WebServices/boleto.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BoletoServicesSoap12" binding="tns:BoletoServicesSoap12">
+      <soap12:address location="http://localhost:3016/WebServices/boleto.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

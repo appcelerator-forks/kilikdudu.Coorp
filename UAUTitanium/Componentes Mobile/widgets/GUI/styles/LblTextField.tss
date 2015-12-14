@@ -1,0 +1,22 @@
+"#boxInput": {
+	width: Titanium.UI.FILL,
+	height: Alloy.Globals.CustomComponentHeight,
+	backgroundColor: "white"
+}
+"#novoNome[platform=android]": {
+	width: "96%",
+	left: "2%",
+	color: "#292929",
+	backgroundColor: "white",
+	height: Titanium.UI.FILL,
+	font:{fontSize: Alloy.Globals.CustomTextSize},
+	softKeyboardOnFocus : Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS
+}
+"#novoNome[platform=ios]": {
+	width: "96%",
+	left: "2%",
+	color: "#292929",
+	backgroundColor: "white",
+	height: 20,
+	font:{fontSize: Alloy.Globals.CustomTextSize}
+}

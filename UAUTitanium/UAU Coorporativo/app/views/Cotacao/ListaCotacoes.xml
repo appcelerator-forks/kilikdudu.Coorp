@@ -1,0 +1,23 @@
+<Alloy>
+	<Collection id="cotacoesgeral" src="CotacaoGeral" instance="true" />
+	<Window id="winListaCotacoes" class="janela" backgroundColor="#f1f1f1" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<View height="50" width="100%" top="50" >
+			<Widget src="GUI" name="SearchBar" onBusca="buscar" id="schBusca" />
+		</View>
+		<View id="mestre">
+			<Label id="lblEmpty" >Nenhuma cotação a ser aprovada.</Label>			
+			<Widget id="ptr" src="nl.fokkezb.pullToRefresh" onRelease="myRefresher" >
+				<TableView id="minhaListaCotacoes" dataCollection="$.cotacoesgeral" dataTransform="formatar" onClick="detalhar" backgroundColor="transparent" >
+					<!-- Não colocar ClassName fixo, isso causa o mau funcionamento dessa lista em específico. -->
+					<TableViewRow class="RowDetail" className="{className}" codCotacao="{NumGeral}" geral="{Geral}" empresa="{CodEmpresa}" tipo="{CodTipo}" color="white" >
+						<View class="shadowView" layout="vertical" width="95%" height="Ti.UI.SIZE" top="5" > 
+							<Widget src="GUI" name="CabecalhoRow" icone="{icone}" titulo="{Titulo}"  class="tituloRowLista" />
+							<Require id="detalhe" src="Cotacao/DetalheRowCotacao" geral="{Geral}" cotacoes="{cotacoes}" />
+						</View>
+					</TableViewRow>
+				</TableView>
+			</Widget>
+		</View>
+	</Window>
+</Alloy>

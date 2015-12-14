@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/PortalUAU_WS/Seguranca" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/PortalUAU_WS/Seguranca" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/PortalUAU_WS/Seguranca">
+      <s:element name="ChecarPermissao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Programa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PermissaoSolicitada" type="tns:EnumPermissaoUAU" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EnumPermissaoUAU">
+        <s:restriction base="s:string">
+          <s:enumeration value="SemValorAtribuido" />
+          <s:enumeration value="SemAcesso" />
+          <s:enumeration value="Consulta" />
+          <s:enumeration value="Emissao" />
+          <s:enumeration value="Inclusao" />
+          <s:enumeration value="Alteracao" />
+          <s:enumeration value="Exclusao" />
+          <s:enumeration value="Autorizacao_Aprovacao" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ChecarPermissaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChecarPermissaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketAutorizacao" type="tns:TicketAutorizacao" />
+      <s:complexType name="TicketAutorizacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ticket" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="ChecarPermissaoMob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Programa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PermissaoSolicitada" type="tns:EnumPermissaoUAU" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChecarPermissaoMobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChecarPermissaoMobResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChecarPermissaoObra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Programa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PermissaoSolicitada" type="tns:EnumPermissaoUAU" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChecarPermissaoObraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChecarPermissaoObraResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaObrasUsuario">
+        <s:complexType />
+      </s:element>
+      <s:element name="BuscaObrasUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaObrasUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarObrasEmpresasPorUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strLoginUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarObrasEmpresasPorUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarObrasEmpresasPorUsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarObrasPorUsuarioEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Empresa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarObrasPorUsuarioEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarObrasPorUsuarioEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SenhaUsuarioExpirada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SenhaUsuarioExpiradaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SenhaUsuarioExpiradaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiasRestantesExpiraSenhaUsr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiasRestantesExpiraSenhaUsrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DiasRestantesExpiraSenhaUsrResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InativarUsuarioPorSenhaErrada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InativarUsuarioPorSenhaErradaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarSenha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSenha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSenhaCriptografada" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarSenhaResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ChecarPermissaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ChecarPermissao" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ChecarPermissaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoMobSoapIn">
+    <wsdl:part name="parameters" element="tns:ChecarPermissaoMob" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoMobSoapOut">
+    <wsdl:part name="parameters" element="tns:ChecarPermissaoMobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoObraSoapIn">
+    <wsdl:part name="parameters" element="tns:ChecarPermissaoObra" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoObraSoapOut">
+    <wsdl:part name="parameters" element="tns:ChecarPermissaoObraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChecarPermissaoObraTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="BuscaObrasUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaObrasUsuario" />
+  </wsdl:message>
+  <wsdl:message name="BuscaObrasUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaObrasUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaObrasUsuarioTicketAutorizacao">
+    <wsdl:part name="TicketAutorizacao" element="tns:TicketAutorizacao" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarObrasEmpresasPorUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarObrasEmpresasPorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarObrasEmpresasPorUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarObrasEmpresasPorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarObrasPorUsuarioEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarObrasPorUsuarioEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarObrasPorUsuarioEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarObrasPorUsuarioEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SenhaUsuarioExpiradaSoapIn">
+    <wsdl:part name="parameters" element="tns:SenhaUsuarioExpirada" />
+  </wsdl:message>
+  <wsdl:message name="SenhaUsuarioExpiradaSoapOut">
+    <wsdl:part name="parameters" element="tns:SenhaUsuarioExpiradaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DiasRestantesExpiraSenhaUsrSoapIn">
+    <wsdl:part name="parameters" element="tns:DiasRestantesExpiraSenhaUsr" />
+  </wsdl:message>
+  <wsdl:message name="DiasRestantesExpiraSenhaUsrSoapOut">
+    <wsdl:part name="parameters" element="tns:DiasRestantesExpiraSenhaUsrResponse" />
+  </wsdl:message>
+  <wsdl:message name="InativarUsuarioPorSenhaErradaSoapIn">
+    <wsdl:part name="parameters" element="tns:InativarUsuarioPorSenhaErrada" />
+  </wsdl:message>
+  <wsdl:message name="InativarUsuarioPorSenhaErradaSoapOut">
+    <wsdl:part name="parameters" element="tns:InativarUsuarioPorSenhaErradaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSenhaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarSenha" />
+  </wsdl:message>
+  <wsdl:message name="AlterarSenhaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarSenhaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SegurancaSoap">
+    <wsdl:operation name="ChecarPermissao">
+      <wsdl:input message="tns:ChecarPermissaoSoapIn" />
+      <wsdl:output message="tns:ChecarPermissaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChecarPermissaoMob">
+      <wsdl:input message="tns:ChecarPermissaoMobSoapIn" />
+      <wsdl:output message="tns:ChecarPermissaoMobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChecarPermissaoObra">
+      <wsdl:input message="tns:ChecarPermissaoObraSoapIn" />
+      <wsdl:output message="tns:ChecarPermissaoObraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaObrasUsuario">
+      <wsdl:input message="tns:BuscaObrasUsuarioSoapIn" />
+      <wsdl:output message="tns:BuscaObrasUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarObrasEmpresasPorUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza consultas das obras e empresas que o usuário possui permissão.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarObrasEmpresasPorUsuarioSoapIn" />
+      <wsdl:output message="tns:ConsultarObrasEmpresasPorUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarObrasPorUsuarioEmpresa">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza consultas das obras da empresa informada que o usuário possui permissão.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarObrasPorUsuarioEmpresaSoapIn" />
+      <wsdl:output message="tns:ConsultarObrasPorUsuarioEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SenhaUsuarioExpirada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza a verificação se irá expirar ou não a senha do usuário, estando habilitado para expirar verifica se está fora do período de expiração retornando a indicação de que a senha do usuário está expirada.</wsdl:documentation>
+      <wsdl:input message="tns:SenhaUsuarioExpiradaSoapIn" />
+      <wsdl:output message="tns:SenhaUsuarioExpiradaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiasRestantesExpiraSenhaUsr">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza verificação se irá ou não expirar a senha do usuário retornando a qtde de dias restantes para a expiração da senha do usuário sendo somente para o período restante de 5 dias para expiração.</wsdl:documentation>
+      <wsdl:input message="tns:DiasRestantesExpiraSenhaUsrSoapIn" />
+      <wsdl:output message="tns:DiasRestantesExpiraSenhaUsrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InativarUsuarioPorSenhaErrada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza a verificação de inativação ou não do acessa do usuário conforme configuração da regra de senha do sistema UAU.</wsdl:documentation>
+      <wsdl:input message="tns:InativarUsuarioPorSenhaErradaSoapIn" />
+      <wsdl:output message="tns:InativarUsuarioPorSenhaErradaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Altera a senha do usuário, verificando se a mesma está válida e atualizando a senha utilizada na lista de senhas e data da alteração da senha.</wsdl:documentation>
+      <wsdl:input message="tns:AlterarSenhaSoapIn" />
+      <wsdl:output message="tns:AlterarSenhaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SegurancaSoap" type="tns:SegurancaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChecarPermissao">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ChecarPermissao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChecarPermissaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChecarPermissaoMob">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ChecarPermissaoMob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChecarPermissaoObra">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ChecarPermissaoObra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChecarPermissaoObraTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaObrasUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/BuscaObrasUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BuscaObrasUsuarioTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarObrasEmpresasPorUsuario">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ConsultarObrasEmpresasPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarObrasPorUsuarioEmpresa">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ConsultarObrasPorUsuarioEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SenhaUsuarioExpirada">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/SenhaUsuarioExpirada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasRestantesExpiraSenhaUsr">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/DiasRestantesExpiraSenhaUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InativarUsuarioPorSenhaErrada">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/InativarUsuarioPorSenhaErrada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenha">
+      <soap:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/AlterarSenha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SegurancaSoap12" type="tns:SegurancaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChecarPermissao">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ChecarPermissao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChecarPermissaoTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChecarPermissaoMob">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ChecarPermissaoMob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChecarPermissaoObra">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ChecarPermissaoObra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChecarPermissaoObraTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaObrasUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/BuscaObrasUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:BuscaObrasUsuarioTicketAutorizacao" part="TicketAutorizacao" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarObrasEmpresasPorUsuario">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ConsultarObrasEmpresasPorUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarObrasPorUsuarioEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/ConsultarObrasPorUsuarioEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SenhaUsuarioExpirada">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/SenhaUsuarioExpirada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasRestantesExpiraSenhaUsr">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/DiasRestantesExpiraSenhaUsr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InativarUsuarioPorSenhaErrada">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/InativarUsuarioPorSenhaErrada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenha">
+      <soap12:operation soapAction="http://tempuri.org/PortalUAU_WS/Seguranca/AlterarSenha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Seguranca">
+    <wsdl:port name="SegurancaSoap" binding="tns:SegurancaSoap">
+      <soap:address location="http://localhost:3016/Webservices/seguranca.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SegurancaSoap12" binding="tns:SegurancaSoap12">
+      <soap12:address location="http://localhost:3016/Webservices/seguranca.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

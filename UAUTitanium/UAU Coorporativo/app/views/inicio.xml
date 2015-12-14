@@ -1,0 +1,8 @@
+<Alloy>
+	<Window id="winInicio" class="janela">
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<View id="conteudoLogin">
+			<Widget src="Login" name="login" id="meuLogin"></Widget>
+		</View>>
+	</Window>
+</Alloy>

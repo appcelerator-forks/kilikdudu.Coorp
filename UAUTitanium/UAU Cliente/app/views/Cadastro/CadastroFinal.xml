@@ -1,0 +1,17 @@
+<Alloy>
+	<Window id="winCadastroFinal" class="janela" > 
+		<Widget src="GUI" id="minhaTopBar" name="Topbar" />
+		<ScrollView id="scrlCadastro" >
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="login" /> 
+			</View>
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="senha" /> 
+			</View>
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="senhaConfirma" /> 
+			</View> 
+			<Button width="90%" left="5%" onClick="criarConta" class="CustomButton" top=10 >Criar conta</Button>
+		</ScrollView>
+	</Window>
+</Alloy>

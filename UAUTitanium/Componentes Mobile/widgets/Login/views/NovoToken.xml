@@ -1,0 +1,15 @@
+<Alloy>
+	<ScrollView height="100%" width="100%" scrollType='vertical' scrollingEnabled="true" showHorizontalScrollIndicator="false" showVerticalScrollIndicator="true">
+		<View id="conteudo">
+			<View height="Ti.UI.SIZE" top=10>
+				<Widget src="GUI" name="LblTextField" id="token" />
+			</View>	
+			<View id="boxButton"> 
+				<View layout="horizontal" right=0 width="Ti.UI.SIZE">
+					<Button id="btnGravar" onClick="gravarTrigger">Gravar</Button>
+					<Button id="btnCancelar" onClick="cancelar">Cancelar</Button>
+				</View>
+			</View>
+		</View>
+	</ScrollView>
+</Alloy>

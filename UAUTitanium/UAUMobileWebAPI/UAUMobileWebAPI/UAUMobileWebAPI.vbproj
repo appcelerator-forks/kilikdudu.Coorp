@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{E6E7906B-2C23-4DC8-92EB-4D7ADE0B94CB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UAUMobileWebAPI</RootNamespace>
+    <AssemblyName>UAUMobileWebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>UAUMobileWebAPI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>UAUMobileWebAPI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Componentes WebAPI\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Componentes WebAPI\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Componentes WebAPI\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Componentes WebAPI\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web References\wsCotacaoReference\ComentFornCotInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsCotacaoReference\Parcela_cotInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <EntityDeploy Include="UauWebBDEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UauWebBDEntities.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="UauWebBDEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UauWebBDEntities.edmx</DependentUpon>
+      <LastGenOutput>UauWebBDEntities.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="UauWebBDEntities.edmx.diagram">
+      <DependentUpon>UauWebBDEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="UauWebBDEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UauWebBDEntities.edmx</DependentUpon>
+      <LastGenOutput>UauWebBDEntities.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\wsCotacaoReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="Web References\wsCotacaoReference\ResultadoExecucao.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsCotacaoReference\WsCotacao.disco" />
+    <None Include="Web References\wsHistoricoInsumoReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wsHistoricoInsumoReference\WsHistoricoInsumo.disco" />
+    <Content Include="WebServices\wsBoleto.asmx" />
+    <None Include="My Project\PublishProfiles\UAUMobileWebAPI.pubxml" />
+    <None Include="Web References\AutentificadorReference\AutentificadorMob.disco" />
+    <None Include="Web References\BoletoReference\boleto.disco" />
+    <None Include="Web References\ProcessoPagamentoReference\ProcessoPagamento.disco" />
+    <None Include="Web References\wsCotacaoReference\WsCotacao.wsdl" />
+    <None Include="Web References\wsHistoricoInsumoReference\WsHistoricoInsumo.wsdl" />
+    <None Include="Web References\segurancaReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\segurancaReference\seguranca.wsdl" />
+    <None Include="Web References\wsHistoricoInsumoReference\WsHistoricoInsumo.wsdl" />    <None Include="Web References\wsMedicaoReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\segurancaReference\seguranca.disco" />
+    <Content Include="Web References\wsMedicaoReference\ResultadoExecucao.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsMedicaoReference\wsMedicao.disco" />
+    <Content Include="Web References\wsConfigGerais\CasaDecimal.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsConfigGerais\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\wsConfigGerais\wsConfigGerais.disco" />
+    <None Include="Web References\wsEmpresaDevReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wsEmpresaDevReference\WsEmpresa.disco" />
+    <Content Include="Web References\wsEmpresaProdReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\wsEmpresaProdReference\wsregistrouau.disco" />
+    <Content Include="Web References\wsMobileReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\ProcessoPagamentoReference\ProcessoPagamento.wsdl" />
+    <None Include="Web References\ProcessoPagamentoReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="Web References\ProcessoPagamentoReference\ResultadoExecucao.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ProcessoPagamentoReference\retornoProcQueNaoForamConfirmados.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsMedicaoReference\wsMedicao.wsdl" />
+    <None Include="Web References\wsConfigGerais\wsConfigGerais.wsdl" />
+    <None Include="Web References\wsEmpresaDevReference\WsEmpresa.wsdl" />
+    <Content Include="Web References\wsEmpresaDevReference\_ConfPortalUAUInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsEmpresaDevReference\_ModuloEmpresaInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsEmpresaProdReference\wsregistrouau.wsdl" />
+    <Content Include="Web References\wsEmpresaProdReference\_ChavesRegInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsEmpresaProdReference\_ChavesRegistroInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsEmpresaProdReference\_ConfPortalUAUInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsMobileReference\wsMobile.disco" />
+    <Content Include="Web References\wsNovidadeReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <None Include="Web References\wsNovidadeReference\wsnovidade.disco" />
+    <Content Include="Web References\wsPessoasReference\EnumTelefonePessoa.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsPessoasReference\pessoas.disco" />
+    <Content Include="Web References\wsUsuariosReference\EnumStatusUsuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsUsuariosReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Web References\wsUsuariosReference\ResultadoExecucaoUsuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsUsuariosReference\RetornoMetodo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsUsuariosReference\wsUsuarios.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="CamposPersonConfEspelho.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassesACS\AdminACS.vb" />
+    <Compile Include="ClassesUAU\UAUWeb_CRYPTO.vb" />
+    <Compile Include="ClassesUAU\UAUWeb_EMAIL.vb" />
+    <Compile Include="Classes\EnviaBoleto.vb" />
+    <Compile Include="ConfCadProposta.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfCadUsuario.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfEspelho.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfGeralEmpresa.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigIRPFParcela.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfPortalUAU.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfReimpBoleto.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfServico.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\BoletoController.vb" />
+    <Compile Include="Controllers\ConfiguracaoController.vb" />
+    <Compile Include="Controllers\CotacaoController.vb" />
+    <Compile Include="Controllers\MedicaoController.vb" />
+    <Compile Include="Controllers\NovidadesController.vb" />
+    <Compile Include="Controllers\ProcessoPagamentoController.vb" />
+    <Compile Include="Controllers\ClienteController.vb" />
+    <Compile Include="Controllers\ValidadorController.vb" />
+    <Compile Include="ExtratoCliente.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExtratoMensagem.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExtratoParcela.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ItensConfEspelho.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AcessoPrograma.vb" />
+    <Compile Include="Models\Cotacao\HistoricoInsumo.vb" />
+    <Compile Include="Models\ProcessoPagamento\AprovacaoEmissao.vb" />
+    <Compile Include="Models\Medicao\AprovacaoMedicao.vb" />
+    <Compile Include="Models\Boleto\Boleto.vb" />
+    <Compile Include="Models\Cliente\CadastroUsuario.vb" />
+    <Compile Include="Models\Cotacao\Cotacao.vb" />
+    <Compile Include="Models\Cotacao\CotacaoGeral.vb" />
+    <Compile Include="Models\Cotacao\EmpresaSimulacao.vb" />
+    <Compile Include="Models\Cotacao\FornecedorSimulacao.vb" />
+    <Compile Include="Models\Hospedagem.vb" />
+    <Compile Include="Models\Medicao\ItemMedicao.vb" />
+    <Compile Include="Models\ProcessoPagamento\ItemProcesso.vb" />
+    <Compile Include="Models\Cotacao\ItemSimulacao.vb" />
+    <Compile Include="Models\Medicao\Medicao.vb" />
+    <Compile Include="Models\Novidade.vb" />
+    <Compile Include="Models\Parametros\ParametrosObrigatorios.vb" />
+    <Compile Include="Models\Parametros\Params_aprovarMedicaoEmLote.vb" />
+    <Compile Include="Models\Parametros\Params_aprovarProcessoEmLote.vb" />
+    <Compile Include="Models\Parametros\Params_CadastroUsuario.vb" />
+    <Compile Include="Models\Parametros\Params_ConfEmpresa.vb" />
+    <Compile Include="Models\Parametros\Params_consultarMedicoes.vb" />
+    <Compile Include="Models\Parametros\Params_BuscaTokenEmpresa.vb" />
+    <Compile Include="Models\Parametros\Params_consultarProcessos.vb" />
+    <Compile Include="Models\Parametros\Params_getAprovacaoEmissao.vb" />
+    <Compile Include="Models\Parametros\Params_getBoletosCliente.vb" />
+    <Compile Include="Models\Parametros\Params_infoMedicao.vb" />
+    <Compile Include="Models\Parametros\Params_getItensProcesso.vb" />
+    <Compile Include="Models\Parametros\Params_gravaLogErro.vb" />
+    <Compile Include="Models\Parametros\Params_NovidadesPorModuloVersao.vb" />
+    <Compile Include="Models\Parametros\Params_getPermCorporativo.vb" />
+    <Compile Include="Models\Parametros\Params_validaProcesso.vb" />
+    <Compile Include="Models\Parametros\Params_ValidaUsuario.vb" />
+    <Compile Include="Models\Parametros\Params_verificaVersao.vb" />
+    <Compile Include="Models\ProcessoPagamento\ProcessoDePagamento.vb" />
+    <Compile Include="Models\Resumo.vb" />
+    <Compile Include="Models\ServicosMobile.vb" />
+    <Compile Include="Models\Cotacao\Simulacao.vb" />
+    <Compile Include="Models\StatusAutentificacao.vb" />
+    <Compile Include="Models\RespostaMob.vb" />
+    <Compile Include="Models\StatusVersao.vb" />
+    <Compile Include="Models\Usuario.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="StatusPersonConfEspelho.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.vb">
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UauWebBDEntities.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UauWebBDEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UauWebBDEntities.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UauWebBDEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UauWebBDEntities.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UauWebBDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Configuracao.vb" />
+    <Compile Include="Util\DataHora.vb" />
+    <Compile Include="Util\SmartFilterMob.vb" />
+    <Compile Include="Web References\AutentificadorReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\BoletoReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ProcessoPagamentoReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsCotacaoReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsHistoricoInsumoReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\segurancaReference\Reference.vb">
+		<AutoGen>True</AutoGen>
+		<DesignTime>True</DesignTime>
+		<DependentUpon>Reference.map</DependentUpon>
+	</Compile>
+    <Compile Include="Web References\wsMedicaoReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsConfigGerais\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsEmpresaDevReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsEmpresaProdReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsMobileReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsNovidadeReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsPessoasReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsUsuariosReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebServices\wsBoleto.asmx.vb">
+      <DependentUpon>wsBoleto.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="packages.config" />
+    <None Include="Web References\AutentificadorReference\AutentificadorMob.wsdl" />
+    <None Include="Web References\AutentificadorReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\BoletoReference\boleto.wsdl" />
+    <None Include="Web References\BoletoReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wsMobileReference\wsMobile.wsdl" />
+    <None Include="Web References\wsNovidadeReference\wsnovidade.wsdl" />
+    <None Include="Web References\wsPessoasReference\pessoas.wsdl" />
+    <Content Include="Web References\wsPessoasReference\PessoasInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsPessoasReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
+    <Content Include="Web References\wsPessoasReference\ResultadoExecucao.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsPessoasReference\UsuarioPendenteUauWebInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsUsuariosReference\wsUsuarios.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:3016/Webservices/seguranca.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\segurancaReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/Webservices/seguranca.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_segurancaReference_Seguranca</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3016/Webservices/pessoas.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsPessoasReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/Webservices/pessoas.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsPessoasReference_Pessoas</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3016/Webservices/ProcessoPagamento.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ProcessoPagamentoReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/Webservices/ProcessoPagamento.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_ProcessoPagamentoReference_ProcessoPagamento</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.2.97:8686/AutentificadorMob.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AutentificadorReference\</RelPath>
+      <UpdateFromURL>http://192.168.2.97:8686/AutentificadorMob.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_AutentificadorReference_AutentificadorMob</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3016/WebServices/boleto.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\BoletoReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/WebServices/boleto.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_BoletoReference_BoletoServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.2.97:8686/WebServices/wsMobile.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsMobileReference\</RelPath>
+      <UpdateFromURL>http://192.168.2.97:8686/WebServices/wsMobile.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsMobileReference_wsMobile</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:10730/webservices/wsnovidade.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsNovidadeReference\</RelPath>
+      <UpdateFromURL>http://localhost:10730/webservices/wsnovidade.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsNovidadeReference_wsNovidade</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3016/Webservices/WsCotacao.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsCotacaoReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/Webservices/WsCotacao.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsCotacaoReference_WsCotacao</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3016/Webservices/WsHistoricoInsumo.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsHistoricoInsumoReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/Webservices/WsHistoricoInsumo.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsHistoricoInsumoReference_wsHistoricoInsumo</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3016/webservices/wsUsuarios.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsUsuariosReference\</RelPath>
+      <UpdateFromURL>http://localhost:3016/webservices/wsUsuarios.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsUsuariosReference_wsUsuarios</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8686/Webservices/wsMedicao.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsMedicaoReference\</RelPath>
+      <UpdateFromURL>http://localhost:8686/Webservices/wsMedicao.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsMedicaoReference_wsMedicao</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8282/WsEmpresa.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsEmpresaDevReference\</RelPath>
+      <UpdateFromURL>http://localhost:8282/WsEmpresa.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsEmpresaReference_WsEmpresa</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.uau.com.br/webservices/wsregistrouau.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsEmpresaProdReference\</RelPath>
+      <UpdateFromURL>http://www.uau.com.br/webservices/wsregistrouau.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>UAUMobileWebAPI_wsEmpresaProdReference_wsRegistroUau</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52711</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52076/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
